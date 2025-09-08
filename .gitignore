@@ -1,0 +1,48 @@
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+
+# Kamal secrets
+.kamal/secrets
+
+# Rails
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Ignore uploaded files in development
+/storage/*
+!/storage/.keep
+
+# Node modules
+node_modules/
+
+# Mac
+.DS_Store
+
+# Editor files
+.vscode/
+.idea/
+
+# SQLite databases
+*.sqlite3
+*.sqlite3-journal
+*.sqlite3-*
+
+# Logs
+*.log
+
+# Assets
+/public/assets
+
+# Coverage reports
+/coverage/
+
+# RSpec
+/.rspec_status
+
+# Byebug
+.byebug_history

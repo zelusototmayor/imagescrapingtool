@@ -1,0 +1,47 @@
+service: imagesweep
+
+image: zelusottomayor/imagesweep
+
+servers:
+  web:
+    hosts:
+      - 143.110.169.251
+    options:
+      memory: "1g"
+      cpus: "0.5"
+  workers:
+    hosts:
+      - 143.110.169.251
+    cmd: bundle exec sidekiq
+    options:
+      memory: "2g"
+      cpus: "1.0"
+
+proxy:
+  host: imagescrapingtool.zelusottomayor.com
+  ssl: true
+
+registry:
+  username: zelusottomayor
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+env:
+  secret:
+    - RAILS_MASTER_KEY
+  clear:
+    REDIS_URL: redis://143.110.169.251:6379/0
+
+builder:
+  arch: amd64
+volumes:
+  - "/mnt/volume-lon1-01/imagesweep:/rails/storage:rw"
+
+
+accessories:
+  redis:
+    image: redis:7
+    host: 143.110.169.251
+    port: 6379
+    volumes:
+      - /mnt/volume-lon1-01/imagesweep-redis:/data

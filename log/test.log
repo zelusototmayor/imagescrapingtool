@@ -1,0 +1,520 @@
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public[0m
+  [1m[35m (63.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "imagesweep_test"[0m
+  [1m[35m (143.5ms)[0m  [1m[35mCREATE DATABASE "imagesweep_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (9.0ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql" SCHEMA pg_catalog[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "jobs" CASCADE[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "jobs" ("id" bigserial primary key, "uuid" character varying NOT NULL, "url" text NOT NULL, "render_js" boolean DEFAULT TRUE NOT NULL, "max_pages" integer DEFAULT 1 NOT NULL, "restrict_to_subpath" boolean DEFAULT TRUE NOT NULL, "status" integer DEFAULT 0 NOT NULL, "progress" integer DEFAULT 0 NOT NULL, "message" text, "pages_crawled" integer DEFAULT 0 NOT NULL, "images_found" integer DEFAULT 0 NOT NULL, "is_paid" boolean DEFAULT TRUE NOT NULL, "artifact_dir" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_created_at" ON "jobs" ("created_at")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_status" ON "jobs" ("status")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_jobs_on_uuid" ON "jobs" ("uuid")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (11.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20250902222332)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'test', '2025-09-02 22:32:58.982387', '2025-09-02 22:32:58.982389') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '67c4167738bfd1616e1cc421a5af020ffba21a24', '2025-09-02 22:32:58.983942', '2025-09-02 22:32:58.983943') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "jobs" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mFixtures Load (2.6ms)[0m  [1m[31mDELETE FROM "jobs";
+INSERT INTO "jobs" ("id", "uuid", "url", "render_js", "max_pages", "restrict_to_subpath", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyText', FALSE, 1, FALSE, 1, 1, 'MyText', 1, 1, FALSE, 'MyString', '2025-09-02 22:32:59.097823', '2025-09-02 22:32:59.097823'), (298486374, 'MyString', 'MyText', FALSE, 1, FALSE, 1, 1, 'MyText', 1, 1, FALSE, 'MyString', '2025-09-02 22:32:59.097823', '2025-09-02 22:32:59.097823')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "jobs" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mFixtures Load (0.5ms)[0m  [1m[31mDELETE FROM "jobs";
+INSERT INTO "jobs" ("id", "uuid", "url", "render_js", "max_pages", "restrict_to_subpath", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyText', FALSE, 1, FALSE, 1, 1, 'MyText', 1, 1, FALSE, 'MyString', '2025-09-02 22:32:59.128817', '2025-09-02 22:32:59.128817'), (298486374, 'MyString', 'MyText', FALSE, 1, FALSE, 1, 1, 'MyText', 1, 1, FALSE, 'MyString', '2025-09-02 22:32:59.128817', '2025-09-02 22:32:59.128817')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "jobs" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mFixtures Load (0.4ms)[0m  [1m[31mDELETE FROM "jobs";
+INSERT INTO "jobs" ("id", "uuid", "url", "render_js", "max_pages", "restrict_to_subpath", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyText', FALSE, 1, FALSE, 1, 1, 'MyText', 1, 1, FALSE, 'MyString', '2025-09-02 22:32:59.131365', '2025-09-02 22:32:59.131365'), (298486374, 'MyString', 'MyText', FALSE, 1, FALSE, 1, 1, 'MyText', 1, 1, FALSE, 'MyString', '2025-09-02 22:32:59.131365', '2025-09-02 22:32:59.131365')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "jobs" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mFixtures Load (0.6ms)[0m  [1m[31mDELETE FROM "jobs";
+INSERT INTO "jobs" ("id", "uuid", "url", "render_js", "max_pages", "restrict_to_subpath", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyText', FALSE, 1, FALSE, 1, 1, 'MyText', 1, 1, FALSE, 'MyString', '2025-09-02 22:32:59.133567', '2025-09-02 22:32:59.133567'), (298486374, 'MyString', 'MyText', FALSE, 1, FALSE, 1, 1, 'MyText', 1, 1, FALSE, 'MyString', '2025-09-02 22:32:59.133567', '2025-09-02 22:32:59.133567')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "jobs" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mFixtures Load (0.4ms)[0m  [1m[31mDELETE FROM "jobs";
+INSERT INTO "jobs" ("id", "uuid", "url", "render_js", "max_pages", "restrict_to_subpath", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyText', FALSE, 1, FALSE, 1, 1, 'MyText', 1, 1, FALSE, 'MyString', '2025-09-02 22:32:59.137462', '2025-09-02 22:32:59.137462'), (298486374, 'MyString', 'MyText', FALSE, 1, FALSE, 1, 1, 'MyText', 1, 1, FALSE, 'MyString', '2025-09-02 22:32:59.137462', '2025-09-02 22:32:59.137462')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "jobs" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mFixtures Load (0.4ms)[0m  [1m[31mDELETE FROM "jobs";
+INSERT INTO "jobs" ("id", "uuid", "url", "render_js", "max_pages", "restrict_to_subpath", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyText', FALSE, 1, FALSE, 1, 1, 'MyText', 1, 1, FALSE, 'MyString', '2025-09-02 22:32:59.140457', '2025-09-02 22:32:59.140457'), (298486374, 'MyString', 'MyText', FALSE, 1, FALSE, 1, 1, 'MyText', 1, 1, FALSE, 'MyString', '2025-09-02 22:32:59.140457', '2025-09-02 22:32:59.140457')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "jobs" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mFixtures Load (0.3ms)[0m  [1m[31mDELETE FROM "jobs";
+INSERT INTO "jobs" ("id", "uuid", "url", "render_js", "max_pages", "restrict_to_subpath", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyText', FALSE, 1, FALSE, 1, 1, 'MyText', 1, 1, FALSE, 'MyString', '2025-09-02 22:32:59.143311', '2025-09-02 22:32:59.143311'), (298486374, 'MyString', 'MyText', FALSE, 1, FALSE, 1, 1, 'MyText', 1, 1, FALSE, 'MyString', '2025-09-02 22:32:59.143311', '2025-09-02 22:32:59.143311')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "jobs" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mFixtures Load (0.9ms)[0m  [1m[31mDELETE FROM "jobs"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "jobs" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (67.2ms)[0m  [1m[35mdo $$
+  declare r record;
+BEGIN
+FOR r IN (
+  SELECT FORMAT(
+    'UPDATE pg_catalog.pg_constraint SET convalidated=false WHERE conname = ''%1$I'' AND connamespace::regnamespace = ''%2$I''::regnamespace; ALTER TABLE %2$I.%3$I VALIDATE CONSTRAINT %1$I;',
+    constraint_name,
+    table_schema,
+    table_name
+  ) AS constraint_check
+  FROM information_schema.table_constraints WHERE constraint_type = 'FOREIGN KEY'
+)
+  LOOP
+    EXECUTE (r.constraint_check);
+  END LOOP;
+END;
+$$;
+[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+JobTest: test_should_enforce_max_pages_limits
+---------------------------------------------
+  [1m[36mJob Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "jobs" WHERE "jobs"."uuid" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+JobTest: test_should_reject_invalid_URLs
+----------------------------------------
+  [1m[36mJob Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "jobs" WHERE "jobs"."uuid" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+JobTest: test_should_create_job_with_valid_URL
+----------------------------------------------
+  [1m[36mJob Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "jobs" WHERE "jobs"."uuid" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------------
+JobTest: test_can_download?_should_work_correctly
+-------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "jobs" WHERE "jobs"."uuid" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+JobTest: test_should_reject_private_IP_URLs
+-------------------------------------------
+  [1m[36mJob Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "jobs" WHERE "jobs"."uuid" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------
+JobTest: test_should_reject_localhost_URLs
+------------------------------------------
+  [1m[36mJob Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "jobs" WHERE "jobs"."uuid" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------
+JobTest: test_should_set_default_values
+---------------------------------------
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "jobs" WHERE "jobs"."uuid" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "jobs" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM "jobs"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "jobs" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.4ms)[0m  [1m[35mdo $$
+  declare r record;
+BEGIN
+FOR r IN (
+  SELECT FORMAT(
+    'UPDATE pg_catalog.pg_constraint SET convalidated=false WHERE conname = ''%1$I'' AND connamespace::regnamespace = ''%2$I''::regnamespace; ALTER TABLE %2$I.%3$I VALIDATE CONSTRAINT %1$I;',
+    constraint_name,
+    table_schema,
+    table_name
+  ) AS constraint_check
+  FROM information_schema.table_constraints WHERE constraint_type = 'FOREIGN KEY'
+)
+  LOOP
+    EXECUTE (r.constraint_check);
+  END LOOP;
+END;
+$$;
+[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------
+JobTest: test_should_set_default_values
+---------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Create (1.1ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "max_pages", "restrict_to_subpath", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["uuid", "b3115ee5-98e8-4273-9877-71214d333c77"], ["url", "https://example.com/"], ["render_js", true], ["max_pages", 1], ["restrict_to_subpath", true], ["status", 0], ["progress", 0], ["message", nil], ["pages_crawled", 0], ["images_found", 0], ["is_paid", true], ["artifact_dir", "/tmp/imagesweep/b3115ee5-98e8-4273-9877-71214d333c77"], ["created_at", "2025-09-02 22:33:34.214659"], ["updated_at", "2025-09-02 22:33:34.214659"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+JobTest: test_should_reject_private_IP_URLs
+-------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+JobTest: test_should_create_job_with_valid_URL
+----------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Create (0.4ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "max_pages", "restrict_to_subpath", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["uuid", "5c537ac9-ef54-4fb8-9e29-2b0e2102bb53"], ["url", "https://example.com/"], ["render_js", true], ["max_pages", 1], ["restrict_to_subpath", true], ["status", 0], ["progress", 0], ["message", nil], ["pages_crawled", 0], ["images_found", 0], ["is_paid", true], ["artifact_dir", "/tmp/imagesweep/5c537ac9-ef54-4fb8-9e29-2b0e2102bb53"], ["created_at", "2025-09-02 22:33:34.226515"], ["updated_at", "2025-09-02 22:33:34.226515"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+JobTest: test_should_enforce_max_pages_limits
+---------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------
+JobTest: test_should_reject_localhost_URLs
+------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------------
+JobTest: test_can_download?_should_work_correctly
+-------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Create (0.4ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "max_pages", "restrict_to_subpath", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["uuid", "2552761a-562b-4d45-a55c-7556ec789507"], ["url", "https://example.com/"], ["render_js", true], ["max_pages", 1], ["restrict_to_subpath", true], ["status", 2], ["progress", 0], ["message", nil], ["pages_crawled", 0], ["images_found", 0], ["is_paid", true], ["artifact_dir", "/tmp/imagesweep/2552761a-562b-4d45-a55c-7556ec789507"], ["created_at", "2025-09-02 22:33:34.233143"], ["updated_at", "2025-09-02 22:33:34.233143"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+JobTest: test_should_reject_invalid_URLs
+----------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (14.3ms)[0m  [1m[35mALTER TABLE "jobs" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mFixtures Load (3.1ms)[0m  [1m[31mDELETE FROM "jobs"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "jobs" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.1ms)[0m  [1m[35mdo $$
+  declare r record;
+BEGIN
+FOR r IN (
+  SELECT FORMAT(
+    'UPDATE pg_catalog.pg_constraint SET convalidated=false WHERE conname = ''%1$I'' AND connamespace::regnamespace = ''%2$I''::regnamespace; ALTER TABLE %2$I.%3$I VALIDATE CONSTRAINT %1$I;',
+    constraint_name,
+    table_schema,
+    table_name
+  ) AS constraint_check
+  FROM information_schema.table_constraints WHERE constraint_type = 'FOREIGN KEY'
+)
+  LOOP
+    EXECUTE (r.constraint_check);
+  END LOOP;
+END;
+$$;
+[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------
+JobsControllerTest: test_should_show_job_status
+-----------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Create (0.6ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "max_pages", "restrict_to_subpath", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["uuid", "c8dbd99c-29c8-4ff2-940f-d70cf1b7e7d8"], ["url", "https://example.com/"], ["render_js", true], ["max_pages", 1], ["restrict_to_subpath", true], ["status", 1], ["progress", 50], ["message", nil], ["pages_crawled", 0], ["images_found", 0], ["is_paid", true], ["artifact_dir", "/tmp/imagesweep/c8dbd99c-29c8-4ff2-940f-d70cf1b7e7d8"], ["created_at", "2025-09-02 22:33:41.739293"], ["updated_at", "2025-09-02 22:33:41.739293"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------------------
+JobsControllerTest: test_should_return_404_for_non-existent_job
+---------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------
+JobsControllerTest: test_should_create_job_with_valid_params
+------------------------------------------------------------
+  [1m[36mJob Count (4.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "jobs"[0m
+Started POST "/jobs" for 127.0.0.1 at 2025-09-02 23:33:41 +0100
+Processing by JobsController#create as JSON
+  Parameters: {"job"=>{"url"=>"https://example.com", "render_js"=>true, "max_pages"=>2, "restrict_to_subpath"=>false}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Create (1.0ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "max_pages", "restrict_to_subpath", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["uuid", "cdba4333-4ce0-4ce9-a93a-00cb976ac613"], ["url", "https://example.com/"], ["render_js", true], ["max_pages", 2], ["restrict_to_subpath", false], ["status", 0], ["progress", 0], ["message", nil], ["pages_crawled", 0], ["images_found", 0], ["is_paid", true], ["artifact_dir", "/tmp/imagesweep/cdba4333-4ce0-4ce9-a93a-00cb976ac613"], ["created_at", "2025-09-02 22:33:41.908200"], ["updated_at", "2025-09-02 22:33:41.908200"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 3.0ms (1 query, 0 cached) | GC: 1.2ms)
+JobsControllerTest - test_should_create_job_with_valid_params: RedisClient::CannotConnectError raised.
+If you expected this exception, use `assert_raises` as near to the code that raises as possible.
+Other block based assertions (e.g. `assert_difference`) can be used, as long as `assert_raises` is inside their block.
+
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------------
+JobsControllerTest: test_should_reject_job_with_invalid_URL
+-----------------------------------------------------------
+  [1m[36mJob Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "jobs"[0m
+Started POST "/jobs" for 127.0.0.1 at 2025-09-02 23:33:41 +0100
+Processing by JobsController#create as JSON
+  Parameters: {"job"=>{"url"=>"invalid-url"}}
+Completed 422 Unprocessable Content in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mCACHE Job Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "jobs"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------------
+JobsControllerTest: test_should_reject_download_for_incomplete_job
+------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Create (0.4ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "max_pages", "restrict_to_subpath", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["uuid", "0767248d-4b28-4b90-a18f-51bef29f1538"], ["url", "https://example.com/"], ["render_js", true], ["max_pages", 1], ["restrict_to_subpath", true], ["status", 0], ["progress", 0], ["message", nil], ["pages_crawled", 0], ["images_found", 0], ["is_paid", true], ["artifact_dir", "/tmp/imagesweep/0767248d-4b28-4b90-a18f-51bef29f1538"], ["created_at", "2025-09-02 22:33:41.926014"], ["updated_at", "2025-09-02 22:33:41.926014"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+JobTest: test_should_reject_invalid_URLs
+----------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------
+JobTest: test_should_set_default_values
+---------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Create (0.4ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "max_pages", "restrict_to_subpath", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["uuid", "89ac30a2-a282-4caa-a60d-6222480dacbc"], ["url", "https://example.com/"], ["render_js", true], ["max_pages", 1], ["restrict_to_subpath", true], ["status", 0], ["progress", 0], ["message", nil], ["pages_crawled", 0], ["images_found", 0], ["is_paid", true], ["artifact_dir", "/tmp/imagesweep/89ac30a2-a282-4caa-a60d-6222480dacbc"], ["created_at", "2025-09-02 22:33:41.929035"], ["updated_at", "2025-09-02 22:33:41.929035"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+JobTest: test_should_reject_private_IP_URLs
+-------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------
+JobTest: test_should_reject_localhost_URLs
+------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------------
+JobTest: test_can_download?_should_work_correctly
+-------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Create (0.3ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "max_pages", "restrict_to_subpath", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["uuid", "fd90151e-406b-458a-81ca-f5120fe17d34"], ["url", "https://example.com/"], ["render_js", true], ["max_pages", 1], ["restrict_to_subpath", true], ["status", 2], ["progress", 0], ["message", nil], ["pages_crawled", 0], ["images_found", 0], ["is_paid", true], ["artifact_dir", "/tmp/imagesweep/fd90151e-406b-458a-81ca-f5120fe17d34"], ["created_at", "2025-09-02 22:33:41.931452"], ["updated_at", "2025-09-02 22:33:41.931452"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+JobTest: test_should_enforce_max_pages_limits
+---------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+JobTest: test_should_create_job_with_valid_URL
+----------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Create (0.3ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "max_pages", "restrict_to_subpath", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["uuid", "f8cdfa8a-8058-4253-b155-9e6fc2249de1"], ["url", "https://example.com/"], ["render_js", true], ["max_pages", 1], ["restrict_to_subpath", true], ["status", 0], ["progress", 0], ["message", nil], ["pages_crawled", 0], ["images_found", 0], ["is_paid", true], ["artifact_dir", "/tmp/imagesweep/f8cdfa8a-8058-4253-b155-9e6fc2249de1"], ["created_at", "2025-09-02 22:33:41.934584"], ["updated_at", "2025-09-02 22:33:41.934584"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------
+UrlValidatorTest: test_should_validate_good_URLs
+------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------------
+UrlValidatorTest: test_should_reject_private_IP_addresses
+---------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------
+UrlValidatorTest: test_should_reject_localhost_URLs
+---------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+UrlValidatorTest: test_should_extract_origin
+--------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------------
+UrlValidatorTest: test_should_reject_invalid_URLs
+-------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+UrlValidatorTest: test_should_normalize_URLs
+--------------------------------------------
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "jobs" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mFixtures Load (0.6ms)[0m  [1m[31mDELETE FROM "jobs"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "jobs" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.8ms)[0m  [1m[35mdo $$
+  declare r record;
+BEGIN
+FOR r IN (
+  SELECT FORMAT(
+    'UPDATE pg_catalog.pg_constraint SET convalidated=false WHERE conname = ''%1$I'' AND connamespace::regnamespace = ''%2$I''::regnamespace; ALTER TABLE %2$I.%3$I VALIDATE CONSTRAINT %1$I;',
+    constraint_name,
+    table_schema,
+    table_name
+  ) AS constraint_check
+  FROM information_schema.table_constraints WHERE constraint_type = 'FOREIGN KEY'
+)
+  LOOP
+    EXECUTE (r.constraint_check);
+  END LOOP;
+END;
+$$;
+[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------------
+JobsControllerTest: test_should_reject_download_for_incomplete_job
+------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Create (0.7ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "max_pages", "restrict_to_subpath", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["uuid", "91f7d258-8f04-42f3-8e56-8c51a947e117"], ["url", "https://example.com/"], ["render_js", true], ["max_pages", 1], ["restrict_to_subpath", true], ["status", 0], ["progress", 0], ["message", nil], ["pages_crawled", 0], ["images_found", 0], ["is_paid", true], ["artifact_dir", "/tmp/imagesweep/91f7d258-8f04-42f3-8e56-8c51a947e117"], ["created_at", "2025-09-02 22:34:45.871870"], ["updated_at", "2025-09-02 22:34:45.871870"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/jobs/91f7d258-8f04-42f3-8e56-8c51a947e117/download.zip" for 127.0.0.1 at 2025-09-02 23:34:45 +0100
+Processing by JobsController#download_zip as ZIP
+  Parameters: {"id"=>"91f7d258-8f04-42f3-8e56-8c51a947e117"}
+  [1m[36mJob Load (1.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = $1 LIMIT $2[0m  [["uuid", "91f7d258-8f04-42f3-8e56-8c51a947e117"], ["LIMIT", 1]]
+Completed 403 Forbidden in 10ms (Views: 0.2ms | ActiveRecord: 1.9ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------------
+JobsControllerTest: test_should_create_job_with_valid_params
+------------------------------------------------------------
+  [1m[36mJob Count (2.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "jobs"[0m
+Started POST "/jobs" for 127.0.0.1 at 2025-09-02 23:34:45 +0100
+Processing by JobsController#create as JSON
+  Parameters: {"job"=>{"url"=>"https://example.com", "render_js"=>true, "max_pages"=>2, "restrict_to_subpath"=>false}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Create (0.5ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "max_pages", "restrict_to_subpath", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["uuid", "4ce75fc4-1181-4ab4-a67e-bd054d522f9b"], ["url", "https://example.com/"], ["render_js", true], ["max_pages", 2], ["restrict_to_subpath", false], ["status", 0], ["progress", 0], ["message", nil], ["pages_crawled", 0], ["images_found", 0], ["is_paid", true], ["artifact_dir", "/tmp/imagesweep/4ce75fc4-1181-4ab4-a67e-bd054d522f9b"], ["created_at", "2025-09-02 22:34:45.933684"], ["updated_at", "2025-09-02 22:34:45.933684"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 2ms (Views: 0.0ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mJob Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "jobs"[0m
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = $1 LIMIT $2[0m  [["uuid", "4ce75fc4-1181-4ab4-a67e-bd054d522f9b"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------------
+JobsControllerTest: test_should_reject_job_with_invalid_URL
+-----------------------------------------------------------
+  [1m[36mJob Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "jobs"[0m
+Started POST "/jobs" for 127.0.0.1 at 2025-09-02 23:34:45 +0100
+Processing by JobsController#create as JSON
+  Parameters: {"job"=>{"url"=>"invalid-url"}}
+Completed 422 Unprocessable Content in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mCACHE Job Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "jobs"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------------------
+JobsControllerTest: test_should_return_404_for_non-existent_job
+---------------------------------------------------------------
+Started GET "/jobs/nonexistent" for 127.0.0.1 at 2025-09-02 23:34:45 +0100
+Processing by JobsController#show as JSON
+  Parameters: {"id"=>"nonexistent", "job"=>{}}
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = $1 LIMIT $2[0m  [["uuid", "nonexistent"], ["LIMIT", 1]]
+Filter chain halted as :find_job rendered or redirected
+Completed 404 Not Found in 1ms (Views: 0.0ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------
+JobsControllerTest: test_should_show_job_status
+-----------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Create (0.5ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "max_pages", "restrict_to_subpath", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["uuid", "19cd294e-f3c9-4171-a8f7-9a0aa41e3670"], ["url", "https://example.com/"], ["render_js", true], ["max_pages", 1], ["restrict_to_subpath", true], ["status", 1], ["progress", 50], ["message", nil], ["pages_crawled", 0], ["images_found", 0], ["is_paid", true], ["artifact_dir", "/tmp/imagesweep/19cd294e-f3c9-4171-a8f7-9a0aa41e3670"], ["created_at", "2025-09-02 22:34:45.948895"], ["updated_at", "2025-09-02 22:34:45.948895"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/jobs/19cd294e-f3c9-4171-a8f7-9a0aa41e3670" for 127.0.0.1 at 2025-09-02 23:34:45 +0100
+Processing by JobsController#show as JSON
+  Parameters: {"id"=>"19cd294e-f3c9-4171-a8f7-9a0aa41e3670", "job"=>{}}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = $1 LIMIT $2[0m  [["uuid", "19cd294e-f3c9-4171-a8f7-9a0aa41e3670"], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.0ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+UrlValidatorTest: test_should_normalize_URLs
+--------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+UrlValidatorTest: test_should_extract_origin
+--------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------------
+UrlValidatorTest: test_should_reject_invalid_URLs
+-------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------
+UrlValidatorTest: test_should_reject_localhost_URLs
+---------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------------
+UrlValidatorTest: test_should_reject_private_IP_addresses
+---------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------
+UrlValidatorTest: test_should_validate_good_URLs
+------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+JobTest: test_should_create_job_with_valid_URL
+----------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Create (0.5ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "max_pages", "restrict_to_subpath", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["uuid", "6f053826-6186-45cf-9edf-0ba6e868f592"], ["url", "https://example.com/"], ["render_js", true], ["max_pages", 1], ["restrict_to_subpath", true], ["status", 0], ["progress", 0], ["message", nil], ["pages_crawled", 0], ["images_found", 0], ["is_paid", true], ["artifact_dir", "/tmp/imagesweep/6f053826-6186-45cf-9edf-0ba6e868f592"], ["created_at", "2025-09-02 22:34:45.957654"], ["updated_at", "2025-09-02 22:34:45.957654"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------------
+JobTest: test_can_download?_should_work_correctly
+-------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Create (0.5ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "max_pages", "restrict_to_subpath", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["uuid", "68198649-4a70-4128-8825-7cd914b8444d"], ["url", "https://example.com/"], ["render_js", true], ["max_pages", 1], ["restrict_to_subpath", true], ["status", 2], ["progress", 0], ["message", nil], ["pages_crawled", 0], ["images_found", 0], ["is_paid", true], ["artifact_dir", "/tmp/imagesweep/68198649-4a70-4128-8825-7cd914b8444d"], ["created_at", "2025-09-02 22:34:45.959637"], ["updated_at", "2025-09-02 22:34:45.959637"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+JobTest: test_should_enforce_max_pages_limits
+---------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------
+JobTest: test_should_set_default_values
+---------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Create (0.4ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "max_pages", "restrict_to_subpath", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["uuid", "848332d2-d1c2-483c-8361-c237b8b9fc12"], ["url", "https://example.com/"], ["render_js", true], ["max_pages", 1], ["restrict_to_subpath", true], ["status", 0], ["progress", 0], ["message", nil], ["pages_crawled", 0], ["images_found", 0], ["is_paid", true], ["artifact_dir", "/tmp/imagesweep/848332d2-d1c2-483c-8361-c237b8b9fc12"], ["created_at", "2025-09-02 22:34:45.962777"], ["updated_at", "2025-09-02 22:34:45.962777"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+JobTest: test_should_reject_invalid_URLs
+----------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------
+JobTest: test_should_reject_localhost_URLs
+------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+JobTest: test_should_reject_private_IP_URLs
+-------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m

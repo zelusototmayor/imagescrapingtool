@@ -1,0 +1,11 @@
+#!/bin/bash
+# ImageSweep automated cleanup script
+# Add to crontab with: 0 */2 * * * /path/to/imagesweep/bin/cleanup-cron
+
+cd /rails
+
+# Clean up old jobs and orphaned browser processes
+/usr/local/bin/bundle exec rails imagesweep:full_cleanup >> /rails/log/cleanup.log 2>&1
+
+# Log completion
+echo "$(date): Cleanup completed" >> /rails/log/cleanup.log

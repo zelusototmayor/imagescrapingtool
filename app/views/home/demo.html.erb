@@ -1,0 +1,193 @@
+<div class="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+  <!-- Navigation Header -->
+  <nav class="bg-white/80 backdrop-blur-md border-b border-white/20 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <span class="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">ImageSweep</span>
+        </div>
+        <div class="flex items-center space-x-6 text-sm text-gray-600">
+          <a href="/" class="hover:text-blue-600 transition-colors">Home</a>
+          <a href="/demo" class="text-blue-600 font-medium">Demo</a>
+          <a href="#" class="hover:text-blue-600 transition-colors">Documentation</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Hero Section -->
+    <div class="text-center mb-16">
+      <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+        UI Component
+        <span class="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">Showcase</span>
+      </h1>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        Explore the beautiful components and design patterns used in ImageSweep
+      </p>
+    </div>
+
+    <!-- Component Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      
+      <!-- Buttons Section -->
+      <div class="space-y-6">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Buttons & Actions</h2>
+        
+        <div class="bg-white/70 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/20 p-6 space-y-4">
+          <button class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 px-6 rounded-xl hover:from-blue-700 hover:to-indigo-700 focus:ring-4 focus:ring-blue-200 font-semibold transition-all duration-200 transform hover:scale-[1.02] shadow-lg hover:shadow-xl">
+            Primary Button
+          </button>
+          
+          <button class="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 px-6 rounded-xl hover:from-green-700 hover:to-emerald-700 focus:ring-4 focus:ring-green-200 font-semibold transition-all duration-200 transform hover:scale-[1.02] shadow-lg hover:shadow-xl">
+            Success Button
+          </button>
+          
+          <button class="w-full bg-gradient-to-r from-gray-600 to-slate-600 text-white py-3 px-6 rounded-xl hover:from-gray-700 hover:to-slate-700 focus:ring-4 focus:ring-gray-200 font-semibold transition-all duration-200 transform hover:scale-[1.02] shadow-lg hover:shadow-xl">
+            Secondary Button
+          </button>
+          
+          <button class="w-full bg-gradient-to-r from-red-600 to-pink-600 text-white py-3 px-6 rounded-xl hover:from-red-700 hover:to-pink-700 focus:ring-4 focus:ring-red-200 font-semibold transition-all duration-200 transform hover:scale-[1.02] shadow-lg hover:shadow-xl">
+            Danger Button
+          </button>
+        </div>
+      </div>
+
+      <!-- Forms Section -->
+      <div class="space-y-6">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Form Elements</h2>
+        
+        <div class="bg-white/70 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/20 p-6 space-y-4">
+          <div>
+            <label class="block text-sm font-semibold text-gray-800 mb-2">Text Input</label>
+            <input type="text" placeholder="Enter some text..." class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all duration-200 bg-white/80 backdrop-blur-sm">
+          </div>
+          
+          <div>
+            <label class="block text-sm font-semibold text-gray-800 mb-2">Select Dropdown</label>
+            <select class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 bg-white transition-all duration-200">
+              <option>Option 1</option>
+              <option>Option 2</option>
+              <option>Option 3</option>
+            </select>
+          </div>
+          
+          <div class="flex items-center space-x-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+            <input type="checkbox" class="w-5 h-5 text-blue-600 border-gray-300 rounded-lg focus:ring-3 focus:ring-blue-200 focus:ring-offset-0">
+            <div class="flex-1">
+              <label class="text-sm font-semibold text-gray-800">Checkbox Option</label>
+              <p class="text-sm text-gray-600">This is a description of the checkbox</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cards Section -->
+      <div class="space-y-6">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Card Components</h2>
+        
+        <div class="space-y-4">
+          <div class="bg-white/70 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/20 p-6 hover:transform hover:-translate-y-1 hover:shadow-3xl transition-all duration-300">
+            <div class="flex items-center space-x-3 mb-4">
+              <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-gray-900">Feature Card</h3>
+            </div>
+            <p class="text-gray-600">This is a beautiful card with hover effects and glass morphism styling.</p>
+          </div>
+          
+          <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl border border-blue-200 p-6">
+            <h3 class="text-lg font-semibold text-blue-900 mb-2">Info Card</h3>
+            <p class="text-blue-700">This card uses a subtle gradient background for information display.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Progress & Status Section -->
+      <div class="space-y-6">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Progress & Status</h2>
+        
+        <div class="bg-white/70 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/20 p-6 space-y-6">
+          <!-- Progress Bar -->
+          <div class="space-y-3">
+            <div class="flex justify-between items-center">
+              <span class="text-lg font-semibold text-gray-700">Progress</span>
+              <span class="text-lg font-bold text-blue-600">75%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+              <div class="bg-gradient-to-r from-blue-500 to-indigo-500 h-3 rounded-full transition-all duration-500 ease-out" style="width: 75%"></div>
+            </div>
+          </div>
+
+          <!-- Status Indicators -->
+          <div class="grid grid-cols-2 gap-4">
+            <div class="text-center p-4 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl border border-blue-200">
+              <div class="text-2xl font-bold text-blue-600 mb-1">12</div>
+              <div class="text-sm font-medium text-blue-700">Pages Crawled</div>
+            </div>
+            <div class="text-center p-4 bg-gradient-to-br from-green-50 to-green-100 rounded-xl border border-green-200">
+              <div class="text-2xl font-bold text-green-600 mb-1">48</div>
+              <div class="text-sm font-medium text-green-700">Images Found</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animations Section -->
+      <div class="space-y-6">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Animations & Effects</h2>
+        
+        <div class="bg-white/70 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/20 p-6 space-y-4">
+          <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto animate-pulse">
+            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          
+          <div class="text-center">
+            <p class="text-sm text-gray-600 mb-2">Hover over the card to see effects</p>
+            <div class="bg-gradient-to-r from-purple-100 to-pink-100 rounded-xl p-4 border border-purple-200 transform hover:scale-105 hover:shadow-lg transition-all duration-300">
+              <span class="text-purple-700 font-medium">Hover me!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Typography Section -->
+      <div class="space-y-6">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Typography & Colors</h2>
+        
+        <div class="bg-white/70 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/20 p-6 space-y-4">
+          <h1 class="text-3xl font-bold text-gray-900">Heading 1</h1>
+          <h2 class="text-2xl font-semibold text-gray-800">Heading 2</h2>
+          <h3 class="text-xl font-medium text-gray-700">Heading 3</h3>
+          <p class="text-base text-gray-600">Body text with good readability and contrast.</p>
+          <p class="text-sm text-gray-500">Smaller text for secondary information.</p>
+          
+          <div class="pt-4 border-t border-gray-200">
+            <span class="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent font-bold text-lg">Gradient Text</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back to Home -->
+    <div class="text-center mt-16">
+      <a href="/" class="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 px-8 rounded-xl hover:from-blue-700 hover:to-indigo-700 focus:ring-4 focus:ring-blue-200 font-semibold transition-all duration-200 transform hover:scale-[1.02] shadow-lg hover:shadow-xl">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+        <span>Back to Home</span>
+      </a>
+    </div>
+  </div>
+</div>
+
