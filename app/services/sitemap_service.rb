@@ -66,6 +66,36 @@ class SitemapService
     end
   end
 
+  def filter_urls_for_mode(urls, job)
+    return [] if urls.empty?
+    
+    Rails.logger.info "Filtering #{urls.length} URLs for job mode: #{job.scrape_mode}"
+    
+    filtered_urls = case job.scrape_mode
+    when 'subpath_only'
+      filter_subpath_urls(urls, job.url)
+    when 'entire_website' 
+      filter_same_domain_urls(urls, job.url)
+    else
+      Rails.logger.warn "Unknown scrape mode: #{job.scrape_mode}"
+      []
+    end
+    
+    # Apply page limits
+    max_pages = case job.scrape_mode
+    when 'subpath_only'
+      25 # SUBPATH_MAX_PAGES from ImageScraper
+    when 'entire_website'
+      50 # ENTIRE_WEBSITE_MAX_PAGES from ImageScraper
+    else
+      25
+    end
+    
+    result = filtered_urls.first(max_pages)
+    Rails.logger.info "Filtered to #{result.length} URLs (limit: #{max_pages})"
+    result
+  end
+
   private
 
   def extract_domain(url)
@@ -120,36 +150,6 @@ class SitemapService
     uri.scheme && uri.host && (uri.scheme == 'http' || uri.scheme == 'https')
   rescue URI::InvalidURIError
     false
-  end
-
-  def filter_urls_for_mode(urls, job)
-    return [] if urls.empty?
-    
-    Rails.logger.info "Filtering #{urls.length} URLs for job mode: #{job.scrape_mode}"
-    
-    filtered_urls = case job.scrape_mode
-    when 'subpath_only'
-      filter_subpath_urls(urls, job.url)
-    when 'entire_website' 
-      filter_same_domain_urls(urls, job.url)
-    else
-      Rails.logger.warn "Unknown scrape mode: #{job.scrape_mode}"
-      []
-    end
-    
-    # Apply page limits
-    max_pages = case job.scrape_mode
-    when 'subpath_only'
-      25 # SUBPATH_MAX_PAGES from ImageScraper
-    when 'entire_website'
-      50 # ENTIRE_WEBSITE_MAX_PAGES from ImageScraper
-    else
-      25
-    end
-    
-    result = filtered_urls.first(max_pages)
-    Rails.logger.info "Filtered to #{result.length} URLs (limit: #{max_pages})"
-    result
   end
 
   def filter_subpath_urls(urls, starting_url)

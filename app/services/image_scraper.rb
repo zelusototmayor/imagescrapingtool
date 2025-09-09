@@ -74,18 +74,23 @@ class ImageScraper
   end
 
   def scrape_entire_website
-    # NEW: Try sitemap first
-    sitemap_urls = SitemapService.fetch_filtered_urls(@job.url, @job)
+    # TEMP: Disable sitemap for testing - using original link crawling
+    # sitemap_urls = SitemapService.fetch_filtered_urls(@job.url, @job)
+    # 
+    # if sitemap_urls&.any?
+    #   Rails.logger.info "Using sitemap URLs: #{sitemap_urls.length} pages found"
+    #   @job.update!(progress: 5, message: "Found #{sitemap_urls.length} pages in sitemap")
+    #   sitemap_urls.each { |url| @page_queue << url }
+    # else
+    #   Rails.logger.info "Sitemap not available, using link crawling method"
+    #   @job.update!(progress: 5, message: "Sitemap unavailable, using link crawling")
+    #   @page_queue << @job.url
+    # end
     
-    if sitemap_urls&.any?
-      Rails.logger.info "Using sitemap URLs: #{sitemap_urls.length} pages found"
-      @job.update!(progress: 5, message: "Found #{sitemap_urls.length} pages in sitemap")
-      sitemap_urls.each { |url| @page_queue << url }
-    else
-      Rails.logger.info "Sitemap not available, using link crawling method"
-      @job.update!(progress: 5, message: "Sitemap unavailable, using link crawling")
-      @page_queue << @job.url
-    end
+    # Original method: Start with the initial URL
+    Rails.logger.info "TESTING: Using original link crawling method (sitemap disabled)"
+    @job.update!(progress: 5, message: "Using link crawling method (sitemap disabled for testing)")
+    @page_queue << @job.url
     
     # Existing logic continues unchanged
     while @page_queue.any? && @images.length < MAX_IMAGES && @pages_crawled < ENTIRE_WEBSITE_MAX_PAGES
