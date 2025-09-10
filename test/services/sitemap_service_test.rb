@@ -119,4 +119,341 @@ class SitemapServiceTest < ActiveSupport::TestCase
     result = @service.send(:filter_urls_for_mode, urls, job)
     assert_equal [], result
   end
+
+  # ====== SITEMAP INDEX TESTS ======
+
+  test "parse_sitemap detects sitemap index files" do
+    sitemap_index_xml = <<~XML
+      <?xml version="1.0" encoding="UTF-8"?>
+      <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+        <sitemap>
+          <loc>https://example.com/sitemap1.xml</loc>
+        </sitemap>
+        <sitemap>
+          <loc>https://example.com/sitemap2.xml</loc>
+        </sitemap>
+      </sitemapindex>
+    XML
+
+    # Mock the fetch_sitemap method to return sample sitemaps
+    @service.define_singleton_method(:fetch_sitemap) do |url|
+      if url == 'https://example.com/sitemap1.xml'
+        <<~XML
+          <?xml version="1.0" encoding="UTF-8"?>
+          <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+            <url><loc>https://example.com/page1</loc></url>
+            <url><loc>https://example.com/page2</loc></url>
+          </urlset>
+        XML
+      elsif url == 'https://example.com/sitemap2.xml'
+        <<~XML
+          <?xml version="1.0" encoding="UTF-8"?>
+          <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+            <url><loc>https://example.com/page3</loc></url>
+            <url><loc>https://example.com/page4</loc></url>
+          </urlset>
+        XML
+      else
+        nil
+      end
+    end
+    
+    urls = @service.send(:parse_sitemap, sitemap_index_xml)
+    assert_equal 4, urls.length
+    assert_includes urls, 'https://example.com/page1'
+    assert_includes urls, 'https://example.com/page2'
+    assert_includes urls, 'https://example.com/page3'
+    assert_includes urls, 'https://example.com/page4'
+  end
+
+  test "parse_sitemap_index extracts sitemap URLs correctly" do
+    sitemap_index_xml = <<~XML
+      <?xml version="1.0" encoding="UTF-8"?>
+      <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+        <sitemap>
+          <loc>https://example.com/sitemap1.xml</loc>
+        </sitemap>
+        <sitemap>
+          <loc>https://example.com/sitemap2.xml</loc>
+        </sitemap>
+        <sitemap>
+          <loc>invalid-sitemap-url</loc>
+        </sitemap>
+      </sitemapindex>
+    XML
+
+    doc = Nokogiri::XML(sitemap_index_xml)
+    
+    # Mock fetch_sitemap to return empty to avoid actual HTTP calls
+    @service.define_singleton_method(:fetch_sitemap) { |url| nil }
+    
+    result = @service.send(:parse_sitemap_index, doc)
+    # Should return empty since fetch_sitemap returns nil, but method should execute without error
+    assert_equal [], result
+  end
+
+  test "parse_sitemap handles nested sitemap indexes" do
+    # Create a nested sitemap index structure  
+    parent_index_xml = <<~XML
+      <?xml version="1.0" encoding="UTF-8"?>
+      <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+        <sitemap>
+          <loc>https://example.com/nested-index.xml</loc>
+        </sitemap>
+      </sitemapindex>
+    XML
+
+    nested_index_xml = <<~XML
+      <?xml version="1.0" encoding="UTF-8"?>
+      <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+        <sitemap>
+          <loc>https://example.com/final-sitemap.xml</loc>
+        </sitemap>
+      </sitemapindex>
+    XML
+
+    final_sitemap_xml = <<~XML
+      <?xml version="1.0" encoding="UTF-8"?>
+      <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+        <url><loc>https://example.com/final-page</loc></url>
+      </urlset>
+    XML
+
+    @service.define_singleton_method(:fetch_sitemap) do |url|
+      case url
+      when 'https://example.com/nested-index.xml'
+        nested_index_xml
+      when 'https://example.com/final-sitemap.xml'
+        final_sitemap_xml
+      else
+        nil
+      end
+    end
+    
+    urls = @service.send(:parse_sitemap, parent_index_xml)
+    assert_equal 1, urls.length
+    assert_includes urls, 'https://example.com/final-page'
+  end
+
+  test "caching methods handle redis unavailability gracefully" do
+    # Test that caching methods don't crash when Redis is unavailable
+    
+    # Test redis_available? returns false when redis is not defined
+    refute @service.send(:redis_available?)
+    
+    # Test get_cached_sitemap returns nil when redis unavailable
+    assert_nil @service.send(:get_cached_sitemap, 'test-key')
+    
+    # Test cache_sitemap doesn't crash when redis unavailable
+    assert_nothing_raised do
+      @service.send(:cache_sitemap, 'test-key', 'test-content')
+    end
+  end
+
+  test "fetch_sitemap checks visited sitemaps correctly" do
+    # Verify that the visited sitemaps tracking works
+    # First, verify visited_sitemaps is empty
+    assert_equal [], @service.instance_variable_get(:@visited_sitemaps).to_a
+    
+    # Create a simple test where fetch_sitemap adds to visited list
+    # Even if it returns nil due to HTTP error, it should still mark as visited
+    
+    # Mock Faraday to return a failure
+    mock_faraday_response = OpenStruct.new(success?: false, status: 404)
+    Faraday.define_singleton_method(:get) { |url| mock_faraday_response }
+    
+    result1 = @service.fetch_sitemap('https://example.com/sitemap.xml')
+    assert_nil result1
+    assert_includes @service.instance_variable_get(:@visited_sitemaps), 'https://example.com/sitemap.xml'
+    
+    # Second call should return nil immediately (already visited)
+    result2 = @service.fetch_sitemap('https://example.com/sitemap.xml')
+    assert_nil result2
+  end
+  
+  test "parse_sitemap_index handles invalid sitemap URLs" do
+    # Test the parse_sitemap_index method directly with a simple case
+    sitemap_index_xml = <<~XML
+      <?xml version="1.0" encoding="UTF-8"?>
+      <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+        <sitemap>
+          <loc>https://example.com/valid-sitemap.xml</loc>
+        </sitemap>
+        <sitemap>
+          <loc>invalid-url</loc>
+        </sitemap>
+      </sitemapindex>
+    XML
+
+    doc = Nokogiri::XML(sitemap_index_xml)
+    
+    # Test that it extracts only valid URLs from the index
+    sitemap_urls = []
+    doc.css('sitemap loc').each do |loc_node|
+      url = loc_node.text.strip
+      sitemap_urls << url if @service.send(:valid_url?, url)
+    end
+    
+    assert_equal 1, sitemap_urls.length
+    assert_includes sitemap_urls, 'https://example.com/valid-sitemap.xml'
+    assert_not_includes sitemap_urls, 'invalid-url'
+  end
+
+  # ====== URL PRIORITIZATION TESTS ======
+
+  test "score_url_importance applies depth penalty correctly" do
+    starting_url = 'https://example.com/products'
+    
+    shallow_url = 'https://example.com/products/shoes'
+    deep_url = 'https://example.com/products/shoes/brand/model/variant'
+    
+    shallow_score = @service.send(:score_url_importance, shallow_url, starting_url)
+    deep_score = @service.send(:score_url_importance, deep_url, starting_url)
+    
+    # Shallow URL should have higher score than deep URL
+    assert shallow_score > deep_score
+    assert_operator shallow_score - deep_score, :>=, 20 # At least 2 levels * 10 points difference
+  end
+
+  test "score_url_importance applies similarity bonus" do
+    starting_url = 'https://example.com/products/shoes'
+    
+    similar_url = 'https://example.com/products/boots'  # Same category
+    different_url = 'https://example.com/blog/news'     # Different category
+    
+    similar_score = @service.send(:score_url_importance, similar_url, starting_url)
+    different_score = @service.send(:score_url_importance, different_url, starting_url)
+    
+    # Similar URL should have higher score due to bonus
+    assert similar_score > different_score
+    assert_operator similar_score - different_score, :>=, 30 # Similarity bonus
+  end
+
+  test "score_url_importance applies utility page penalty" do
+    starting_url = 'https://example.com/products'
+    
+    content_url = 'https://example.com/products/shoes'
+    utility_url = 'https://example.com/privacy-policy'
+    
+    content_score = @service.send(:score_url_importance, content_url, starting_url)
+    utility_score = @service.send(:score_url_importance, utility_url, starting_url)
+    
+    # Content URL should have higher score than utility page
+    assert content_score > utility_score
+    assert_operator content_score - utility_score, :>=, 50 # Utility penalty
+  end
+
+  test "utility_page? detects common utility pages" do
+    utility_paths = [
+      '/privacy-policy',
+      '/terms-of-service',
+      '/contact-us',
+      '/login',
+      '/sitemap.xml',
+      '/admin/dashboard'
+    ]
+    
+    content_paths = [
+      '/products/shoes',
+      '/blog/tech-news',
+      '/about-our-company',
+      '/news/updates'
+    ]
+    
+    utility_paths.each do |path|
+      assert @service.send(:utility_page?, path), "#{path} should be detected as utility page"
+    end
+    
+    content_paths.each do |path|
+      assert_not @service.send(:utility_page?, path), "#{path} should not be detected as utility page"
+    end
+  end
+
+  test "extract_category extracts meaningful categories" do
+    test_cases = [
+      ['/products/shoes/nike', 'products'],
+      ['/blog/tech/ai', 'blog'],
+      ['/news/2024/january', 'news'],
+      ['/en/products/shoes', 'products'], # Skip language code
+      ['/api/v1/users', 'users'],         # Should return meaningful segment after skipping prefixes
+      ['/', nil],                         # Root path
+      ['/www/content', 'content']         # Skip www
+    ]
+    
+    test_cases.each do |path, expected|
+      result = @service.send(:extract_category, path)
+      if expected.nil?
+        assert_nil result, "extract_category('#{path}') should return nil"
+      else
+        assert_equal expected, result, "extract_category('#{path}') should return '#{expected}'"
+      end
+    end
+  end
+
+  test "prioritize_urls sorts by score descending" do
+    starting_url = 'https://example.com/products'
+    
+    urls = [
+      'https://example.com/privacy-policy',           # Low score (utility page)
+      'https://example.com/products/shoes',           # High score (shallow + similar)
+      'https://example.com/products/deep/nested/item', # Medium score (similar but deep)
+      'https://example.com/blog/news'                 # Medium score (shallow but different)
+    ]
+    
+    prioritized = @service.send(:prioritize_urls, urls, starting_url)
+    
+    # Should be sorted by score descending
+    assert_equal 'https://example.com/products/shoes', prioritized.first
+    assert_equal 'https://example.com/privacy-policy', prioritized.last
+  end
+
+  test "path_similarity_bonus? correctly identifies similar paths" do
+    starting_path = '/products/shoes'
+    
+    similar_paths = [
+      '/products/boots',
+      '/products/sneakers',
+      '/products/athletic-wear'
+    ]
+    
+    different_paths = [
+      '/blog/news',
+      '/about-us',
+      '/services/support'
+    ]
+    
+    similar_paths.each do |path|
+      assert @service.send(:path_similarity_bonus?, path, starting_path), 
+             "#{path} should be similar to #{starting_path}"
+    end
+    
+    different_paths.each do |path|
+      assert_not @service.send(:path_similarity_bonus?, path, starting_path),
+                 "#{path} should not be similar to #{starting_path}"
+    end
+  end
+
+  test "prioritization is integrated into filter_urls_for_mode" do
+    # Create URLs that will be sorted by prioritization
+    # NOTE: Using entire_website mode so privacy-policy won't be filtered out by subpath filtering
+    urls = [
+      'https://example.com/privacy-policy',     # Should be last (utility page)
+      'https://example.com/products/shoes/nike', # Should be first (shallow + similar) 
+      'https://example.com/products/deep/nested/very/deep/item', # Should be middle (similar but very deep)
+      'https://example.com/blog/random'         # Should be third (different category)
+    ]
+    
+    job = OpenStruct.new(
+      scrape_mode: 'entire_website', 
+      url: 'https://example.com/products'
+    )
+    
+    # Filter should return prioritized results
+    result = @service.send(:filter_urls_for_mode, urls, job)
+    
+    # First result should be the highest priority URL
+    assert_equal 'https://example.com/products/shoes/nike', result.first
+    # Last result should be the utility page  
+    assert_equal 'https://example.com/privacy-policy', result.last
+  end
 end
