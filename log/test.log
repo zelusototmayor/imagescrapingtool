@@ -3068,3 +3068,1173 @@ JobTest: test_can_download?_should_work_correctly
   [1m[36mJob Create (0.1ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at", "scrape_mode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["uuid", "b7ba3167-c92a-488d-b13c-7b99330ec385"], ["url", "https://example.com/"], ["render_js", 1], ["status", 2], ["progress", 0], ["message", nil], ["pages_crawled", 0], ["images_found", 0], ["is_paid", 1], ["artifact_dir", "/Users/zelu/Desktop/code/imagesweep/storage/imagesweep/b7ba3167-c92a-488d-b13c-7b99330ec385"], ["created_at", "2025-09-10 12:00:23.439928"], ["updated_at", "2025-09-10 12:00:23.439928"], ["scrape_mode", 0]]
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (0.2ms)[0m  [1m[31mDELETE FROM "jobs"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------
+SitemapServiceTest: test_filter_subpath_urls_filters_correctly
+--------------------------------------------------------------
+Filtering 5 URLs for subpath: https://example.com/products/shoes
+Subpath filtering result: 2 URLs
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------
+SitemapServiceTest: test_extract_category_extracts_meaningful_categories
+------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------
+SitemapServiceTest: test_filter_urls_for_mode_handles_unknown_scrape_modes
+--------------------------------------------------------------------------
+Filtering 1 URLs for job mode: unknown_mode
+Unknown scrape mode: unknown_mode
+Filtered and prioritized to 0 URLs (limit: 25)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------
+SitemapServiceTest: test_utility_page?_detects_common_utility_pages
+-------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_handles_nested_sitemap_indexes
+---------------------------------------------------------------------
+Parsing sitemap XML content (199 bytes)
+Detected sitemap index file, processing child sitemaps
+Found 1 sitemap references in index
+Processing sitemap 1/1: https://example.com/nested-index.xml
+Parsing sitemap XML content (200 bytes)
+Detected sitemap index file, processing child sitemaps
+Found 1 sitemap references in index
+Processing sitemap 1/1: https://example.com/final-sitemap.xml
+Parsing sitemap XML content (165 bytes)
+Extracted 1 URLs from sitemap
+Added 1 URLs from https://example.com/final-sitemap.xml
+Combined 1 total URLs from sitemap index
+Added 1 URLs from https://example.com/nested-index.xml
+Combined 1 total URLs from sitemap index
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_handles_malformed_XML_gracefully
+-----------------------------------------------------------------------
+Parsing sitemap XML content (43 bytes)
+XML parsing warnings: 1:44: FATAL: Premature end of data in tag url line 1
+Extracted 1 URLs from sitemap
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_index_extracts_sitemap_URLs_correctly
+----------------------------------------------------------------------------
+Skipping invalid sitemap URL from index: invalid-sitemap-url
+Found 2 sitemap references in index
+Processing sitemap 1/2: https://example.com/sitemap1.xml
+Processing sitemap 2/2: https://example.com/sitemap2.xml
+Combined 0 total URLs from sitemap index
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------
+SitemapServiceTest: test_score_url_importance_applies_depth_penalty_correctly
+-----------------------------------------------------------------------------
+Similarity bonus applied to https://example.com/products/shoes
+Similarity bonus applied to https://example.com/products/shoes/brand/model/variant
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------------
+SitemapServiceTest: test_path_similarity_bonus?_correctly_identifies_similar_paths
+----------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------
+SitemapServiceTest: test_extract_domain_returns_correct_domain
+--------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------
+SitemapServiceTest: test_filter_urls_for_mode_applies_correct_limits
+--------------------------------------------------------------------
+Filtering 60 URLs for job mode: subpath_only
+Filtering 60 URLs for subpath: https://example.com
+Subpath filtering result: 60 URLs
+Prioritizing 60 URLs based on importance scoring
+URL prioritization complete. Top 5 scores: https://example.com/page1 (100), https://example.com/page2 (100), https://example.com/page3 (100), https://example.com/page4 (100), https://example.com/page5 (100)
+Filtered and prioritized to 25 URLs (limit: 25)
+Filtering 60 URLs for job mode: entire_website
+Filtering 60 URLs for same domain: https://example.com
+Domain filtering result: 60 URLs
+Prioritizing 60 URLs based on importance scoring
+URL prioritization complete. Top 5 scores: https://example.com/page1 (100), https://example.com/page2 (100), https://example.com/page3 (100), https://example.com/page4 (100), https://example.com/page5 (100)
+Filtered and prioritized to 50 URLs (limit: 50)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------
+SitemapServiceTest: test_filter_same_domain_urls_filters_correctly
+------------------------------------------------------------------
+Filtering 5 URLs for same domain: https://example.com
+Domain filtering result: 3 URLs
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------
+SitemapServiceTest: test_fetch_sitemap_checks_visited_sitemaps_correctly
+------------------------------------------------------------------------
+Attempting to fetch sitemap from: https://example.com/sitemap.xml
+Sitemap not found (HTTP 404): https://example.com/sitemap.xml
+Attempting to fetch sitemap from: https://example.com/sitemap.xml
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_detects_sitemap_index_files
+------------------------------------------------------------------
+Parsing sitemap XML content (268 bytes)
+Detected sitemap index file, processing child sitemaps
+Found 2 sitemap references in index
+Processing sitemap 1/2: https://example.com/sitemap1.xml
+Parsing sitemap XML content (210 bytes)
+Extracted 2 URLs from sitemap
+Added 2 URLs from https://example.com/sitemap1.xml
+Processing sitemap 2/2: https://example.com/sitemap2.xml
+Parsing sitemap XML content (210 bytes)
+Extracted 2 URLs from sitemap
+Added 2 URLs from https://example.com/sitemap2.xml
+Combined 4 total URLs from sitemap index
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------
+SitemapServiceTest: test_score_url_importance_applies_utility_page_penalty
+--------------------------------------------------------------------------
+Similarity bonus applied to https://example.com/products/shoes
+Utility page penalty applied to https://example.com/privacy-policy
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------
+SitemapServiceTest: test_prioritize_urls_sorts_by_score_descending
+------------------------------------------------------------------
+Prioritizing 4 URLs based on importance scoring
+Utility page penalty applied to https://example.com/privacy-policy
+Similarity bonus applied to https://example.com/products/shoes
+Similarity bonus applied to https://example.com/products/deep/nested/item
+URL prioritization complete. Top 5 scores: https://example.com/products/shoes (120), https://example.com/products/deep/nested/item (100), https://example.com/blog/news (90), https://example.com/privacy-policy (50)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_extracts_URLs_from_valid_XML
+-------------------------------------------------------------------
+Parsing sitemap XML content (270 bytes)
+Skipping invalid URL from sitemap: invalid-url
+Extracted 2 URLs from sitemap
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_index_handles_invalid_sitemap_URLs
+-------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------
+SitemapServiceTest: test_prioritization_is_integrated_into_filter_urls_for_mode
+-------------------------------------------------------------------------------
+Filtering 4 URLs for job mode: entire_website
+Filtering 4 URLs for same domain: https://example.com
+Domain filtering result: 4 URLs
+Prioritizing 4 URLs based on importance scoring
+Utility page penalty applied to https://example.com/privacy-policy
+Similarity bonus applied to https://example.com/products/shoes/nike
+Similarity bonus applied to https://example.com/products/deep/nested/very/deep/item
+URL prioritization complete. Top 5 scores: https://example.com/products/shoes/nike (110), https://example.com/blog/random (90), https://example.com/products/deep/nested/very/deep/item (80), https://example.com/privacy-policy (50)
+Filtered and prioritized to 4 URLs (limit: 50)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------
+SitemapServiceTest: test_valid_url?_validates_URLs_correctly
+------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------
+SitemapServiceTest: test_caching_methods_handle_redis_unavailability_gracefully
+-------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_returns_empty_array_for_non-XML_content
+------------------------------------------------------------------------------
+Parsing sitemap XML content (33 bytes)
+Extracted 0 URLs from sitemap
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------
+SitemapServiceTest: test_score_url_importance_applies_similarity_bonus
+----------------------------------------------------------------------
+Similarity bonus applied to https://example.com/products/boots
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (0.2ms)[0m  [1m[31mDELETE FROM "jobs"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------
+SitemapServiceTest: test_prioritization_is_integrated_into_filter_urls_for_mode
+-------------------------------------------------------------------------------
+Filtering 4 URLs for job mode: entire_website
+Filtering 4 URLs for same domain: https://example.com
+Domain filtering result: 4 URLs
+Prioritizing 4 URLs based on importance scoring
+Utility page penalty applied to https://example.com/privacy-policy
+Similarity bonus applied to https://example.com/products/shoes/nike
+Similarity bonus applied to https://example.com/products/deep/nested/very/deep/item
+URL prioritization complete. Top 5 scores: https://example.com/products/shoes/nike (110), https://example.com/blog/random (90), https://example.com/products/deep/nested/very/deep/item (80), https://example.com/privacy-policy (50)
+Filtered and prioritized to 4 URLs (limit: 50)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------
+SitemapServiceTest: test_score_url_importance_applies_depth_penalty_correctly
+-----------------------------------------------------------------------------
+Similarity bonus applied to https://example.com/products/shoes
+Similarity bonus applied to https://example.com/products/shoes/brand/model/variant
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------
+SitemapServiceTest: test_memory_monitoring_integration
+------------------------------------------------------
+Prioritizing 1000 URLs based on importance scoring
+URL prioritization complete. Top 5 scores: https://example.com/page1.html (100), https://example.com/page2.html (100), https://example.com/page3.html (100), https://example.com/page4.html (100), https://example.com/page5.html (100)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_index_handles_invalid_sitemap_URLs
+-------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------
+SitemapServiceTest: test_filter_subpath_urls_filters_correctly
+--------------------------------------------------------------
+Filtering 5 URLs for subpath: https://example.com/products/shoes
+Subpath filtering result: 2 URLs
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------
+SitemapServiceTest: test_fetch_sitemap_checks_visited_sitemaps_correctly
+------------------------------------------------------------------------
+Attempting to fetch sitemap from: https://example.com/sitemap.xml
+Sitemap not found (HTTP 404): https://example.com/sitemap.xml
+Attempting to fetch sitemap from: https://example.com/sitemap.xml
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------
+SitemapServiceTest: test_valid_url?_validates_URLs_correctly
+------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_handles_nested_sitemap_indexes
+---------------------------------------------------------------------
+Parsing sitemap XML content (199 bytes)
+Detected sitemap index file, processing child sitemaps
+Found 1 sitemap references in index
+Processing sitemap 1/1: https://example.com/nested-index.xml
+Parsing sitemap XML content (200 bytes)
+Detected sitemap index file, processing child sitemaps
+Found 1 sitemap references in index
+Processing sitemap 1/1: https://example.com/final-sitemap.xml
+Parsing sitemap XML content (165 bytes)
+Extracted 1 URLs from sitemap
+Added 1 URLs from https://example.com/final-sitemap.xml
+Combined 1 total URLs from sitemap index
+Added 1 URLs from https://example.com/nested-index.xml
+Combined 1 total URLs from sitemap index
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------
+SitemapServiceTest: test_performance_test_large_url_filtering
+-------------------------------------------------------------
+Filtering 10000 URLs for same domain: https://example.com
+Domain filtering result: 10000 URLs
+Prioritizing 10000 URLs based on importance scoring
+URL prioritization complete. Top 5 scores: https://example.com/page1.html (100), https://example.com/page2.html (100), https://example.com/page3.html (100), https://example.com/page4.html (100), https://example.com/page5.html (100)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------
+SitemapServiceTest: test_streaming_parser_fallback_behavior
+-----------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------
+SitemapServiceTest: test_filter_same_domain_urls_filters_correctly
+------------------------------------------------------------------
+Filtering 5 URLs for same domain: https://example.com
+Domain filtering result: 3 URLs
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------
+SitemapServiceTest: test_extract_domain_returns_correct_domain
+--------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------
+SitemapServiceTest: test_caching_methods_handle_redis_unavailability_gracefully
+-------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_extracts_URLs_from_valid_XML
+-------------------------------------------------------------------
+Parsing sitemap XML content (270 bytes)
+Skipping invalid URL from sitemap: invalid-url
+Extracted 2 URLs from sitemap
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------------
+SitemapServiceTest: test_path_similarity_bonus?_correctly_identifies_similar_paths
+----------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------
+SitemapServiceTest: test_score_url_importance_applies_similarity_bonus
+----------------------------------------------------------------------
+Similarity bonus applied to https://example.com/products/boots
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------
+SitemapServiceTest: test_end_to_end_subpath_mode_integration
+------------------------------------------------------------
+Fetching sitemap for domain: https://example.com (memory: 46.18736267089844MB)
+Attempting to fetch sitemap from: https://example.com/sitemap.xml
+Sitemap not found (HTTP 404): https://example.com/sitemap.xml
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------
+SitemapServiceTest: test_utility_page?_detects_common_utility_pages
+-------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_index_extracts_sitemap_URLs_correctly
+----------------------------------------------------------------------------
+Skipping invalid sitemap URL from index: invalid-sitemap-url
+Found 2 sitemap references in index
+Processing sitemap 1/2: https://example.com/sitemap1.xml
+Processing sitemap 2/2: https://example.com/sitemap2.xml
+Combined 0 total URLs from sitemap index
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------
+SitemapServiceTest: test_comprehensive_error_recovery
+-----------------------------------------------------
+Attempting to fetch sitemap from: https://example.com/sitemap.xml
+Sitemap fetch timed out: https://example.com/sitemap.xml - Test timeout
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------
+SitemapServiceTest: test_score_url_importance_applies_utility_page_penalty
+--------------------------------------------------------------------------
+Similarity bonus applied to https://example.com/products/shoes
+Utility page penalty applied to https://example.com/privacy-policy
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------
+SitemapServiceTest: test_filter_urls_for_mode_handles_unknown_scrape_modes
+--------------------------------------------------------------------------
+Filtering 1 URLs for job mode: unknown_mode
+Unknown scrape mode: unknown_mode
+Filtered and prioritized to 0 URLs (limit: 25)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_handles_malformed_XML_gracefully
+-----------------------------------------------------------------------
+Parsing sitemap XML content (43 bytes)
+XML parsing warnings: 1:44: FATAL: Premature end of data in tag url line 1
+Extracted 1 URLs from sitemap
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------
+SitemapServiceTest: test_end_to_end_entire_website_mode_integration
+-------------------------------------------------------------------
+Fetching sitemap for domain: https://example.com (memory: 46.30420684814453MB)
+Attempting to fetch sitemap from: https://example.com/sitemap.xml
+Sitemap fetch timed out: https://example.com/sitemap.xml - Test timeout
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------
+SitemapServiceTest: test_integration_test_real_website_sitemap_processing
+-------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------
+SitemapServiceTest: test_error_handling_network_failures
+--------------------------------------------------------
+Fetching sitemap for domain: https://this-domain-does-not-exist-12345.com (memory: 46.336402893066406MB)
+Attempting to fetch sitemap from: https://this-domain-does-not-exist-12345.com/sitemap.xml
+Sitemap fetch timed out: https://this-domain-does-not-exist-12345.com/sitemap.xml - Test timeout
+Fetching sitemap for domain: https://httpbin.org (memory: 46.338539123535156MB)
+Attempting to fetch sitemap from: https://httpbin.org/sitemap.xml
+Sitemap fetch timed out: https://httpbin.org/sitemap.xml - Test timeout
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------
+SitemapServiceTest: test_extract_category_extracts_meaningful_categories
+------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_detects_sitemap_index_files
+------------------------------------------------------------------
+Parsing sitemap XML content (268 bytes)
+Detected sitemap index file, processing child sitemaps
+Found 2 sitemap references in index
+Processing sitemap 1/2: https://example.com/sitemap1.xml
+Parsing sitemap XML content (210 bytes)
+Extracted 2 URLs from sitemap
+Added 2 URLs from https://example.com/sitemap1.xml
+Processing sitemap 2/2: https://example.com/sitemap2.xml
+Parsing sitemap XML content (210 bytes)
+Extracted 2 URLs from sitemap
+Added 2 URLs from https://example.com/sitemap2.xml
+Combined 4 total URLs from sitemap index
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------
+SitemapServiceTest: test_prioritize_urls_sorts_by_score_descending
+------------------------------------------------------------------
+Prioritizing 4 URLs based on importance scoring
+Utility page penalty applied to https://example.com/privacy-policy
+Similarity bonus applied to https://example.com/products/shoes
+Similarity bonus applied to https://example.com/products/deep/nested/item
+URL prioritization complete. Top 5 scores: https://example.com/products/shoes (120), https://example.com/products/deep/nested/item (100), https://example.com/blog/news (90), https://example.com/privacy-policy (50)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------
+SitemapServiceTest: test_error_handling_malformed_xml_edge_cases
+----------------------------------------------------------------
+Parsing sitemap XML content (0 bytes)
+Extracted 0 URLs from sitemap
+Parsing sitemap XML content (14 bytes)
+XML parsing warnings: 1:1: FATAL: Start tag expected, '<' not found
+Extracted 0 URLs from sitemap
+Parsing sitemap XML content (17 bytes)
+XML parsing warnings: 1:18: FATAL: Premature end of data in tag xml line 1
+Extracted 0 URLs from sitemap
+Parsing sitemap XML content (39 bytes)
+Extracted 0 URLs from sitemap
+Parsing sitemap XML content (50 bytes)
+Skipping invalid URL from sitemap: invalid-url
+Extracted 0 URLs from sitemap
+Parsing sitemap XML content (28 bytes)
+Extracted 0 URLs from sitemap
+Parsing sitemap XML content (162 bytes)
+Skipping invalid URL from sitemap: not-a-url
+Extracted 1 URLs from sitemap
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------
+SitemapServiceTest: test_filter_urls_for_mode_applies_correct_limits
+--------------------------------------------------------------------
+Filtering 60 URLs for job mode: subpath_only
+Filtering 60 URLs for subpath: https://example.com
+Subpath filtering result: 60 URLs
+Prioritizing 60 URLs based on importance scoring
+URL prioritization complete. Top 5 scores: https://example.com/page1 (100), https://example.com/page2 (100), https://example.com/page3 (100), https://example.com/page4 (100), https://example.com/page5 (100)
+Filtered and prioritized to 25 URLs (limit: 25)
+Filtering 60 URLs for job mode: entire_website
+Filtering 60 URLs for same domain: https://example.com
+Domain filtering result: 60 URLs
+Prioritizing 60 URLs based on importance scoring
+URL prioritization complete. Top 5 scores: https://example.com/page1 (100), https://example.com/page2 (100), https://example.com/page3 (100), https://example.com/page4 (100), https://example.com/page5 (100)
+Filtered and prioritized to 50 URLs (limit: 50)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_returns_empty_array_for_non-XML_content
+------------------------------------------------------------------------------
+Parsing sitemap XML content (33 bytes)
+Extracted 0 URLs from sitemap
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (0.0ms)[0m  [1m[31mDELETE FROM "jobs"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------
+SitemapServiceTest: test_caching_methods_handle_redis_unavailability_gracefully
+-------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_index_extracts_sitemap_URLs_correctly
+----------------------------------------------------------------------------
+Skipping invalid sitemap URL from index: invalid-sitemap-url
+Found 2 sitemap references in index
+Processing sitemap 1/2: https://example.com/sitemap1.xml
+Processing sitemap 2/2: https://example.com/sitemap2.xml
+Combined 0 total URLs from sitemap index
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_handles_nested_sitemap_indexes
+---------------------------------------------------------------------
+Parsing sitemap XML content (199 bytes)
+Detected sitemap index file, processing child sitemaps
+Found 1 sitemap references in index
+Processing sitemap 1/1: https://example.com/nested-index.xml
+Parsing sitemap XML content (200 bytes)
+Detected sitemap index file, processing child sitemaps
+Found 1 sitemap references in index
+Processing sitemap 1/1: https://example.com/final-sitemap.xml
+Parsing sitemap XML content (165 bytes)
+Extracted 1 URLs from sitemap
+Added 1 URLs from https://example.com/final-sitemap.xml
+Combined 1 total URLs from sitemap index
+Added 1 URLs from https://example.com/nested-index.xml
+Combined 1 total URLs from sitemap index
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------
+SitemapServiceTest: test_filter_urls_for_mode_handles_unknown_scrape_modes
+--------------------------------------------------------------------------
+Filtering 1 URLs for job mode: unknown_mode
+Unknown scrape mode: unknown_mode
+Filtered and prioritized to 0 URLs (limit: 25)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------
+SitemapServiceTest: test_prioritize_urls_sorts_by_score_descending
+------------------------------------------------------------------
+Prioritizing 4 URLs based on importance scoring
+Utility page penalty applied to https://example.com/privacy-policy
+Similarity bonus applied to https://example.com/products/shoes
+Similarity bonus applied to https://example.com/products/deep/nested/item
+URL prioritization complete. Top 5 scores: https://example.com/products/shoes (120), https://example.com/products/deep/nested/item (100), https://example.com/blog/news (90), https://example.com/privacy-policy (50)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------
+SitemapServiceTest: test_performance_test_large_url_filtering
+-------------------------------------------------------------
+Filtering 10000 URLs for same domain: https://example.com
+Domain filtering result: 10000 URLs
+Prioritizing 10000 URLs based on importance scoring
+URL prioritization complete. Top 5 scores: https://example.com/page1.html (100), https://example.com/page2.html (100), https://example.com/page3.html (100), https://example.com/page4.html (100), https://example.com/page5.html (100)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------
+SitemapServiceTest: test_score_url_importance_applies_similarity_bonus
+----------------------------------------------------------------------
+Similarity bonus applied to https://example.com/products/boots
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------
+SitemapServiceTest: test_valid_url?_validates_URLs_correctly
+------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_returns_empty_array_for_non-XML_content
+------------------------------------------------------------------------------
+Parsing sitemap XML content (33 bytes)
+Extracted 0 URLs from sitemap
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_handles_malformed_XML_gracefully
+-----------------------------------------------------------------------
+Parsing sitemap XML content (43 bytes)
+XML parsing warnings: 1:44: FATAL: Premature end of data in tag url line 1
+Extracted 1 URLs from sitemap
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------
+SitemapServiceTest: test_filter_urls_for_mode_applies_correct_limits
+--------------------------------------------------------------------
+Filtering 60 URLs for job mode: subpath_only
+Filtering 60 URLs for subpath: https://example.com
+Subpath filtering result: 60 URLs
+Prioritizing 60 URLs based on importance scoring
+URL prioritization complete. Top 5 scores: https://example.com/page1 (100), https://example.com/page2 (100), https://example.com/page3 (100), https://example.com/page4 (100), https://example.com/page5 (100)
+Filtered and prioritized to 25 URLs (limit: 25)
+Filtering 60 URLs for job mode: entire_website
+Filtering 60 URLs for same domain: https://example.com
+Domain filtering result: 60 URLs
+Prioritizing 60 URLs based on importance scoring
+URL prioritization complete. Top 5 scores: https://example.com/page1 (100), https://example.com/page2 (100), https://example.com/page3 (100), https://example.com/page4 (100), https://example.com/page5 (100)
+Filtered and prioritized to 50 URLs (limit: 50)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------
+SitemapServiceTest: test_filter_subpath_urls_filters_correctly
+--------------------------------------------------------------
+Filtering 5 URLs for subpath: https://example.com/products/shoes
+Subpath filtering result: 2 URLs
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------
+SitemapServiceTest: test_memory_monitoring_integration
+------------------------------------------------------
+Prioritizing 1000 URLs based on importance scoring
+URL prioritization complete. Top 5 scores: https://example.com/page1.html (100), https://example.com/page2.html (100), https://example.com/page3.html (100), https://example.com/page4.html (100), https://example.com/page5.html (100)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------
+SitemapServiceTest: test_end_to_end_subpath_mode_integration
+------------------------------------------------------------
+Filtering 9 URLs for job mode: subpath_only
+Filtering 9 URLs for subpath: https://example.com/products/shoes
+Subpath filtering result: 2 URLs
+Prioritizing 2 URLs based on importance scoring
+Similarity bonus applied to https://example.com/products/shoes
+Similarity bonus applied to https://example.com/products/shoes/nike
+URL prioritization complete. Top 5 scores: https://example.com/products/shoes (120), https://example.com/products/shoes/nike (110)
+Filtered and prioritized to 2 URLs (limit: 25)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------
+SitemapServiceTest: test_comprehensive_error_recovery
+-----------------------------------------------------
+Attempting to fetch sitemap from: https://example.com/sitemap.xml
+Sitemap fetch timed out: https://example.com/sitemap.xml - Test timeout
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------
+SitemapServiceTest: test_integration_test_real_website_sitemap_processing
+-------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_index_handles_invalid_sitemap_URLs
+-------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------
+SitemapServiceTest: test_prioritization_is_integrated_into_filter_urls_for_mode
+-------------------------------------------------------------------------------
+Filtering 4 URLs for job mode: entire_website
+Filtering 4 URLs for same domain: https://example.com
+Domain filtering result: 4 URLs
+Prioritizing 4 URLs based on importance scoring
+Utility page penalty applied to https://example.com/privacy-policy
+Similarity bonus applied to https://example.com/products/shoes/nike
+Similarity bonus applied to https://example.com/products/deep/nested/very/deep/item
+URL prioritization complete. Top 5 scores: https://example.com/products/shoes/nike (110), https://example.com/blog/random (90), https://example.com/products/deep/nested/very/deep/item (80), https://example.com/privacy-policy (50)
+Filtered and prioritized to 4 URLs (limit: 50)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------
+SitemapServiceTest: test_extract_domain_returns_correct_domain
+--------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------
+SitemapServiceTest: test_utility_page?_detects_common_utility_pages
+-------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_extracts_URLs_from_valid_XML
+-------------------------------------------------------------------
+Parsing sitemap XML content (270 bytes)
+Skipping invalid URL from sitemap: invalid-url
+Extracted 2 URLs from sitemap
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------
+SitemapServiceTest: test_extract_category_extracts_meaningful_categories
+------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------
+SitemapServiceTest: test_error_handling_network_failures
+--------------------------------------------------------
+Fetching sitemap for domain: https://this-domain-does-not-exist-12345.com (memory: 46.41624450683594MB)
+Attempting to fetch sitemap from: https://this-domain-does-not-exist-12345.com/sitemap.xml
+Sitemap fetch timed out: https://this-domain-does-not-exist-12345.com/sitemap.xml - Test timeout
+Fetching sitemap for domain: https://httpbin.org (memory: 46.41845703125MB)
+Attempting to fetch sitemap from: https://httpbin.org/sitemap.xml
+Sitemap fetch timed out: https://httpbin.org/sitemap.xml - Test timeout
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------
+SitemapServiceTest: test_streaming_parser_fallback_behavior
+-----------------------------------------------------------
+Parsing sitemap XML content (1268999 bytes)
+Using streaming parser for large sitemap (1268999 bytes)
+Parsing sitemap using streaming XML parser
+Streaming parser progress: 5000 URLs processed
+Streaming parser progress: 5000 URLs processed
+Streaming parser progress: 5000 URLs processed
+Streaming parser progress: 5000 URLs processed
+Streaming parser progress: 5000 URLs processed
+Streaming parser progress: 5000 URLs processed
+Streaming parser progress: 10000 URLs processed
+Streaming parser progress: 10000 URLs processed
+Streaming parser progress: 10000 URLs processed
+Streaming parser progress: 10000 URLs processed
+Streaming parser progress: 10000 URLs processed
+Streaming parser progress: 10000 URLs processed
+Streaming parser extracted 10000 URLs from sitemap
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------------
+SitemapServiceTest: test_path_similarity_bonus?_correctly_identifies_similar_paths
+----------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------
+SitemapServiceTest: test_end_to_end_entire_website_mode_integration
+-------------------------------------------------------------------
+Filtering 5 URLs for job mode: entire_website
+Filtering 5 URLs for same domain: https://example.com
+Domain filtering result: 4 URLs
+Prioritizing 4 URLs based on importance scoring
+Utility page penalty applied to https://example.com/privacy-policy
+URL prioritization complete. Top 5 scores: https://example.com/ (120), https://example.com/products (100), https://example.com/deep/nested/path (80), https://example.com/privacy-policy (50)
+Filtered and prioritized to 4 URLs (limit: 50)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------
+SitemapServiceTest: test_score_url_importance_applies_utility_page_penalty
+--------------------------------------------------------------------------
+Similarity bonus applied to https://example.com/products/shoes
+Utility page penalty applied to https://example.com/privacy-policy
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------
+SitemapServiceTest: test_score_url_importance_applies_depth_penalty_correctly
+-----------------------------------------------------------------------------
+Similarity bonus applied to https://example.com/products/shoes
+Similarity bonus applied to https://example.com/products/shoes/brand/model/variant
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_detects_sitemap_index_files
+------------------------------------------------------------------
+Parsing sitemap XML content (268 bytes)
+Detected sitemap index file, processing child sitemaps
+Found 2 sitemap references in index
+Processing sitemap 1/2: https://example.com/sitemap1.xml
+Parsing sitemap XML content (210 bytes)
+Extracted 2 URLs from sitemap
+Added 2 URLs from https://example.com/sitemap1.xml
+Processing sitemap 2/2: https://example.com/sitemap2.xml
+Parsing sitemap XML content (210 bytes)
+Extracted 2 URLs from sitemap
+Added 2 URLs from https://example.com/sitemap2.xml
+Combined 4 total URLs from sitemap index
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------
+SitemapServiceTest: test_filter_same_domain_urls_filters_correctly
+------------------------------------------------------------------
+Filtering 5 URLs for same domain: https://example.com
+Domain filtering result: 3 URLs
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------
+SitemapServiceTest: test_error_handling_malformed_xml_edge_cases
+----------------------------------------------------------------
+Parsing sitemap XML content (0 bytes)
+Extracted 0 URLs from sitemap
+Parsing sitemap XML content (14 bytes)
+XML parsing warnings: 1:1: FATAL: Start tag expected, '<' not found
+Extracted 0 URLs from sitemap
+Parsing sitemap XML content (17 bytes)
+XML parsing warnings: 1:18: FATAL: Premature end of data in tag xml line 1
+Extracted 0 URLs from sitemap
+Parsing sitemap XML content (39 bytes)
+Extracted 0 URLs from sitemap
+Parsing sitemap XML content (50 bytes)
+Skipping invalid URL from sitemap: invalid-url
+Extracted 0 URLs from sitemap
+Parsing sitemap XML content (28 bytes)
+Extracted 0 URLs from sitemap
+Parsing sitemap XML content (162 bytes)
+Skipping invalid URL from sitemap: not-a-url
+Extracted 1 URLs from sitemap
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------
+SitemapServiceTest: test_fetch_sitemap_checks_visited_sitemaps_correctly
+------------------------------------------------------------------------
+Attempting to fetch sitemap from: https://example.com/sitemap.xml
+Sitemap not found (HTTP 404): https://example.com/sitemap.xml
+Attempting to fetch sitemap from: https://example.com/sitemap.xml
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (0.2ms)[0m  [1m[31mDELETE FROM "jobs"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------
+SitemapServiceTest: test_integration_test_real_website_sitemap_processing
+-------------------------------------------------------------------------
+Fetching sitemap for domain: https://www.torontocupcake.com (memory: 27.722129821777344MB)
+Attempting to fetch sitemap from: https://www.torontocupcake.com/sitemap.xml
+Successfully fetched sitemap: https://www.torontocupcake.com/sitemap.xml (2778 bytes)
+Parsing sitemap XML content (2778 bytes)
+Extracted 18 URLs from sitemap
+Sitemap processing complete: 18 URLs, memory used: 0.06MB (27.72MB → 27.78MB)
+Filtering 18 URLs for job mode: entire_website
+Filtering 18 URLs for same domain: https://www.torontocupcake.com
+Domain filtering result: 18 URLs
+Prioritizing 18 URLs based on importance scoring
+Utility page penalty applied to https://www.torontocupcake.com/contact.html
+URL prioritization complete. Top 5 scores: https://www.torontocupcake.com/ (120), https://www.torontocupcake.com/HolidaySpecial.html (100), https://www.torontocupcake.com/MothersDaySpecial.html (100), https://www.torontocupcake.com/ValentinesDaySpecial.html (100), https://www.torontocupcake.com/IWD.html (100)
+Filtered and prioritized to 18 URLs (limit: 50)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (0.2ms)[0m  [1m[31mDELETE FROM "jobs"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------
+SitemapServiceTest: test_memory_monitoring_integration
+------------------------------------------------------
+Prioritizing 1000 URLs based on importance scoring
+URL prioritization complete. Top 5 scores: https://example.com/page1.html (100), https://example.com/page2.html (100), https://example.com/page3.html (100), https://example.com/page4.html (100), https://example.com/page5.html (100)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------
+SitemapServiceTest: test_score_url_importance_applies_utility_page_penalty
+--------------------------------------------------------------------------
+Similarity bonus applied to https://example.com/products/shoes
+Utility page penalty applied to https://example.com/privacy-policy
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------
+SitemapServiceTest: test_end_to_end_subpath_mode_integration
+------------------------------------------------------------
+Filtering 9 URLs for job mode: subpath_only
+Filtering 9 URLs for subpath: https://example.com/products/shoes
+Subpath filtering result: 2 URLs
+Prioritizing 2 URLs based on importance scoring
+Similarity bonus applied to https://example.com/products/shoes
+Similarity bonus applied to https://example.com/products/shoes/nike
+URL prioritization complete. Top 5 scores: https://example.com/products/shoes (120), https://example.com/products/shoes/nike (110)
+Filtered and prioritized to 2 URLs (limit: 25)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------
+SitemapServiceTest: test_filter_same_domain_urls_filters_correctly
+------------------------------------------------------------------
+Filtering 5 URLs for same domain: https://example.com
+Domain filtering result: 3 URLs
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_index_handles_invalid_sitemap_URLs
+-------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------
+SitemapServiceTest: test_caching_methods_handle_redis_unavailability_gracefully
+-------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_handles_nested_sitemap_indexes
+---------------------------------------------------------------------
+Parsing sitemap XML content (199 bytes)
+Detected sitemap index file, processing child sitemaps
+Found 1 sitemap references in index
+Processing sitemap 1/1: https://example.com/nested-index.xml
+Parsing sitemap XML content (200 bytes)
+Detected sitemap index file, processing child sitemaps
+Found 1 sitemap references in index
+Processing sitemap 1/1: https://example.com/final-sitemap.xml
+Parsing sitemap XML content (165 bytes)
+Extracted 1 URLs from sitemap
+Added 1 URLs from https://example.com/final-sitemap.xml
+Combined 1 total URLs from sitemap index
+Added 1 URLs from https://example.com/nested-index.xml
+Combined 1 total URLs from sitemap index
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------
+SitemapServiceTest: test_performance_test_large_url_filtering
+-------------------------------------------------------------
+Filtering 10000 URLs for same domain: https://example.com
+Domain filtering result: 10000 URLs
+Prioritizing 10000 URLs based on importance scoring
+URL prioritization complete. Top 5 scores: https://example.com/page1.html (100), https://example.com/page2.html (100), https://example.com/page3.html (100), https://example.com/page4.html (100), https://example.com/page5.html (100)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------
+SitemapServiceTest: test_filter_urls_for_mode_applies_correct_limits
+--------------------------------------------------------------------
+Filtering 60 URLs for job mode: subpath_only
+Filtering 60 URLs for subpath: https://example.com
+Subpath filtering result: 60 URLs
+Prioritizing 60 URLs based on importance scoring
+URL prioritization complete. Top 5 scores: https://example.com/page1 (100), https://example.com/page2 (100), https://example.com/page3 (100), https://example.com/page4 (100), https://example.com/page5 (100)
+Filtered and prioritized to 25 URLs (limit: 25)
+Filtering 60 URLs for job mode: entire_website
+Filtering 60 URLs for same domain: https://example.com
+Domain filtering result: 60 URLs
+Prioritizing 60 URLs based on importance scoring
+URL prioritization complete. Top 5 scores: https://example.com/page1 (100), https://example.com/page2 (100), https://example.com/page3 (100), https://example.com/page4 (100), https://example.com/page5 (100)
+Filtered and prioritized to 50 URLs (limit: 50)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------
+SitemapServiceTest: test_integration_test_real_website_sitemap_processing
+-------------------------------------------------------------------------
+Fetching sitemap for domain: https://www.torontocupcake.com (memory: 46.229820251464844MB)
+Attempting to fetch sitemap from: https://www.torontocupcake.com/sitemap.xml
+Successfully fetched sitemap: https://www.torontocupcake.com/sitemap.xml (2778 bytes)
+Parsing sitemap XML content (2778 bytes)
+Extracted 18 URLs from sitemap
+Sitemap processing complete: 18 URLs, memory used: 0.05MB (46.23MB → 46.28MB)
+Filtering 18 URLs for job mode: entire_website
+Filtering 18 URLs for same domain: https://www.torontocupcake.com
+Domain filtering result: 18 URLs
+Prioritizing 18 URLs based on importance scoring
+Utility page penalty applied to https://www.torontocupcake.com/contact.html
+URL prioritization complete. Top 5 scores: https://www.torontocupcake.com/ (120), https://www.torontocupcake.com/HolidaySpecial.html (100), https://www.torontocupcake.com/MothersDaySpecial.html (100), https://www.torontocupcake.com/ValentinesDaySpecial.html (100), https://www.torontocupcake.com/IWD.html (100)
+Filtered and prioritized to 18 URLs (limit: 50)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------
+SitemapServiceTest: test_score_url_importance_applies_depth_penalty_correctly
+-----------------------------------------------------------------------------
+Similarity bonus applied to https://example.com/products/shoes
+Similarity bonus applied to https://example.com/products/shoes/brand/model/variant
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_extracts_URLs_from_valid_XML
+-------------------------------------------------------------------
+Parsing sitemap XML content (270 bytes)
+Skipping invalid URL from sitemap: invalid-url
+Extracted 2 URLs from sitemap
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------
+SitemapServiceTest: test_score_url_importance_applies_similarity_bonus
+----------------------------------------------------------------------
+Similarity bonus applied to https://example.com/products/boots
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------
+SitemapServiceTest: test_prioritize_urls_sorts_by_score_descending
+------------------------------------------------------------------
+Prioritizing 4 URLs based on importance scoring
+Utility page penalty applied to https://example.com/privacy-policy
+Similarity bonus applied to https://example.com/products/shoes
+Similarity bonus applied to https://example.com/products/deep/nested/item
+URL prioritization complete. Top 5 scores: https://example.com/products/shoes (120), https://example.com/products/deep/nested/item (100), https://example.com/blog/news (90), https://example.com/privacy-policy (50)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------
+SitemapServiceTest: test_extract_domain_returns_correct_domain
+--------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------
+SitemapServiceTest: test_error_handling_malformed_xml_edge_cases
+----------------------------------------------------------------
+Parsing sitemap XML content (0 bytes)
+Extracted 0 URLs from sitemap
+Parsing sitemap XML content (14 bytes)
+XML parsing warnings: 1:1: FATAL: Start tag expected, '<' not found
+Extracted 0 URLs from sitemap
+Parsing sitemap XML content (17 bytes)
+XML parsing warnings: 1:18: FATAL: Premature end of data in tag xml line 1
+Extracted 0 URLs from sitemap
+Parsing sitemap XML content (39 bytes)
+Extracted 0 URLs from sitemap
+Parsing sitemap XML content (50 bytes)
+Skipping invalid URL from sitemap: invalid-url
+Extracted 0 URLs from sitemap
+Parsing sitemap XML content (28 bytes)
+Extracted 0 URLs from sitemap
+Parsing sitemap XML content (162 bytes)
+Skipping invalid URL from sitemap: not-a-url
+Extracted 1 URLs from sitemap
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------
+SitemapServiceTest: test_comprehensive_error_recovery
+-----------------------------------------------------
+Attempting to fetch sitemap from: https://example.com/sitemap.xml
+Sitemap fetch timed out: https://example.com/sitemap.xml - Test timeout
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------
+SitemapServiceTest: test_filter_urls_for_mode_handles_unknown_scrape_modes
+--------------------------------------------------------------------------
+Filtering 1 URLs for job mode: unknown_mode
+Unknown scrape mode: unknown_mode
+Filtered and prioritized to 0 URLs (limit: 25)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_returns_empty_array_for_non-XML_content
+------------------------------------------------------------------------------
+Parsing sitemap XML content (33 bytes)
+Extracted 0 URLs from sitemap
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_detects_sitemap_index_files
+------------------------------------------------------------------
+Parsing sitemap XML content (268 bytes)
+Detected sitemap index file, processing child sitemaps
+Found 2 sitemap references in index
+Processing sitemap 1/2: https://example.com/sitemap1.xml
+Parsing sitemap XML content (210 bytes)
+Extracted 2 URLs from sitemap
+Added 2 URLs from https://example.com/sitemap1.xml
+Processing sitemap 2/2: https://example.com/sitemap2.xml
+Parsing sitemap XML content (210 bytes)
+Extracted 2 URLs from sitemap
+Added 2 URLs from https://example.com/sitemap2.xml
+Combined 4 total URLs from sitemap index
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------
+SitemapServiceTest: test_extract_category_extracts_meaningful_categories
+------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_handles_malformed_XML_gracefully
+-----------------------------------------------------------------------
+Parsing sitemap XML content (43 bytes)
+XML parsing warnings: 1:44: FATAL: Premature end of data in tag url line 1
+Extracted 1 URLs from sitemap
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------
+SitemapServiceTest: test_utility_page?_detects_common_utility_pages
+-------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------
+SitemapServiceTest: test_prioritization_is_integrated_into_filter_urls_for_mode
+-------------------------------------------------------------------------------
+Filtering 4 URLs for job mode: entire_website
+Filtering 4 URLs for same domain: https://example.com
+Domain filtering result: 4 URLs
+Prioritizing 4 URLs based on importance scoring
+Utility page penalty applied to https://example.com/privacy-policy
+Similarity bonus applied to https://example.com/products/shoes/nike
+Similarity bonus applied to https://example.com/products/deep/nested/very/deep/item
+URL prioritization complete. Top 5 scores: https://example.com/products/shoes/nike (110), https://example.com/blog/random (90), https://example.com/products/deep/nested/very/deep/item (80), https://example.com/privacy-policy (50)
+Filtered and prioritized to 4 URLs (limit: 50)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------
+SitemapServiceTest: test_fetch_sitemap_checks_visited_sitemaps_correctly
+------------------------------------------------------------------------
+Attempting to fetch sitemap from: https://example.com/sitemap.xml
+Sitemap not found (HTTP 404): https://example.com/sitemap.xml
+Attempting to fetch sitemap from: https://example.com/sitemap.xml
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------
+SitemapServiceTest: test_streaming_parser_fallback_behavior
+-----------------------------------------------------------
+Parsing sitemap XML content (1268999 bytes)
+Using streaming parser for large sitemap (1268999 bytes)
+Parsing sitemap using streaming XML parser
+Streaming parser progress: 5000 URLs processed
+Streaming parser progress: 5000 URLs processed
+Streaming parser progress: 5000 URLs processed
+Streaming parser progress: 5000 URLs processed
+Streaming parser progress: 5000 URLs processed
+Streaming parser progress: 5000 URLs processed
+Streaming parser progress: 10000 URLs processed
+Streaming parser progress: 10000 URLs processed
+Streaming parser progress: 10000 URLs processed
+Streaming parser progress: 10000 URLs processed
+Streaming parser progress: 10000 URLs processed
+Streaming parser progress: 10000 URLs processed
+Streaming parser extracted 10000 URLs from sitemap
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_index_extracts_sitemap_URLs_correctly
+----------------------------------------------------------------------------
+Skipping invalid sitemap URL from index: invalid-sitemap-url
+Found 2 sitemap references in index
+Processing sitemap 1/2: https://example.com/sitemap1.xml
+Processing sitemap 2/2: https://example.com/sitemap2.xml
+Combined 0 total URLs from sitemap index
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------------
+SitemapServiceTest: test_path_similarity_bonus?_correctly_identifies_similar_paths
+----------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------
+SitemapServiceTest: test_end_to_end_entire_website_mode_integration
+-------------------------------------------------------------------
+Filtering 5 URLs for job mode: entire_website
+Filtering 5 URLs for same domain: https://example.com
+Domain filtering result: 4 URLs
+Prioritizing 4 URLs based on importance scoring
+Utility page penalty applied to https://example.com/privacy-policy
+URL prioritization complete. Top 5 scores: https://example.com/ (120), https://example.com/products (100), https://example.com/deep/nested/path (80), https://example.com/privacy-policy (50)
+Filtered and prioritized to 4 URLs (limit: 50)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------
+SitemapServiceTest: test_error_handling_network_failures
+--------------------------------------------------------
+Fetching sitemap for domain: https://this-domain-does-not-exist-12345.com (memory: 58.140525817871094MB)
+Attempting to fetch sitemap from: https://this-domain-does-not-exist-12345.com/sitemap.xml
+Sitemap not found (HTTP 404): https://this-domain-does-not-exist-12345.com/sitemap.xml
+Fetching sitemap for domain: https://httpbin.org (memory: 58.142662048339844MB)
+Attempting to fetch sitemap from: https://httpbin.org/sitemap.xml
+Sitemap not found (HTTP 404): https://httpbin.org/sitemap.xml
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------
+SitemapServiceTest: test_valid_url?_validates_URLs_correctly
+------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------
+SitemapServiceTest: test_filter_subpath_urls_filters_correctly
+--------------------------------------------------------------
+Filtering 5 URLs for subpath: https://example.com/products/shoes
+Subpath filtering result: 2 URLs
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m

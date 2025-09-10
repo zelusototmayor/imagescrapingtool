@@ -35319,3 +35319,1676 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 68ms (Views: 6.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
 
 
+Started GET "/" for ::1 at 2025-09-10 13:07:49 +0100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 5.6ms | GC: 0.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | GC: 0.6ms)
+Completed 200 OK in 48ms (Views: 16.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.6ms)
+
+
+Fetching sitemap for domain: https://www.torontocupcake.com (memory: 23.92070770263672MB)
+Attempting to fetch sitemap from: https://www.torontocupcake.com/sitemap.xml
+Successfully fetched sitemap: https://www.torontocupcake.com/sitemap.xml (2778 bytes)
+Parsing sitemap XML content (2778 bytes)
+Extracted 18 URLs from sitemap
+Sitemap processing complete: 18 URLs, memory used: 0.09MB (23.92MB → 24.01MB)
+Filtering 18 URLs for job mode: subpath_only
+Filtering 18 URLs for subpath: https://www.torontocupcake.com/products
+Subpath filtering result: 0 URLs
+Filtered and prioritized to 0 URLs (limit: 25)
+Filtering 18 URLs for job mode: entire_website
+Filtering 18 URLs for same domain: https://www.torontocupcake.com
+Domain filtering result: 18 URLs
+Prioritizing 18 URLs based on importance scoring
+Utility page penalty applied to https://www.torontocupcake.com/contact.html
+URL prioritization complete. Top 5 scores: https://www.torontocupcake.com/ (120), https://www.torontocupcake.com/HolidaySpecial.html (100), https://www.torontocupcake.com/MothersDaySpecial.html (100), https://www.torontocupcake.com/ValentinesDaySpecial.html (100), https://www.torontocupcake.com/IWD.html (100)
+Filtered and prioritized to 18 URLs (limit: 50)
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-09-10 13:07:58 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  [1m[36mJob Create (1.7ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at", "scrape_mode") VALUES ('a58c82ef-9e59-4b4c-b89e-ece885d5e087', 'https://www.torontocupcake.com/', 1, 0, 0, NULL, 0, 0, 1, '/Users/zelu/Desktop/code/imagesweep/storage/imagesweep/a58c82ef-9e59-4b4c-b89e-ece885d5e087', '2025-09-10 12:08:06.965656', '2025-09-10 12:08:06.965656', 2) RETURNING "id" /*application='Imagesweep'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+Fetching sitemap for domain: https://www.torontocupcake.com (memory: 24.905433654785156MB)
+Attempting to fetch sitemap from: https://www.torontocupcake.com/sitemap.xml
+Successfully fetched sitemap: https://www.torontocupcake.com/sitemap.xml (2778 bytes)
+Parsing sitemap XML content (2778 bytes)
+Extracted 18 URLs from sitemap
+Sitemap processing complete: 18 URLs, memory used: 0.09MB (24.91MB → 25.0MB)
+Filtering 18 URLs for job mode: entire_website
+Filtering 18 URLs for same domain: https://www.torontocupcake.com
+Domain filtering result: 18 URLs
+Prioritizing 18 URLs based on importance scoring
+Utility page penalty applied to https://www.torontocupcake.com/contact.html
+URL prioritization complete. Top 5 scores: https://www.torontocupcake.com/ (120), https://www.torontocupcake.com/HolidaySpecial.html (100), https://www.torontocupcake.com/MothersDaySpecial.html (100), https://www.torontocupcake.com/ValentinesDaySpecial.html (100), https://www.torontocupcake.com/IWD.html (100)
+Filtered and prioritized to 18 URLs (limit: 50)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  [1m[36mJob Destroy (2.0ms)[0m  [1m[31mDELETE FROM "jobs" WHERE "jobs"."id" = 18 /*application='Imagesweep'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  [1m[36mJob Create (1.1ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at", "scrape_mode") VALUES ('b265b50e-eea4-4746-b831-4b0de3f29306', 'https://www.torontocupcake.com/cupcakes.html', 1, 0, 0, NULL, 0, 0, 1, '/Users/zelu/Desktop/code/imagesweep/storage/imagesweep/b265b50e-eea4-4746-b831-4b0de3f29306', '2025-09-10 12:08:19.739746', '2025-09-10 12:08:19.739746', 1) RETURNING "id" /*application='Imagesweep'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+Fetching sitemap for domain: https://www.torontocupcake.com (memory: 24.90367889404297MB)
+Attempting to fetch sitemap from: https://www.torontocupcake.com/sitemap.xml
+Successfully fetched sitemap: https://www.torontocupcake.com/sitemap.xml (2778 bytes)
+Parsing sitemap XML content (2778 bytes)
+Extracted 18 URLs from sitemap
+Sitemap processing complete: 18 URLs, memory used: 0.09MB (24.9MB → 25.0MB)
+Filtering 18 URLs for job mode: subpath_only
+Filtering 18 URLs for subpath: https://www.torontocupcake.com/cupcakes.html
+Subpath filtering result: 1 URLs
+Prioritizing 1 URLs based on importance scoring
+Similarity bonus applied to https://www.torontocupcake.com/cupcakes.html
+URL prioritization complete. Top 5 scores: https://www.torontocupcake.com/cupcakes.html (130)
+Filtered and prioritized to 1 URLs (limit: 25)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  [1m[36mJob Update (0.1ms)[0m  [1m[33mUPDATE "jobs" SET "updated_at" = '2025-09-10 12:08:20.281141', "scrape_mode" = 2 WHERE "jobs"."id" = 19 /*application='Imagesweep'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+Fetching sitemap for domain: https://www.torontocupcake.com (memory: 25.20263671875MB)
+Attempting to fetch sitemap from: https://www.torontocupcake.com/sitemap.xml
+Successfully fetched sitemap: https://www.torontocupcake.com/sitemap.xml (2778 bytes)
+Parsing sitemap XML content (2778 bytes)
+Extracted 18 URLs from sitemap
+Sitemap processing complete: 18 URLs, memory used: 0.05MB (25.2MB → 25.25MB)
+Filtering 18 URLs for job mode: entire_website
+Filtering 18 URLs for same domain: https://www.torontocupcake.com
+Domain filtering result: 18 URLs
+Prioritizing 18 URLs based on importance scoring
+Similarity bonus applied to https://www.torontocupcake.com/cupcakes.html
+Utility page penalty applied to https://www.torontocupcake.com/contact.html
+URL prioritization complete. Top 5 scores: https://www.torontocupcake.com/cupcakes.html (130), https://www.torontocupcake.com/ (120), https://www.torontocupcake.com/HolidaySpecial.html (100), https://www.torontocupcake.com/MothersDaySpecial.html (100), https://www.torontocupcake.com/ValentinesDaySpecial.html (100)
+Filtered and prioritized to 18 URLs (limit: 50)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  [1m[36mJob Destroy (1.6ms)[0m  [1m[31mDELETE FROM "jobs" WHERE "jobs"."id" = 19 /*application='Imagesweep'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+Fetching sitemap for domain: https://httpbin.org (memory: 23.918418884277344MB)
+Attempting to fetch sitemap from: https://httpbin.org/sitemap.xml
+Started POST "/jobs" for ::1 at 2025-09-10 13:08:44 +0100
+Processing by JobsController#create as */*
+  Parameters: {"job"=>{"url"=>"https://www.torontocupcake.com/cupcakes.html", "render_js"=>true, "scrape_mode"=>"subpath_only"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:9:in `create'
+  [1m[36mJob Create (5.1ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at", "scrape_mode") VALUES ('1b1493c5-08b7-46c2-9649-0c154aca0186', 'https://www.torontocupcake.com/cupcakes.html', 1, 0, 0, NULL, 0, 0, 1, '/Users/zelu/Desktop/code/imagesweep/storage/imagesweep/1b1493c5-08b7-46c2-9649-0c154aca0186', '2025-09-10 12:08:44.306051', '2025-09-10 12:08:44.306051', 1) RETURNING "id" /*action='create',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:9:in `create'
+Completed 201 Created in 65ms (Views: 0.3ms | ActiveRecord: 5.5ms (1 query, 0 cached) | GC: 8.9ms)
+
+
+  [1m[36mJob Load (3.0ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*application='Imagesweep'*/[0m
+  ↳ app/jobs/scrape_job.rb:6:in `perform'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/jobs/scrape_job.rb:7:in `perform'
+  [1m[36mJob Update (2.9ms)[0m  [1m[33mUPDATE "jobs" SET "status" = 1, "updated_at" = '2025-09-10 12:08:44.859558' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/jobs/scrape_job.rb:7:in `perform'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/jobs/scrape_job.rb:7:in `perform'
+Starting scrape job for 1b1493c5-08b7-46c2-9649-0c154aca0186 - URL: https://www.torontocupcake.com/cupcakes.html
+Checking robots.txt for https://www.torontocupcake.com/cupcakes.html
+Loading robots.txt from https://www.torontocupcake.com/robots.txt
+Successfully loaded robots.txt from https://www.torontocupcake.com/robots.txt
+Could not load robots.txt from https://www.torontocupcake.com/robots.txt: undefined method `parse' for an instance of Robotex
+Robots.txt check passed for https://www.torontocupcake.com/cupcakes.html
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/jobs/scrape_job.rb:51:in `execute_scrape'
+  [1m[36mJob Update (1.8ms)[0m  [1m[33mUPDATE "jobs" SET "progress" = 10, "message" = 'Starting to crawl pages...', "updated_at" = '2025-09-10 12:08:45.381189' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/jobs/scrape_job.rb:51:in `execute_scrape'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/jobs/scrape_job.rb:51:in `execute_scrape'
+Updated progress to 10% for job 1b1493c5-08b7-46c2-9649-0c154aca0186
+Creating ImageScraper for job 1b1493c5-08b7-46c2-9649-0c154aca0186
+Starting scrape process for job 1b1493c5-08b7-46c2-9649-0c154aca0186
+Fetching sitemap for domain: https://www.torontocupcake.com (memory: 462.00672149658203MB)
+Attempting to fetch sitemap from: https://www.torontocupcake.com/sitemap.xml
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:08:45 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+Successfully fetched sitemap: https://www.torontocupcake.com/sitemap.xml (2778 bytes)
+Parsing sitemap XML content (2778 bytes)
+Extracted 18 URLs from sitemap
+Sitemap processing complete: 18 URLs, memory used: 0.09MB (462.01MB → 462.09MB)
+Filtering 18 URLs for job mode: subpath_only
+Filtering 18 URLs for subpath: https://www.torontocupcake.com/cupcakes.html
+Subpath filtering result: 1 URLs
+Prioritizing 1 URLs based on importance scoring
+Similarity bonus applied to https://www.torontocupcake.com/cupcakes.html
+URL prioritization complete. Top 5 scores: https://www.torontocupcake.com/cupcakes.html (130)
+Filtered and prioritized to 1 URLs (limit: 25)
+Using sitemap URLs: 1 pages found
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:52:in `scrape_with_subpath_restriction'
+  [1m[36mJob Update (0.7ms)[0m  [1m[33mUPDATE "jobs" SET "progress" = 5, "message" = 'Found 1 pages in sitemap', "updated_at" = '2025-09-10 12:08:45.887487' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:52:in `scrape_with_subpath_restriction'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:52:in `scrape_with_subpath_restriction'
+Scraping page: https://www.torontocupcake.com/cupcakes.html
+Starting Playwright scraping for https://www.torontocupcake.com/cupcakes.html
+Creating Playwright instance...
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 36ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Sitemap not found (HTTP 404): https://httpbin.org/sitemap.xml
+Utility page penalty applied to https://www.torontocupcake.com/privacy-policy
+Playwright instance created, launching Chromium...
+Error in scrape_with_playwright: NoMethodError: undefined method `chromium' for an instance of Playwright::Execution
+Backtrace: /Users/zelu/Desktop/code/imagesweep/app/services/image_scraper.rb:178:in `block in scrape_with_playwright'\n/Users/zelu/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/timeout-0.4.3/lib/timeout.rb:185:in `block in timeout'\n/Users/zelu/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/timeout-0.4.3/lib/timeout.rb:38:in `handle_timeout'\n/Users/zelu/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/timeout-0.4.3/lib/timeout.rb:194:in `timeout'\n/Users/zelu/Desktop/code/imagesweep/app/services/image_scraper.rb:170:in `scrape_with_playwright'
+Cleaned up orphaned browser processes
+Page closed for https://www.torontocupcake.com/cupcakes.html
+Browser closed for https://www.torontocupcake.com/cupcakes.html
+Playwright stopped for https://www.torontocupcake.com/cupcakes.html
+Cleaned up orphaned browser processes
+Playwright failed for https://www.torontocupcake.com/cupcakes.html: undefined method `chromium' for an instance of Playwright::Execution. Attempting HTTP fallback...
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:08:47 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 32ms (Views: 0.2ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 2.1ms)
+
+
+Downloading image 1: https://www.torontocupcake.com/images/transparent-TO-logo.png
+HEAD check passed for https://www.torontocupcake.com/images/transparent-TO-logo.png, content-type: image/png
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:08:48 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 34ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 1.0ms)
+
+
+Successfully downloaded https://www.torontocupcake.com/images/transparent-TO-logo.png, size: 8001 bytes
+✓ Successfully downloaded hero/001_toronto-cupcake-logo.png (144x144) - Total: 1 images
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.6ms)[0m  [1m[33mUPDATE "jobs" SET "progress" = 35, "message" = 'Downloaded 1 images...', "updated_at" = '2025-09-10 12:08:48.932443' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 35%
+Downloading image 2: https://www.torontocupcake.com/images/cupcakes_flavours/assorteddozen.webp
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/assorteddozen.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/assorteddozen.webp, size: 24318 bytes
+✓ Successfully downloaded hero/002_toronto-cupcakes-assorted-dozen-cupcakes.webp (384x296) - Total: 2 images
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.1ms)[0m  [1m[33mUPDATE "jobs" SET "progress" = 50, "message" = 'Downloaded 2 images...', "updated_at" = '2025-09-10 12:08:50.065122' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 50%
+Downloading image 3: https://www.torontocupcake.com/images/cupcakes_flavours/chocolatepeanutbutter.webp
+Updated progress to 50% (2 images downloaded)
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:08:50 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 32ms (Views: 0.1ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolatepeanutbutter.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/chocolatepeanutbutter.webp, size: 26616 bytes
+✓ Successfully downloaded hero/003_toronto-cupcakes-chocolate-peanut-butter-cupcake-wi.webp (600x819) - Total: 3 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.8ms)[0m  [1m[33mUPDATE "jobs" SET "progress" = 65, "message" = 'Downloaded 3 images...', "updated_at" = '2025-09-10 12:08:51.192509' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 65%
+Downloading image 4: https://www.torontocupcake.com/images/cupcakes_flavours/chocolatepeanutbuttertop.webp
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolatepeanutbuttertop.webp, content-type: image/webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:08:51 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 33ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.5ms)
+
+
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/chocolatepeanutbuttertop.webp, size: 18518 bytes
+✓ Successfully downloaded hero/004_top-view-of-chocolate-peanut-butter-cupcake.webp (600x621) - Total: 4 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.5ms)[0m  [1m[33mUPDATE "jobs" SET "progress" = 80, "message" = 'Downloaded 4 images...', "updated_at" = '2025-09-10 12:08:52.324947' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 80%
+Downloading image 5: https://www.torontocupcake.com/images/cupcakes_flavours/chocolatehazelnut.webp
+Updated progress to 80% (4 images downloaded)
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolatehazelnut.webp, content-type: image/webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:08:53 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 34ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.8ms)
+
+
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/chocolatehazelnut.webp, size: 22716 bytes
+✓ Successfully downloaded hero/005_toronto-cupcakes-chocolate-hazelnut-cupcake-topped-.webp (600x750) - Total: 5 images
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (0.8ms)[0m  [1m[33mUPDATE "jobs" SET "progress" = 85, "message" = 'Downloaded 5 images...', "updated_at" = '2025-09-10 12:08:53.445126' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 6: https://www.torontocupcake.com/images/cupcakes_flavours/chocolatehazelnuttop.webp
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolatehazelnuttop.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/chocolatehazelnuttop.webp, size: 38850 bytes
+✓ Successfully downloaded hero/006_top-view-of-chocolate-hazelnut-cupcake.webp (600x582) - Total: 6 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.9ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 6 images...', "updated_at" = '2025-09-10 12:08:54.710848' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 7: https://www.torontocupcake.com/images/cupcakes_flavours/vanillacoconut.webp
+Updated progress to 85% (6 images downloaded)
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:08:54 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 34ms (Views: 0.1ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/vanillacoconut.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/vanillacoconut.webp, size: 18082 bytes
+✓ Successfully downloaded hero/007_toronto-cupcakes-vanilla-coconut-cupcake-with-vanil.webp (600x750) - Total: 7 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.8ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 7 images...', "updated_at" = '2025-09-10 12:08:55.889786' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 8: https://www.torontocupcake.com/images/cupcakes_flavours/vanillacoconuttop.webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:08:56 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/vanillacoconuttop.webp, content-type: image/webp
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 29ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/vanillacoconuttop.webp, size: 18400 bytes
+✓ Successfully downloaded hero/008_top-view-of-vanilla-coconut-cupcake.webp (600x614) - Total: 8 images
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.4ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 8 images...', "updated_at" = '2025-09-10 12:08:57.005626' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 9: https://www.torontocupcake.com/images/cupcakes_flavours/chocolatecoconut.webp
+Updated progress to 85% (8 images downloaded)
+Filtering 1000 URLs for same domain: https://www.torontocupcake.com
+Domain filtering result: 1000 URLs
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolatecoconut.webp, content-type: image/webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:08:57 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 34ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/chocolatecoconut.webp, size: 19108 bytes
+✓ Successfully downloaded hero/009_toronto-cupcakes-chocolate-coconut-cupcake-with-van.webp (600x750) - Total: 9 images
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.1ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 9 images...', "updated_at" = '2025-09-10 12:08:58.136447' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 10: https://www.torontocupcake.com/images/cupcakes_flavours/chocolatecoconuttop.webp
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolatecoconuttop.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/chocolatecoconuttop.webp, size: 19586 bytes
+✓ Successfully downloaded hero/010_top-view-of-chocolate-coconut-cupcake.webp (602x600) - Total: 10 images
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.5ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 10 images...', "updated_at" = '2025-09-10 12:08:59.252175' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 11: https://www.torontocupcake.com/images/cupcakes_flavours/chocolatechocolate.webp
+Updated progress to 85% (10 images downloaded)
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:08:59 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 34ms (Views: 0.1ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolatechocolate.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/chocolatechocolate.webp, size: 35000 bytes
+✓ Successfully downloaded hero/011_toronto-cupcakes-chocolate-chocolate-cupcake-with-c.webp (600x759) - Total: 11 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.9ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 11 images...', "updated_at" = '2025-09-10 12:09:00.383311' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 12: https://www.torontocupcake.com/images/cupcakes_flavours/chocolatechocolatetop.webp
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolatechocolatetop.webp, content-type: image/webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:01 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 30ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/chocolatechocolatetop.webp, size: 23990 bytes
+✓ Successfully downloaded hero/012_top-view-of-chocolate-chocolate-cupcake.webp (600x579) - Total: 12 images
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (3.7ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 12 images...', "updated_at" = '2025-09-10 12:09:01.518686' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 13: https://www.torontocupcake.com/images/cupcakes_flavours/chocolatevanilla.webp
+Updated progress to 85% (12 images downloaded)
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolatevanilla.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/chocolatevanilla.webp, size: 25644 bytes
+✓ Successfully downloaded hero/013_toronto-cupcakes-chocolate-vanilla-cupcake-with-van.webp (600x750) - Total: 13 images
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.7ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 13 images...', "updated_at" = '2025-09-10 12:09:02.645697' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 14: https://www.torontocupcake.com/images/cupcakes_flavours/chocolatevanillatop.webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:03 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (1.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 34ms (Views: 0.1ms | ActiveRecord: 1.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolatevanillatop.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/chocolatevanillatop.webp, size: 20256 bytes
+✓ Successfully downloaded hero/014_top-view-of-chocolate-vanilla-cupcake.webp (600x600) - Total: 14 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (2.0ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 14 images...', "updated_at" = '2025-09-10 12:09:03.760807' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 15: https://www.torontocupcake.com/images/cupcakes_flavours/redvelvet.webp
+Updated progress to 85% (14 images downloaded)
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:04 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 31ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/redvelvet.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/redvelvet.webp, size: 22830 bytes
+✓ Successfully downloaded hero/015_toronto-cupcakes-red-velvet-cupcake-with-vanilla-cr.webp (600x690) - Total: 15 images
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.3ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 15 images...', "updated_at" = '2025-09-10 12:09:04.897533' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 16: https://www.torontocupcake.com/images/cupcakes_flavours/redvelvettop.webp
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/redvelvettop.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/redvelvettop.webp, size: 19244 bytes
+✓ Successfully downloaded hero/016_top-view-of-red-velvet-cupcake.webp (600x613) - Total: 16 images
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (2.2ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 16 images...', "updated_at" = '2025-09-10 12:09:06.019071' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 17: https://www.torontocupcake.com/images/cupcakes_flavours/vanillavanilla.webp
+Updated progress to 85% (16 images downloaded)
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:06 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 32ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.8ms)
+
+
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/vanillavanilla.webp, content-type: image/webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:06 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 33ms (Views: 0.2ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 1.0ms)
+
+
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/vanillavanilla.webp, size: 15444 bytes
+✓ Successfully downloaded hero/017_toronto-cupcakes-vanilla-vanilla-cupcake-with-vanil.webp (600x750) - Total: 17 images
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.3ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 17 images...', "updated_at" = '2025-09-10 12:09:07.167444' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 18: https://www.torontocupcake.com/images/cupcakes_flavours/vanillavanillatop.webp
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/vanillavanillatop.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/vanillavanillatop.webp, size: 13256 bytes
+✓ Successfully downloaded hero/018_top-view-of-vanilla-vanilla-cupcake.webp (600x600) - Total: 18 images
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (8.4ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 18 images...', "updated_at" = '2025-09-10 12:09:08.324419' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 19: https://www.torontocupcake.com/images/cupcakes_flavours/vanillachocolate.webp
+Updated progress to 85% (18 images downloaded)
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:08 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.7ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 76ms (Views: 0.3ms | ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/vanillachocolate.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/vanillachocolate.webp, size: 23334 bytes
+✓ Successfully downloaded hero/019_toronto-cupcakes-vanilla-chocolate-cupcake-with-cho.webp (600x750) - Total: 19 images
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (3.7ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 19 images...', "updated_at" = '2025-09-10 12:09:09.481480' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 20: https://www.torontocupcake.com/images/cupcakes_flavours/vanillachocolatetop.webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:09 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 31ms (Views: 0.1ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/vanillachocolatetop.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/vanillachocolatetop.webp, size: 20408 bytes
+✓ Successfully downloaded hero/020_top-view-of-vanilla-chocolate-cupcake.webp (600x599) - Total: 20 images
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (4.4ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 20 images...', "updated_at" = '2025-09-10 12:09:10.602068' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 21: https://www.torontocupcake.com/images/cupcakes_flavours/vanillachocolateganache.webp
+Updated progress to 85% (20 images downloaded)
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/vanillachocolateganache.webp, content-type: image/webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:11 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 33ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/vanillachocolateganache.webp, size: 18622 bytes
+✓ Successfully downloaded hero/021_toronto-cupcakes-vanilla-chocolate-ganache-cupcake-.webp (600x750) - Total: 21 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (2.1ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 21 images...', "updated_at" = '2025-09-10 12:09:11.728774' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 22: https://www.torontocupcake.com/images/cupcakes_flavours/vanillachocolateganachetop.webp
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/vanillachocolateganachetop.webp, content-type: image/webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:12 +0100
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/vanillachocolateganachetop.webp, size: 17356 bytes
+✓ Successfully downloaded hero/022_top-view-of-vanilla-chocolate-ganache-cupcake.webp (600x600) - Total: 22 images
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.3ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 22 images...', "updated_at" = '2025-09-10 12:09:12.857191' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+Processing by JobsController#show as */*
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 23: https://www.torontocupcake.com/images/cupcakes_flavours/chocolatecarmel.webp
+Updated progress to 85% (22 images downloaded)
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 34ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolatecarmel.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/chocolatecarmel.webp, size: 24204 bytes
+✓ Successfully downloaded hero/023_toronto-cupcakes-chocolate-caramel-cupcake-with-dul.webp (600x750) - Total: 23 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (2.0ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 23 images...', "updated_at" = '2025-09-10 12:09:13.985901' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 24: https://www.torontocupcake.com/images/cupcakes_flavours/chocolatecarmeltop.webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:14 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 33ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolatecarmeltop.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/chocolatecarmeltop.webp, size: 17840 bytes
+✓ Successfully downloaded hero/024_top-view-of-chocolate-caramel-cupcake.webp (600x600) - Total: 24 images
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (2.0ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 24 images...', "updated_at" = '2025-09-10 12:09:15.143120' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 25: https://www.torontocupcake.com/images/cupcakes_flavours/vanillacarmel.webp
+Updated progress to 85% (24 images downloaded)
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/vanillacarmel.webp, content-type: image/webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:15 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 43ms (Views: 0.2ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/vanillacarmel.webp, size: 19020 bytes
+✓ Successfully downloaded hero/025_toronto-cupcakes-vanilla-caramel-cupcake-with-dulce.webp (600x750) - Total: 25 images
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (6.1ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 25 images...', "updated_at" = '2025-09-10 12:09:16.262720' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 26: https://www.torontocupcake.com/images/cupcakes_flavours/vanillacarmeltop.webp
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/vanillacarmeltop.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/vanillacarmeltop.webp, size: 12266 bytes
+✓ Successfully downloaded hero/026_top-view-of-vanilla-caramel-cupcake.webp (600x600) - Total: 26 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (2.0ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 26 images...', "updated_at" = '2025-09-10 12:09:17.414984' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 27: https://www.torontocupcake.com/images/cupcakes_flavours/chocolatecarmel2.webp
+Updated progress to 85% (26 images downloaded)
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolatecarmel2.webp, content-type: image/webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:18 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 28ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/chocolatecarmel2.webp, size: 31176 bytes
+✓ Successfully downloaded hero/027_toronto-cupcakes-chocolate-caramel-ii-cupcake-with-.webp (600x750) - Total: 27 images
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (6.4ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 27 images...', "updated_at" = '2025-09-10 12:09:18.549209' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 28: https://www.torontocupcake.com/images/cupcakes_flavours/chocolatecarmel2top.webp
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolatecarmel2top.webp, content-type: image/webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:19 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 29ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/chocolatecarmel2top.webp, size: 23896 bytes
+✓ Successfully downloaded hero/028_top-view-of-chocolate-caramel-ii-cupcake.webp (599x600) - Total: 28 images
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (2.0ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 28 images...', "updated_at" = '2025-09-10 12:09:19.687034' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 29: https://www.torontocupcake.com/images/cupcakes_flavours/lemon.webp
+Updated progress to 85% (28 images downloaded)
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/lemon.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/lemon.webp, size: 22486 bytes
+✓ Successfully downloaded hero/029_toronto-cupcakes-lemon-cupcake-with-lemon-custard-a.webp (600x638) - Total: 29 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.8ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 29 images...', "updated_at" = '2025-09-10 12:09:20.818089' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 30: https://www.torontocupcake.com/images/cupcakes_flavours/lemontop.webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:21 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 32ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/lemontop.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/lemontop.webp, size: 19706 bytes
+✓ Successfully downloaded hero/030_top-view-of-lemon-cupcake.webp (600x594) - Total: 30 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (2.0ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 30 images...', "updated_at" = '2025-09-10 12:09:21.930999' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 31: https://www.torontocupcake.com/images/cupcakes_flavours/chocolatetoffee.webp
+Updated progress to 85% (30 images downloaded)
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:22 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 35ms (Views: 0.1ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.9ms)
+
+
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolatetoffee.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/chocolatetoffee.webp, size: 21944 bytes
+✓ Successfully downloaded hero/031_toronto-cupcakes-chocolate-toffee-cupcake-with-engl.webp (600x750) - Total: 31 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (2.8ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 31 images...', "updated_at" = '2025-09-10 12:09:23.071378' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 32: https://www.torontocupcake.com/images/cupcakes_flavours/chocolatetoffeetop.webp
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolatetoffeetop.webp, content-type: image/webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:24 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 34ms (Views: 0.1ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 1.2ms)
+
+
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/chocolatetoffeetop.webp, size: 22266 bytes
+✓ Successfully downloaded hero/032_top-view-of-chocolate-toffee-cupcake.webp (600x600) - Total: 32 images
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.0ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 32 images...', "updated_at" = '2025-09-10 12:09:24.205005' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 33: https://www.torontocupcake.com/images/cupcakes_flavours/chocolateoreo.webp
+Updated progress to 85% (32 images downloaded)
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolateoreo.webp, content-type: image/webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:25 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 33ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/chocolateoreo.webp, size: 20692 bytes
+✓ Successfully downloaded hero/033_toronto-cupcakes-chocolate-oreo-cupcake-with-oreova.webp (542x750) - Total: 33 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.7ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 33 images...', "updated_at" = '2025-09-10 12:09:25.342382' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 34: https://www.torontocupcake.com/images/cupcakes_flavours/chocolateoreotop.webp
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolateoreotop.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/chocolateoreotop.webp, size: 24210 bytes
+✓ Successfully downloaded hero/034_top-view-of-chocolate-oreo-cupcake.webp (600x600) - Total: 34 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.9ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 34 images...', "updated_at" = '2025-09-10 12:09:26.460965' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 35: https://www.torontocupcake.com/images/cupcakes_flavours/hummingbird.webp
+Updated progress to 85% (34 images downloaded)
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/hummingbird.webp, content-type: image/webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:27 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 35ms (Views: 0.1ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 1.6ms)
+
+
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/hummingbird.webp, size: 20290 bytes
+✓ Successfully downloaded hero/035_toronto-cupcakes-humming-bird-cupcake-with-cream-ch.webp (600x750) - Total: 35 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (2.2ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 35 images...', "updated_at" = '2025-09-10 12:09:27.589157' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 36: https://www.torontocupcake.com/images/cupcakes_flavours/hummingbirdtop.webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:28 +0100
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/hummingbirdtop.webp, content-type: image/webp
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 32ms (Views: 0.1ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/hummingbirdtop.webp, size: 21014 bytes
+✓ Successfully downloaded hero/036_top-view-of-humming-bird-cupcake.webp (600x600) - Total: 36 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (2.0ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 36 images...', "updated_at" = '2025-09-10 12:09:28.726079' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 37: https://www.torontocupcake.com/images/cupcakes_flavours/chocolatevanillachocolateganache.webp
+Updated progress to 85% (36 images downloaded)
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolatevanillachocolateganache.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/chocolatevanillachocolateganache.webp, size: 62108 bytes
+✓ Successfully downloaded hero/037_toronto-cupcakes-chocolate-vanilla-chocolate-ganach.webp (600x751) - Total: 37 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (2.3ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 37 images...', "updated_at" = '2025-09-10 12:09:30.018223' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 38: https://www.torontocupcake.com/images/cupcakes_flavours/chocolatevanillachocolateganachetop.webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:30 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 30ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolatevanillachocolateganachetop.webp, content-type: image/webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:31 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 33ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/chocolatevanillachocolateganachetop.webp, size: 46142 bytes
+✓ Successfully downloaded hero/038_top-view-of-chocolate-vanilla-chocolate-ganache-cup.webp (600x600) - Total: 38 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.8ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 38 images...', "updated_at" = '2025-09-10 12:09:31.307978' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 39: https://www.torontocupcake.com/images/cupcakes_flavours/redvelvetfudge.webp
+Updated progress to 85% (38 images downloaded)
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/redvelvetfudge.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/redvelvetfudge.webp, size: 68358 bytes
+✓ Successfully downloaded hero/039_toronto-cupcakes-red-velvet-fudge-cupcake-with-choc.webp (601x750) - Total: 39 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.7ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 39 images...', "updated_at" = '2025-09-10 12:09:32.592625' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 40: https://www.torontocupcake.com/images/cupcakes_flavours/redvelvetfudgetop.webp
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/redvelvetfudgetop.webp, content-type: image/webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:33 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 31ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/redvelvetfudgetop.webp, size: 57136 bytes
+✓ Successfully downloaded hero/040_top-view-of-red-velvet-fudge-cupcake.webp (600x600) - Total: 40 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.9ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 40 images...', "updated_at" = '2025-09-10 12:09:33.895699' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 41: https://www.torontocupcake.com/images/cupcakes_flavours/chocolatechocolateganache.webp
+Updated progress to 85% (40 images downloaded)
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:34 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.9ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 30ms (Views: 0.1ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolatechocolateganache.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/chocolatechocolateganache.webp, size: 30632 bytes
+✓ Successfully downloaded hero/041_toronto-cupcakes-chocolate-chocolate-ganache-cupcak.webp (600x750) - Total: 41 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.8ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 41 images...', "updated_at" = '2025-09-10 12:09:35.019866' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 42: https://www.torontocupcake.com/images/cupcakes_flavours/chocolatechocolateganachetop.webp
+HEAD request failed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolatechocolateganachetop.webp, proceeding with GET
+Downloading image 42: https://www.torontocupcake.com/images/cupcakes_flavours/hotfudgesundae.webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:36 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 33ms (Views: 0.1ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/hotfudgesundae.webp, content-type: image/webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:37 +0100
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/hotfudgesundae.webp, size: 34418 bytes
+✓ Successfully downloaded hero/042_toronto-cupcakes-hot-fudge-sundae-cupcake-with-vani.webp (600x825) - Total: 42 images
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.1ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 42 images...', "updated_at" = '2025-09-10 12:09:37.094383' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 43: https://www.torontocupcake.com/images/cupcakes_flavours/hotfudgesundaetop.webp
+Updated progress to 85% (42 images downloaded)
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 33ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/hotfudgesundaetop.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/hotfudgesundaetop.webp, size: 23320 bytes
+✓ Successfully downloaded hero/043_top-view-of-hot-fudge-sundae-cupcake.webp (600x601) - Total: 43 images
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.6ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 43 images...', "updated_at" = '2025-09-10 12:09:38.225117' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 44: https://www.torontocupcake.com/images/cupcakes_flavours/chocolatemocha.webp
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolatemocha.webp, content-type: image/webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:39 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 35ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.5ms)
+
+
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/chocolatemocha.webp, size: 50838 bytes
+✓ Successfully downloaded hero/044_toronto-cupcakes-chocolate-mocha-cupcake-with-mocha.webp (600x750) - Total: 44 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.9ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 44 images...', "updated_at" = '2025-09-10 12:09:39.531071' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 45: https://www.torontocupcake.com/images/cupcakes_flavours/chocolatemochatop.webp
+Updated progress to 85% (44 images downloaded)
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolatemochatop.webp, content-type: image/webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:40 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 34ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.9ms)
+
+
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/chocolatemochatop.webp, size: 56998 bytes
+✓ Successfully downloaded hero/045_top-view-of-chocolate-mocha-cupcake.webp (600x600) - Total: 45 images
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.3ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 45 images...', "updated_at" = '2025-09-10 12:09:40.801354' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 46: https://www.torontocupcake.com/images/cupcakes_flavours/redvelvetraspberry.webp
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/redvelvetraspberry.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/redvelvetraspberry.webp, size: 45906 bytes
+✓ Successfully downloaded hero/046_toronto-cupcakes-red-velvet-raspberry-cupcake-with-.webp (600x750) - Total: 46 images
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:42 +0100
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.7ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 46 images...', "updated_at" = '2025-09-10 12:09:42.076237' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 47: https://www.torontocupcake.com/images/cupcakes_flavours/redvelvetraspberrytop.webp
+Updated progress to 85% (46 images downloaded)
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.8ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 34ms (Views: 0.2ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/redvelvetraspberrytop.webp, content-type: image/webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:43 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 35ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 1.6ms)
+
+
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/redvelvetraspberrytop.webp, size: 38074 bytes
+✓ Successfully downloaded hero/047_top-view-of-red-velvet-raspberry-cupcake.webp (600x600) - Total: 47 images
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.2ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 47 images...', "updated_at" = '2025-09-10 12:09:43.200367' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 48: https://www.torontocupcake.com/images/cupcakes_flavours/vanillastrawberry.webp
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/vanillastrawberry.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/vanillastrawberry.webp, size: 48470 bytes
+✓ Successfully downloaded hero/048_toronto-cupcakes-vanilla-strawberry-cupcake-with-st.webp (600x750) - Total: 48 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.8ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 48 images...', "updated_at" = '2025-09-10 12:09:44.492098' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 49: https://www.torontocupcake.com/images/cupcakes_flavours/vanillastrawberrytop.webp
+Updated progress to 85% (48 images downloaded)
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/vanillastrawberrytop.webp, content-type: image/webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:45 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 33ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/vanillastrawberrytop.webp, size: 42012 bytes
+✓ Successfully downloaded hero/049_top-view-of-vanilla-strawberry-cupcake.webp (600x600) - Total: 49 images
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.6ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 49 images...', "updated_at" = '2025-09-10 12:09:45.768264' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 50: https://www.torontocupcake.com/images/cupcakes_flavours/christmasdoz.webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:46 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 34ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/christmasdoz.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/christmasdoz.webp, size: 116976 bytes
+✓ Successfully downloaded hero/050_christmas-dozen.webp (1200x1098) - Total: 50 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.9ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 50 images...', "updated_at" = '2025-09-10 12:09:47.202843' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 51: https://www.torontocupcake.com/images/cupcakes_flavours/toronto_12_valentines.webp
+Updated progress to 85% (50 images downloaded)
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/toronto_12_valentines.webp, content-type: image/webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:48 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 32ms (Views: 0.1ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/toronto_12_valentines.webp, size: 18918 bytes
+✓ Successfully downloaded hero/051_toronto-cupcakes-valentines-day-cupcake-with-a-hear.webp (252x243) - Total: 51 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (2.1ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 51 images...', "updated_at" = '2025-09-10 12:09:48.313729' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 52: https://www.torontocupcake.com/images/cupcakes_flavours/PrideDay.jpg
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/PrideDay.jpg, content-type: image/jpeg
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:49 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 33ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/PrideDay.jpg, size: 21786 bytes
+✓ Successfully downloaded hero/052_toronto-cupcakes-pride-cupcake-celebrating-diversit.jpg (250x300) - Total: 52 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.9ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 52 images...', "updated_at" = '2025-09-10 12:09:49.439811' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 53: https://www.torontocupcake.com/images/cupcakes_flavours/Easter.jpg
+Updated progress to 85% (52 images downloaded)
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/Easter.jpg, content-type: image/jpeg
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/Easter.jpg, size: 22206 bytes
+✓ Successfully downloaded hero/053_toronto-cupcakes-easter-cupcake-with-a-variety-of-c.jpg (250x300) - Total: 53 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.7ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 53 images...', "updated_at" = '2025-09-10 12:09:50.570445' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 54: https://www.torontocupcake.com/images/cupcakes_flavours/Toronto_Mothers_Day_Dozen.webp
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/Toronto_Mothers_Day_Dozen.webp, content-type: image/webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:51 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 30ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/Toronto_Mothers_Day_Dozen.webp, size: 32156 bytes
+✓ Successfully downloaded hero/054_toronto-cupcakes-mothers-day-dozen-a-beautiful-sele.webp (400x320) - Total: 54 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.7ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 54 images...', "updated_at" = '2025-09-10 12:09:51.705179' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 55: https://www.torontocupcake.com/images/cupcakes_flavours/Toronto_Mothers_Day_Half_Dozen.webp
+Updated progress to 85% (54 images downloaded)
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:52 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 33ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/Toronto_Mothers_Day_Half_Dozen.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/Toronto_Mothers_Day_Half_Dozen.webp, size: 27066 bytes
+✓ Successfully downloaded hero/055_a-half-dozen-mothers-day-cupcakes-from-toronto-cupc.webp (350x311) - Total: 55 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.9ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 55 images...', "updated_at" = '2025-09-10 12:09:52.840779' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 56: https://www.torontocupcake.com/images/cupcakes_flavours/canadaday.webp
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/canadaday.webp, content-type: image/webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:54 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 35ms (Views: 0.1ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/canadaday.webp, size: 77060 bytes
+✓ Successfully downloaded hero/056_toronto-cupcakes-canada-day-red-velvet-with-vanilla.webp (600x750) - Total: 56 images
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.0ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 56 images...', "updated_at" = '2025-09-10 12:09:54.125379' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 57: https://www.torontocupcake.com/images/cupcakes_flavours/canadadaytop.webp
+Updated progress to 85% (56 images downloaded)
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/canadadaytop.webp, content-type: image/webp
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:55 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 34ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.9ms)
+
+
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/canadadaytop.webp, size: 50348 bytes
+✓ Successfully downloaded hero/057_toronto-cupcakes-canada-day-cupcake-top-view.webp (600x600) - Total: 57 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.8ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 57 images...', "updated_at" = '2025-09-10 12:09:55.404527' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 58: https://www.torontocupcake.com/images/cupcakes_flavours/stpattysday.webp
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/stpattysday.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/stpattysday.webp, size: 49892 bytes
+✓ Successfully downloaded hero/058_toronto-cupcakes-st-pattys-day-chocolate-or-vanilla.webp (600x750) - Total: 58 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.8ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 58 images...', "updated_at" = '2025-09-10 12:09:56.692020' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 59: https://www.torontocupcake.com/images/cupcakes_flavours/stpattysdaytopview.webp
+Updated progress to 85% (58 images downloaded)
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:57 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 36ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 1.2ms)
+
+
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/stpattysdaytopview.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/stpattysdaytopview.webp, size: 34392 bytes
+✓ Successfully downloaded hero/059_toronto-cupcakes-st-pattys-day-cupcake-top-view.webp (594x561) - Total: 59 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (2.1ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 59 images...', "updated_at" = '2025-09-10 12:09:57.816124' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 60: https://www.torontocupcake.com/images/cupcakes_flavours/jazz.jpg
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:09:58 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 34ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/jazz.jpg, content-type: image/jpeg
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/jazz.jpg, size: 23724 bytes
+✓ Successfully downloaded hero/060_toronto-cupcakes-beaches-jazz-cupcake-a-special-edi.jpg (250x365) - Total: 60 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (2.0ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 60 images...', "updated_at" = '2025-09-10 12:09:58.928186' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 61: https://www.torontocupcake.com/images/cupcakes_flavours/Tiff.jpg
+Updated progress to 85% (60 images downloaded)
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/Tiff.jpg, content-type: image/jpeg
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/Tiff.jpg, size: 23727 bytes
+✓ Successfully downloaded hero/061_toronto-cupcakes-tiff-cupcake-a-special-edition-cup.jpg (250x300) - Total: 61 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.6ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 61 images...', "updated_at" = '2025-09-10 12:10:00.046916' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 62: https://www.torontocupcake.com/images/cupcakes_flavours/custom1.jpg
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:10:00 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (1.1ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 33ms (Views: 0.1ms | ActiveRecord: 1.1ms (1 query, 0 cached) | GC: 1.5ms)
+
+
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/custom1.jpg, content-type: image/jpeg
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:10:01 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 34ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/custom1.jpg, size: 23398 bytes
+✓ Successfully downloaded hero/062_toronto-cupcakes-custom-cupcakes-bring-your-idea-to.jpg (250x275) - Total: 62 images
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (0.9ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 62 images...', "updated_at" = '2025-09-10 12:10:01.173775' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 63: https://www.torontocupcake.com/images/cupcakes_flavours/custom2.webp
+Updated progress to 85% (62 images downloaded)
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/custom2.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/custom2.webp, size: 37160 bytes
+✓ Successfully downloaded hero/063_toronto-cupcakes-custom-cupcake-for-kids-featuring-.webp (250x258) - Total: 63 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (3.8ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 63 images...', "updated_at" = '2025-09-10 12:10:02.306532' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 64: https://www.torontocupcake.com/images/cupcakes_flavours/elmo.jpg
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:10:02 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 38ms (Views: 0.2ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/elmo.jpg, content-type: image/jpeg
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/elmo.jpg, size: 14471 bytes
+✓ Successfully downloaded hero/064_toronto-cupcakes-featuring-a-fuzzy-character-like-e.jpg (250x300) - Total: 64 images
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.3ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 64 images...', "updated_at" = '2025-09-10 12:10:03.457011' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 65: https://www.torontocupcake.com/images/cupcakes_flavours/CustomBirthday.jpg
+Updated progress to 85% (64 images downloaded)
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:10:03 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 35ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/CustomBirthday.jpg, content-type: image/jpeg
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/CustomBirthday.jpg, size: 21157 bytes
+✓ Successfully downloaded hero/065_toronto-cupcakes-custom-birthday-cupcake-designed-t.jpg (250x300) - Total: 65 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.9ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 65 images...', "updated_at" = '2025-09-10 12:10:04.568286' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 66: https://www.torontocupcake.com/images/cupcakes_flavours/Face.jpg
+HEAD check passed for https://www.torontocupcake.com/images/cupcakes_flavours/Face.jpg, content-type: image/jpeg
+Successfully downloaded https://www.torontocupcake.com/images/cupcakes_flavours/Face.jpg, size: 21846 bytes
+✓ Successfully downloaded hero/066_toronto-cupcakes-portrait-cupcake-showcasing-a-cust.jpg (250x300) - Total: 66 images
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (2.3ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 66 images...', "updated_at" = '2025-09-10 12:10:05.706639' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 67: https://www.torontocupcake.com/images/instagram-white.webp
+Updated progress to 85% (66 images downloaded)
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:10:06 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.7ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 35ms (Views: 0.2ms | ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+HEAD check passed for https://www.torontocupcake.com/images/instagram-white.webp, content-type: image/webp
+Successfully downloaded https://www.torontocupcake.com/images/instagram-white.webp, size: 4022 bytes
+✓ Successfully downloaded hero/067_instagram.webp (36x36) - Total: 67 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (1.8ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 67 images...', "updated_at" = '2025-09-10 12:10:06.678701' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Downloading image 68: https://www.torontocupcake.com/images/Bluesky_Logo.png
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:10:07 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 31ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+HEAD check passed for https://www.torontocupcake.com/images/Bluesky_Logo.png, content-type: image/png
+Successfully downloaded https://www.torontocupcake.com/images/Bluesky_Logo.png, size: 17137 bytes
+✓ Successfully downloaded hero/068_blue-sky.png (600x530) - Total: 68 images
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mJob Update (2.4ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Downloaded 68 images...', "updated_at" = '2025-09-10 12:10:07.798481' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:515:in `block in download_image'
+Updated job progress to 85%
+Successfully scraped https://www.torontocupcake.com/cupcakes.html with HTTP fallback
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:70:in `scrape_with_subpath_restriction'
+  [1m[36mJob Update (1.1ms)[0m  [1m[33mUPDATE "jobs" SET "progress" = 15, "updated_at" = '2025-09-10 12:10:07.811349' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:70:in `scrape_with_subpath_restriction'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:70:in `scrape_with_subpath_restriction'
+Scraping page: https://www.torontocupcake.com/cupcakes.html#main-content
+Starting Playwright scraping for https://www.torontocupcake.com/cupcakes.html#main-content
+Creating Playwright instance...
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:10:09 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.5ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 52ms (Views: 0.2ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Playwright instance created, launching Chromium...
+Error in scrape_with_playwright: NoMethodError: undefined method `chromium' for an instance of Playwright::Execution
+Backtrace: /Users/zelu/Desktop/code/imagesweep/app/services/image_scraper.rb:178:in `block in scrape_with_playwright'\n/Users/zelu/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/timeout-0.4.3/lib/timeout.rb:185:in `block in timeout'\n/Users/zelu/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/timeout-0.4.3/lib/timeout.rb:38:in `handle_timeout'\n/Users/zelu/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/timeout-0.4.3/lib/timeout.rb:194:in `timeout'\n/Users/zelu/Desktop/code/imagesweep/app/services/image_scraper.rb:170:in `scrape_with_playwright'
+Cleaned up orphaned browser processes
+Page closed for https://www.torontocupcake.com/cupcakes.html#main-content
+Browser closed for https://www.torontocupcake.com/cupcakes.html#main-content
+Playwright stopped for https://www.torontocupcake.com/cupcakes.html#main-content
+Cleaned up orphaned browser processes
+Playwright failed for https://www.torontocupcake.com/cupcakes.html#main-content: undefined method `chromium' for an instance of Playwright::Execution. Attempting HTTP fallback...
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:10:10 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.1ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 36ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Downloading image 69: https://www.torontocupcake.com/images/cupcakes_flavours/chocolatechocolateganachetop.webp
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:443:in `download_image'
+  [1m[36mJob Update (1.2ms)[0m  [1m[33mUPDATE "jobs" SET "progress" = 85, "updated_at" = '2025-09-10 12:10:10.146283' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:443:in `download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:443:in `download_image'
+Updated progress to 85% (68 images downloaded)
+HEAD request failed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolatechocolateganachetop.webp, proceeding with GET
+Successfully scraped https://www.torontocupcake.com/cupcakes.html#main-content with HTTP fallback
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:70:in `scrape_with_subpath_restriction'
+  [1m[36mJob Update (1.4ms)[0m  [1m[33mUPDATE "jobs" SET "progress" = 20, "updated_at" = '2025-09-10 12:10:11.115003' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:70:in `scrape_with_subpath_restriction'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:70:in `scrape_with_subpath_restriction'
+Scraping page: https://www.torontocupcake.com/cupcakes.html#
+Starting Playwright scraping for https://www.torontocupcake.com/cupcakes.html#
+Creating Playwright instance...
+Playwright instance created, launching Chromium...
+Error in scrape_with_playwright: NoMethodError: undefined method `chromium' for an instance of Playwright::Execution
+Backtrace: /Users/zelu/Desktop/code/imagesweep/app/services/image_scraper.rb:178:in `block in scrape_with_playwright'\n/Users/zelu/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/timeout-0.4.3/lib/timeout.rb:185:in `block in timeout'\n/Users/zelu/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/timeout-0.4.3/lib/timeout.rb:38:in `handle_timeout'\n/Users/zelu/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/timeout-0.4.3/lib/timeout.rb:194:in `timeout'\n/Users/zelu/Desktop/code/imagesweep/app/services/image_scraper.rb:170:in `scrape_with_playwright'
+Cleaned up orphaned browser processes
+Page closed for https://www.torontocupcake.com/cupcakes.html#
+Browser closed for https://www.torontocupcake.com/cupcakes.html#
+Playwright stopped for https://www.torontocupcake.com/cupcakes.html#
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:10:12 +0100
+Cleaned up orphaned browser processes
+Playwright failed for https://www.torontocupcake.com/cupcakes.html#: undefined method `chromium' for an instance of Playwright::Execution. Attempting HTTP fallback...
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.6ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 35ms (Views: 0.2ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.9ms)
+
+
+Downloading image 69: https://www.torontocupcake.com/images/cupcakes_flavours/chocolatechocolateganachetop.webp
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:443:in `download_image'
+  [1m[36mJob Update (1.4ms)[0m  [1m[33mUPDATE "jobs" SET "progress" = 85, "updated_at" = '2025-09-10 12:10:12.775205' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:443:in `download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:443:in `download_image'
+Updated progress to 85% (68 images downloaded)
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:10:13 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 34ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 1.2ms)
+
+
+HEAD request failed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolatechocolateganachetop.webp, proceeding with GET
+Successfully scraped https://www.torontocupcake.com/cupcakes.html# with HTTP fallback
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:70:in `scrape_with_subpath_restriction'
+  [1m[36mJob Update (1.2ms)[0m  [1m[33mUPDATE "jobs" SET "progress" = 25, "updated_at" = '2025-09-10 12:10:13.762298' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:70:in `scrape_with_subpath_restriction'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:70:in `scrape_with_subpath_restriction'
+Scraping page: https://www.torontocupcake.com/cupcakes.html#Always-Available
+Starting Playwright scraping for https://www.torontocupcake.com/cupcakes.html#Always-Available
+Creating Playwright instance...
+Playwright instance created, launching Chromium...
+Error in scrape_with_playwright: NoMethodError: undefined method `chromium' for an instance of Playwright::Execution
+Backtrace: /Users/zelu/Desktop/code/imagesweep/app/services/image_scraper.rb:178:in `block in scrape_with_playwright'\n/Users/zelu/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/timeout-0.4.3/lib/timeout.rb:185:in `block in timeout'\n/Users/zelu/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/timeout-0.4.3/lib/timeout.rb:38:in `handle_timeout'\n/Users/zelu/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/timeout-0.4.3/lib/timeout.rb:194:in `timeout'\n/Users/zelu/Desktop/code/imagesweep/app/services/image_scraper.rb:170:in `scrape_with_playwright'
+Cleaned up orphaned browser processes
+Page closed for https://www.torontocupcake.com/cupcakes.html#Always-Available
+Browser closed for https://www.torontocupcake.com/cupcakes.html#Always-Available
+Playwright stopped for https://www.torontocupcake.com/cupcakes.html#Always-Available
+Cleaned up orphaned browser processes
+Playwright failed for https://www.torontocupcake.com/cupcakes.html#Always-Available: undefined method `chromium' for an instance of Playwright::Execution. Attempting HTTP fallback...
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:10:15 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 31ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Downloading image 69: https://www.torontocupcake.com/images/cupcakes_flavours/chocolatechocolateganachetop.webp
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:443:in `download_image'
+  [1m[36mJob Update (1.1ms)[0m  [1m[33mUPDATE "jobs" SET "progress" = 85, "updated_at" = '2025-09-10 12:10:15.331346' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:443:in `download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:443:in `download_image'
+Updated progress to 85% (68 images downloaded)
+HEAD request failed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolatechocolateganachetop.webp, proceeding with GET
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:10:16 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 35ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 1.5ms)
+
+
+Successfully scraped https://www.torontocupcake.com/cupcakes.html#Always-Available with HTTP fallback
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:70:in `scrape_with_subpath_restriction'
+  [1m[36mJob Update (1.5ms)[0m  [1m[33mUPDATE "jobs" SET "progress" = 30, "updated_at" = '2025-09-10 12:10:16.306855' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:70:in `scrape_with_subpath_restriction'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:70:in `scrape_with_subpath_restriction'
+Scraping page: https://www.torontocupcake.com/cupcakes.html#Holidays
+Starting Playwright scraping for https://www.torontocupcake.com/cupcakes.html#Holidays
+Creating Playwright instance...
+Playwright instance created, launching Chromium...
+Error in scrape_with_playwright: NoMethodError: undefined method `chromium' for an instance of Playwright::Execution
+Backtrace: /Users/zelu/Desktop/code/imagesweep/app/services/image_scraper.rb:178:in `block in scrape_with_playwright'\n/Users/zelu/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/timeout-0.4.3/lib/timeout.rb:185:in `block in timeout'\n/Users/zelu/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/timeout-0.4.3/lib/timeout.rb:38:in `handle_timeout'\n/Users/zelu/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/timeout-0.4.3/lib/timeout.rb:194:in `timeout'\n/Users/zelu/Desktop/code/imagesweep/app/services/image_scraper.rb:170:in `scrape_with_playwright'
+Cleaned up orphaned browser processes
+Page closed for https://www.torontocupcake.com/cupcakes.html#Holidays
+Browser closed for https://www.torontocupcake.com/cupcakes.html#Holidays
+Playwright stopped for https://www.torontocupcake.com/cupcakes.html#Holidays
+Cleaned up orphaned browser processes
+Playwright failed for https://www.torontocupcake.com/cupcakes.html#Holidays: undefined method `chromium' for an instance of Playwright::Execution. Attempting HTTP fallback...
+Downloading image 69: https://www.torontocupcake.com/images/cupcakes_flavours/chocolatechocolateganachetop.webp
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:443:in `download_image'
+  [1m[36mJob Update (1.3ms)[0m  [1m[33mUPDATE "jobs" SET "progress" = 85, "updated_at" = '2025-09-10 12:10:17.783041' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:443:in `download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:443:in `download_image'
+Updated progress to 85% (68 images downloaded)
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:10:18 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.7ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 36ms (Views: 0.1ms | ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+HEAD request failed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolatechocolateganachetop.webp, proceeding with GET
+Successfully scraped https://www.torontocupcake.com/cupcakes.html#Holidays with HTTP fallback
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:70:in `scrape_with_subpath_restriction'
+  [1m[36mJob Update (1.7ms)[0m  [1m[33mUPDATE "jobs" SET "progress" = 35, "updated_at" = '2025-09-10 12:10:18.770354' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:70:in `scrape_with_subpath_restriction'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:70:in `scrape_with_subpath_restriction'
+Scraping page: https://www.torontocupcake.com/cupcakes.html#Special-Events
+Starting Playwright scraping for https://www.torontocupcake.com/cupcakes.html#Special-Events
+Creating Playwright instance...
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:10:19 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 29ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Playwright instance created, launching Chromium...
+Error in scrape_with_playwright: NoMethodError: undefined method `chromium' for an instance of Playwright::Execution
+Backtrace: /Users/zelu/Desktop/code/imagesweep/app/services/image_scraper.rb:178:in `block in scrape_with_playwright'\n/Users/zelu/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/timeout-0.4.3/lib/timeout.rb:185:in `block in timeout'\n/Users/zelu/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/timeout-0.4.3/lib/timeout.rb:38:in `handle_timeout'\n/Users/zelu/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/timeout-0.4.3/lib/timeout.rb:194:in `timeout'\n/Users/zelu/Desktop/code/imagesweep/app/services/image_scraper.rb:170:in `scrape_with_playwright'
+Cleaned up orphaned browser processes
+Page closed for https://www.torontocupcake.com/cupcakes.html#Special-Events
+Browser closed for https://www.torontocupcake.com/cupcakes.html#Special-Events
+Playwright stopped for https://www.torontocupcake.com/cupcakes.html#Special-Events
+Cleaned up orphaned browser processes
+Playwright failed for https://www.torontocupcake.com/cupcakes.html#Special-Events: undefined method `chromium' for an instance of Playwright::Execution. Attempting HTTP fallback...
+Downloading image 69: https://www.torontocupcake.com/images/cupcakes_flavours/chocolatechocolateganachetop.webp
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:443:in `download_image'
+  [1m[36mJob Update (0.8ms)[0m  [1m[33mUPDATE "jobs" SET "progress" = 85, "updated_at" = '2025-09-10 12:10:20.255905' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:443:in `download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:443:in `download_image'
+Updated progress to 85% (68 images downloaded)
+HEAD request failed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolatechocolateganachetop.webp, proceeding with GET
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:10:21 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 33ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Successfully scraped https://www.torontocupcake.com/cupcakes.html#Special-Events with HTTP fallback
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:70:in `scrape_with_subpath_restriction'
+  [1m[36mJob Update (1.1ms)[0m  [1m[33mUPDATE "jobs" SET "progress" = 40, "updated_at" = '2025-09-10 12:10:21.238964' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:70:in `scrape_with_subpath_restriction'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:70:in `scrape_with_subpath_restriction'
+Scraping page: https://www.torontocupcake.com/cupcakes.html#Custom
+Starting Playwright scraping for https://www.torontocupcake.com/cupcakes.html#Custom
+Creating Playwright instance...
+Playwright instance created, launching Chromium...
+Error in scrape_with_playwright: NoMethodError: undefined method `chromium' for an instance of Playwright::Execution
+Backtrace: /Users/zelu/Desktop/code/imagesweep/app/services/image_scraper.rb:178:in `block in scrape_with_playwright'\n/Users/zelu/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/timeout-0.4.3/lib/timeout.rb:185:in `block in timeout'\n/Users/zelu/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/timeout-0.4.3/lib/timeout.rb:38:in `handle_timeout'\n/Users/zelu/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/timeout-0.4.3/lib/timeout.rb:194:in `timeout'\n/Users/zelu/Desktop/code/imagesweep/app/services/image_scraper.rb:170:in `scrape_with_playwright'
+Cleaned up orphaned browser processes
+Page closed for https://www.torontocupcake.com/cupcakes.html#Custom
+Browser closed for https://www.torontocupcake.com/cupcakes.html#Custom
+Playwright stopped for https://www.torontocupcake.com/cupcakes.html#Custom
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:10:22 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+Cleaned up orphaned browser processes
+Playwright failed for https://www.torontocupcake.com/cupcakes.html#Custom: undefined method `chromium' for an instance of Playwright::Execution. Attempting HTTP fallback...
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 31ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Downloading image 69: https://www.torontocupcake.com/images/cupcakes_flavours/chocolatechocolateganachetop.webp
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:443:in `download_image'
+  [1m[36mJob Update (1.2ms)[0m  [1m[33mUPDATE "jobs" SET "progress" = 85, "updated_at" = '2025-09-10 12:10:22.764690' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:443:in `download_image'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:443:in `download_image'
+Updated progress to 85% (68 images downloaded)
+HEAD request failed for https://www.torontocupcake.com/images/cupcakes_flavours/chocolatechocolateganachetop.webp, proceeding with GET
+Successfully scraped https://www.torontocupcake.com/cupcakes.html#Custom with HTTP fallback
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:70:in `scrape_with_subpath_restriction'
+  [1m[36mJob Update (1.3ms)[0m  [1m[33mUPDATE "jobs" SET "progress" = 45, "updated_at" = '2025-09-10 12:10:23.743462' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:70:in `scrape_with_subpath_restriction'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:70:in `scrape_with_subpath_restriction'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:113:in `finalize_results'
+  [1m[36mJob Update (1.1ms)[0m  [1m[33mUPDATE "jobs" SET "progress" = 90, "updated_at" = '2025-09-10 12:10:23.747329' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:113:in `finalize_results'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:113:in `finalize_results'
+Scrape completed for job 1b1493c5-08b7-46c2-9649-0c154aca0186. Results: {:pages_crawled=>7, :images_total=>68, :images_included=>68, :images=>[{:filename=>"hero/001_toronto-cupcake-logo.png", :source_url=>"https://www.torontocupcake.com/images/transparent-TO-logo.png", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>144, :height=>144, :mime=>"image/png", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcake Logo", :classes=>["logo"], :id=>nil, :position_y=>0}}, {:filename=>"hero/002_toronto-cupcakes-assorted-dozen-cupcakes.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/assorteddozen.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>384, :height=>296, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Assorted Dozen cupcakes", :classes=>["center", "cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/003_toronto-cupcakes-chocolate-peanut-butter-cupcake-wi.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/chocolatepeanutbutter.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>819, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Chocolate Peanut Butter cupcake with rich peanut butter frosting", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/004_top-view-of-chocolate-peanut-butter-cupcake.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/chocolatepeanutbuttertop.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>621, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Top view of Chocolate Peanut Butter cupcake", :classes=>["modal-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/005_toronto-cupcakes-chocolate-hazelnut-cupcake-topped-.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/chocolatehazelnut.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>750, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Chocolate Hazelnut cupcake topped with chocolate ganache and caramelized hazelnuts", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/006_top-view-of-chocolate-hazelnut-cupcake.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/chocolatehazelnuttop.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>582, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Top view of Chocolate Hazelnut cupcake", :classes=>["modal-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/007_toronto-cupcakes-vanilla-coconut-cupcake-with-vanil.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/vanillacoconut.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>750, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Vanilla Coconut cupcake with vanilla frosting and flaked coconut", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/008_top-view-of-vanilla-coconut-cupcake.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/vanillacoconuttop.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>614, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Top view of Vanilla Coconut cupcake", :classes=>["modal-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/009_toronto-cupcakes-chocolate-coconut-cupcake-with-van.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/chocolatecoconut.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>750, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Chocolate Coconut cupcake with vanilla frosting and flaked coconut", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/010_top-view-of-chocolate-coconut-cupcake.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/chocolatecoconuttop.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>602, :height=>600, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Top view of Chocolate Coconut cupcake", :classes=>["modal-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/011_toronto-cupcakes-chocolate-chocolate-cupcake-with-c.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/chocolatechocolate.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>759, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Chocolate Chocolate cupcake with chocolate cream cheese frosting and a chocolate flower", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/012_top-view-of-chocolate-chocolate-cupcake.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/chocolatechocolatetop.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>579, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Top view of Chocolate Chocolate cupcake", :classes=>["modal-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/013_toronto-cupcakes-chocolate-vanilla-cupcake-with-van.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/chocolatevanilla.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>750, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Chocolate Vanilla cupcake with vanilla cream cheese frosting and a chocolate flower", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/014_top-view-of-chocolate-vanilla-cupcake.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/chocolatevanillatop.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>600, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Top view of Chocolate Vanilla cupcake", :classes=>["modal-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/015_toronto-cupcakes-red-velvet-cupcake-with-vanilla-cr.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/redvelvet.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>690, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Red Velvet cupcake with vanilla cream cheese frosting and chocolate curls", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/016_top-view-of-red-velvet-cupcake.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/redvelvettop.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>613, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Top view of Red Velvet cupcake", :classes=>["modal-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/017_toronto-cupcakes-vanilla-vanilla-cupcake-with-vanil.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/vanillavanilla.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>750, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Vanilla Vanilla cupcake with vanilla frosting and fondant flower", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/018_top-view-of-vanilla-vanilla-cupcake.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/vanillavanillatop.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>600, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Top view of Vanilla Vanilla cupcake", :classes=>["modal-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/019_toronto-cupcakes-vanilla-chocolate-cupcake-with-cho.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/vanillachocolate.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>750, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Vanilla Chocolate cupcake with chocolate frosting and Callebaut chocolate ball", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/020_top-view-of-vanilla-chocolate-cupcake.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/vanillachocolatetop.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>599, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Top view of Vanilla Chocolate cupcake", :classes=>["modal-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/021_toronto-cupcakes-vanilla-chocolate-ganache-cupcake-.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/vanillachocolateganache.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>750, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Vanilla Chocolate Ganache cupcake with dark chocolate ganache and chocolate wafer", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/022_top-view-of-vanilla-chocolate-ganache-cupcake.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/vanillachocolateganachetop.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>600, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Top view of Vanilla Chocolate Ganache cupcake", :classes=>["modal-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/023_toronto-cupcakes-chocolate-caramel-cupcake-with-dul.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/chocolatecarmel.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>750, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Chocolate Caramel cupcake with Dulce de leche filling and caramel crisp pearls", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/024_top-view-of-chocolate-caramel-cupcake.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/chocolatecarmeltop.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>600, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Top view of Chocolate Caramel cupcake", :classes=>["modal-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/025_toronto-cupcakes-vanilla-caramel-cupcake-with-dulce.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/vanillacarmel.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>750, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Vanilla Caramel cupcake with Dulce de leche filling and caramel crisp pearls", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/026_top-view-of-vanilla-caramel-cupcake.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/vanillacarmeltop.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>600, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Top view of Vanilla Caramel cupcake", :classes=>["modal-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/027_toronto-cupcakes-chocolate-caramel-ii-cupcake-with-.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/chocolatecarmel2.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>750, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Chocolate Caramel II cupcake with caramel-infused icing and chocolate-covered brittle", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/028_top-view-of-chocolate-caramel-ii-cupcake.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/chocolatecarmel2top.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>599, :height=>600, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Top view of Chocolate Caramel II cupcake", :classes=>["modal-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/029_toronto-cupcakes-lemon-cupcake-with-lemon-custard-a.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/lemon.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>638, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Lemon cupcake with lemon custard and jelly lemon slice", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/030_top-view-of-lemon-cupcake.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/lemontop.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>594, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Top view of Lemon cupcake", :classes=>["modal-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/031_toronto-cupcakes-chocolate-toffee-cupcake-with-engl.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/chocolatetoffee.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>750, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Chocolate Toffee cupcake with English toffee and ganache", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/032_top-view-of-chocolate-toffee-cupcake.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/chocolatetoffeetop.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>600, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Top view of Chocolate Toffee cupcake", :classes=>["modal-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/033_toronto-cupcakes-chocolate-oreo-cupcake-with-oreova.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/chocolateoreo.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>542, :height=>750, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Chocolate Oreo cupcake with oreo/vanilla and a mini oreo cookie", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/034_top-view-of-chocolate-oreo-cupcake.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/chocolateoreotop.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>600, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Top view of Chocolate Oreo cupcake", :classes=>["modal-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/035_toronto-cupcakes-humming-bird-cupcake-with-cream-ch.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/hummingbird.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>750, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Humming Bird cupcake with cream cheese frosting and a roasted pecan", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/036_top-view-of-humming-bird-cupcake.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/hummingbirdtop.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>600, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Top view of Humming Bird cupcake", :classes=>["modal-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/037_toronto-cupcakes-chocolate-vanilla-chocolate-ganach.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/chocolatevanillachocolateganache.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>751, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Chocolate Vanilla Chocolate Ganache cupcake with vanilla frosting and chocolate rocks", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/038_top-view-of-chocolate-vanilla-chocolate-ganache-cup.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/chocolatevanillachocolateganachetop.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>600, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Top view of Chocolate Vanilla Chocolate Ganache cupcake", :classes=>["modal-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/039_toronto-cupcakes-red-velvet-fudge-cupcake-with-choc.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/redvelvetfudge.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>601, :height=>750, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Red Velvet Fudge cupcake with chocolate ganache filling", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/040_top-view-of-red-velvet-fudge-cupcake.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/redvelvetfudgetop.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>600, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Top view of Red Velvet Fudge cupcake", :classes=>["modal-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/041_toronto-cupcakes-chocolate-chocolate-ganache-cupcak.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/chocolatechocolateganache.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>750, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Chocolate Chocolate Ganache cupcake with chocolate ganache", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/042_toronto-cupcakes-hot-fudge-sundae-cupcake-with-vani.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/hotfudgesundae.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>825, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Hot Fudge Sundae cupcake with vanilla frosting, sprinkles, hazelnuts, chocolate ganache, and a maraschino cherry", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/043_top-view-of-hot-fudge-sundae-cupcake.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/hotfudgesundaetop.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>601, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Top view of Hot Fudge Sundae cupcake", :classes=>["modal-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/044_toronto-cupcakes-chocolate-mocha-cupcake-with-mocha.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/chocolatemocha.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>750, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Chocolate Mocha cupcake with mocha frosting and dark chocolate coffee bean", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/045_top-view-of-chocolate-mocha-cupcake.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/chocolatemochatop.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>600, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Top view of Chocolate Mocha cupcake", :classes=>["modal-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/046_toronto-cupcakes-red-velvet-raspberry-cupcake-with-.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/redvelvetraspberry.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>750, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Red Velvet Raspberry cupcake with raspberry frosting and red chocolate raspberry", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/047_top-view-of-red-velvet-raspberry-cupcake.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/redvelvetraspberrytop.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>600, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Top view of Red Velvet Raspberry cupcake", :classes=>["modal-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/048_toronto-cupcakes-vanilla-strawberry-cupcake-with-st.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/vanillastrawberry.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>750, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Vanilla Strawberry cupcake with strawberry frosting and pink chocolate curls", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/049_top-view-of-vanilla-strawberry-cupcake.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/vanillastrawberrytop.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>600, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Top view of Vanilla Strawberry cupcake", :classes=>["modal-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/050_christmas-dozen.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/christmasdoz.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>1200, :height=>1098, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Christmas Dozen", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/051_toronto-cupcakes-valentines-day-cupcake-with-a-hear.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/toronto_12_valentines.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>252, :height=>243, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Valentine's Day cupcake with a heart-shaped chocolate truffle", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/052_toronto-cupcakes-pride-cupcake-celebrating-diversit.jpg", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/PrideDay.jpg", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>250, :height=>300, :mime=>"image/jpeg", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Pride cupcake celebrating diversity", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/053_toronto-cupcakes-easter-cupcake-with-a-variety-of-c.jpg", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/Easter.jpg", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>250, :height=>300, :mime=>"image/jpeg", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Easter cupcake with a variety of colours and decorations", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/054_toronto-cupcakes-mothers-day-dozen-a-beautiful-sele.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/Toronto_Mothers_Day_Dozen.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>400, :height=>320, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Mother's Day Dozen - A beautiful selection with hearts, butterflies, and 'MOM' embossed discs", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/055_a-half-dozen-mothers-day-cupcakes-from-toronto-cupc.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/Toronto_Mothers_Day_Half_Dozen.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>350, :height=>311, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"A half dozen Mother's Day cupcakes from Toronto Cupcakes", :classes=>["w3-center", "w3-margin-right"], :id=>nil, :position_y=>0}}, {:filename=>"hero/056_toronto-cupcakes-canada-day-red-velvet-with-vanilla.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/canadaday.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>750, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Canada Day - Red velvet with vanilla frosting and fondant maple leaf", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/057_toronto-cupcakes-canada-day-cupcake-top-view.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/canadadaytop.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>600, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Canada Day cupcake top view", :classes=>["modal-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/058_toronto-cupcakes-st-pattys-day-chocolate-or-vanilla.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/stpattysday.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>750, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes St Patty's Day - Chocolate or Vanilla cupcake with green or vanilla frosting topped with a shamrock", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/059_toronto-cupcakes-st-pattys-day-cupcake-top-view.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/stpattysdaytopview.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>594, :height=>561, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes St Patty's Day cupcake top view", :classes=>["modal-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/060_toronto-cupcakes-beaches-jazz-cupcake-a-special-edi.jpg", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/jazz.jpg", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>250, :height=>365, :mime=>"image/jpeg", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Beaches Jazz cupcake - A special edition cupcake for the Beaches Jazz Festival", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/061_toronto-cupcakes-tiff-cupcake-a-special-edition-cup.jpg", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/Tiff.jpg", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>250, :height=>300, :mime=>"image/jpeg", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes TIFF cupcake - A special edition cupcake for the Toronto International Film Festival", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/062_toronto-cupcakes-custom-cupcakes-bring-your-idea-to.jpg", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/custom1.jpg", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>250, :height=>275, :mime=>"image/jpeg", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Custom Cupcakes - Bring your idea to life!", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/063_toronto-cupcakes-custom-cupcake-for-kids-featuring-.webp", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/custom2.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>250, :height=>258, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Custom cupcake for kids featuring fun characters", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/064_toronto-cupcakes-featuring-a-fuzzy-character-like-e.jpg", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/elmo.jpg", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>250, :height=>300, :mime=>"image/jpeg", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes featuring a fuzzy character like Elmo", :classes=>["modal-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/065_toronto-cupcakes-custom-birthday-cupcake-designed-t.jpg", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/CustomBirthday.jpg", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>250, :height=>300, :mime=>"image/jpeg", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Custom Birthday cupcake designed to your preference", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/066_toronto-cupcakes-portrait-cupcake-showcasing-a-cust.jpg", :source_url=>"https://www.torontocupcake.com/images/cupcakes_flavours/Face.jpg", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>250, :height=>300, :mime=>"image/jpeg", :dom_context=>{:tag=>"img", :alt=>"Toronto Cupcakes Portrait cupcake showcasing a custom image", :classes=>["cupcake-image"], :id=>nil, :position_y=>0}}, {:filename=>"hero/067_instagram.webp", :source_url=>"https://www.torontocupcake.com/images/instagram-white.webp", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>36, :height=>36, :mime=>"image/webp", :dom_context=>{:tag=>"img", :alt=>"Instagram", :classes=>[], :id=>nil, :position_y=>0}}, {:filename=>"hero/068_blue-sky.png", :source_url=>"https://www.torontocupcake.com/images/Bluesky_Logo.png", :found_on=>"https://www.torontocupcake.com/cupcakes.html", :category=>"hero", :width=>600, :height=>530, :mime=>"image/png", :dom_context=>{:tag=>"img", :alt=>"Blue Sky", :classes=>[], :id=>nil, :position_y=>0}}], :truncated=>false}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/jobs/scrape_job.rb:60:in `execute_scrape'
+  [1m[36mJob Update (1.2ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Creating ZIP archive and manifest...', "pages_crawled" = 7, "images_found" = 68, "updated_at" = '2025-09-10 12:10:23.752073' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/jobs/scrape_job.rb:60:in `execute_scrape'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/jobs/scrape_job.rb:60:in `execute_scrape'
+Created ZIP archive at /Users/zelu/Desktop/code/imagesweep/storage/imagesweep/1b1493c5-08b7-46c2-9649-0c154aca0186/imagesweep.zip
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/jobs/scrape_job.rb:71:in `execute_scrape'
+  [1m[36mJob Update (0.8ms)[0m  [1m[33mUPDATE "jobs" SET "status" = 2, "progress" = 100, "message" = 'Completed! Found 68 images.', "updated_at" = '2025-09-10 12:10:23.894124' WHERE "jobs"."id" = 20 /*application='Imagesweep'*/[0m
+  ↳ app/jobs/scrape_job.rb:71:in `execute_scrape'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/jobs/scrape_job.rb:71:in `execute_scrape'
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186" for ::1 at 2025-09-10 13:10:24 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.4ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 29ms (Views: 0.1ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/jobs/1b1493c5-08b7-46c2-9649-0c154aca0186/download.zip" for ::1 at 2025-09-10 13:10:27 +0100
+Processing by JobsController#download_zip as ZIP
+  Parameters: {"id"=>"1b1493c5-08b7-46c2-9649-0c154aca0186"}
+  [1m[36mJob Load (0.1ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '1b1493c5-08b7-46c2-9649-0c154aca0186' LIMIT 1 /*action='download_zip',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Sent file /Users/zelu/Desktop/code/imagesweep/storage/imagesweep/1b1493c5-08b7-46c2-9649-0c154aca0186/imagesweep.zip (0.4ms)
+Completed 200 OK in 33ms (ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+

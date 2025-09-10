@@ -44,17 +44,31 @@ class ImageScraper
   end
 
   def scrape_with_subpath_restriction
-    # NEW: Try sitemap first
+    # Try sitemap first with enhanced monitoring
+    sitemap_start_time = Time.now
     sitemap_urls = SitemapService.fetch_filtered_urls(@job.url, @job)
+    sitemap_fetch_time = Time.now - sitemap_start_time
     
     if sitemap_urls&.any?
-      Rails.logger.info "Using sitemap URLs: #{sitemap_urls.length} pages found"
-      @job.update!(progress: 5, message: "Found #{sitemap_urls.length} pages in sitemap")
+      Rails.logger.info "✅ Sitemap success for #{@job.url} subpath: Found #{sitemap_urls.length} pages in #{sitemap_fetch_time.round(3)}s"
+      @job.update!(
+        progress: 5, 
+        message: "🗺️ Using sitemap discovery: found #{sitemap_urls.length} subpath pages (#{sitemap_fetch_time.round(1)}s)"
+      )
       sitemap_urls.each { |url| @page_queue << url }
+      
+      # Log sitemap hit rate and performance metrics
+      log_sitemap_metrics(sitemap_success: true, page_count: sitemap_urls.length, fetch_time: sitemap_fetch_time)
     else
-      Rails.logger.info "Sitemap not available, using link crawling method"
-      @job.update!(progress: 5, message: "Sitemap unavailable, using link crawling")
+      Rails.logger.info "⚠️ Sitemap unavailable for #{@job.url} subpath after #{sitemap_fetch_time.round(3)}s, falling back to link crawling"
+      @job.update!(
+        progress: 5, 
+        message: "🔍 Sitemap unavailable, using link discovery (#{sitemap_fetch_time.round(1)}s fallback)"
+      )
       @page_queue << @job.url
+      
+      # Log sitemap miss metrics
+      log_sitemap_metrics(sitemap_success: false, page_count: 0, fetch_time: sitemap_fetch_time)
     end
     
     # Existing logic continues unchanged
@@ -74,23 +88,32 @@ class ImageScraper
   end
 
   def scrape_entire_website
-    # TEMP: Disable sitemap for testing - using original link crawling
-    # sitemap_urls = SitemapService.fetch_filtered_urls(@job.url, @job)
-    # 
-    # if sitemap_urls&.any?
-    #   Rails.logger.info "Using sitemap URLs: #{sitemap_urls.length} pages found"
-    #   @job.update!(progress: 5, message: "Found #{sitemap_urls.length} pages in sitemap")
-    #   sitemap_urls.each { |url| @page_queue << url }
-    # else
-    #   Rails.logger.info "Sitemap not available, using link crawling method"
-    #   @job.update!(progress: 5, message: "Sitemap unavailable, using link crawling")
-    #   @page_queue << @job.url
-    # end
+    # Try sitemap first with enhanced monitoring
+    sitemap_start_time = Time.now
+    sitemap_urls = SitemapService.fetch_filtered_urls(@job.url, @job)
+    sitemap_fetch_time = Time.now - sitemap_start_time
     
-    # Original method: Start with the initial URL
-    Rails.logger.info "TESTING: Using original link crawling method (sitemap disabled)"
-    @job.update!(progress: 5, message: "Using link crawling method (sitemap disabled for testing)")
-    @page_queue << @job.url
+    if sitemap_urls&.any?
+      Rails.logger.info "✅ Sitemap success for #{@job.url}: Found #{sitemap_urls.length} pages in #{sitemap_fetch_time.round(3)}s"
+      @job.update!(
+        progress: 5, 
+        message: "🗺️ Using sitemap discovery: found #{sitemap_urls.length} prioritized pages (#{sitemap_fetch_time.round(1)}s)"
+      )
+      sitemap_urls.each { |url| @page_queue << url }
+      
+      # Log sitemap hit rate and performance metrics  
+      log_sitemap_metrics(sitemap_success: true, page_count: sitemap_urls.length, fetch_time: sitemap_fetch_time)
+    else
+      Rails.logger.info "⚠️ Sitemap unavailable for #{@job.url} after #{sitemap_fetch_time.round(3)}s, falling back to link crawling"
+      @job.update!(
+        progress: 5, 
+        message: "🔍 Sitemap unavailable, using link discovery (#{sitemap_fetch_time.round(1)}s fallback)"
+      )
+      @page_queue << @job.url
+      
+      # Log sitemap miss metrics
+      log_sitemap_metrics(sitemap_success: false, page_count: 0, fetch_time: sitemap_fetch_time)
+    end
     
     # Existing logic continues unchanged
     while @page_queue.any? && @images.length < MAX_IMAGES && @pages_crawled < ENTIRE_WEBSITE_MAX_PAGES
@@ -660,6 +683,49 @@ class ImageScraper
   end
 
   private
+
+  def log_sitemap_metrics(sitemap_success:, page_count:, fetch_time:)
+    # Enhanced metrics tracking for sitemap usage and performance
+    begin
+      # Structure metrics for easy parsing/monitoring
+      metrics = {
+        sitemap_success: sitemap_success,
+        page_count: page_count,
+        fetch_time_ms: (fetch_time * 1000).round(2),
+        job_id: @job.id,
+        job_uuid: @job.uuid,
+        url_domain: URI.parse(@job.url).host,
+        scrape_mode: @job.scrape_mode,
+        timestamp: Time.now.iso8601
+      }
+      
+      # Log for structured monitoring
+      Rails.logger.info "[SITEMAP_METRICS] #{metrics.to_json}"
+      
+      # Store metrics in Redis for dashboard/analytics (if available)
+      if defined?($redis) && $redis.respond_to?(:get)
+        begin
+          # Track sitemap hit rate over time
+          date_key = Date.current.strftime('%Y-%m-%d')
+          $redis.hincrby("sitemap_metrics:#{date_key}", 'total_attempts', 1)
+          $redis.hincrby("sitemap_metrics:#{date_key}", 'successful_attempts', 1) if sitemap_success
+          $redis.hincrby("sitemap_metrics:#{date_key}", 'pages_discovered', page_count)
+          
+          # Track average fetch time
+          $redis.lpush("sitemap_fetch_times:#{date_key}", fetch_time)
+          $redis.ltrim("sitemap_fetch_times:#{date_key}", 0, 999) # Keep last 1000 entries
+          
+          # Set expiration for automatic cleanup (30 days)
+          $redis.expire("sitemap_metrics:#{date_key}", 30.days.seconds)
+          $redis.expire("sitemap_fetch_times:#{date_key}", 30.days.seconds)
+        rescue Redis::BaseError => e
+          Rails.logger.debug "Redis metrics logging failed: #{e.message}"
+        end
+      end
+    rescue => e
+      Rails.logger.warn "Sitemap metrics logging failed: #{e.message}"
+    end
+  end
 
   def cleanup_browser_processes
     begin

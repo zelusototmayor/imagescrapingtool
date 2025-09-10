@@ -456,4 +456,266 @@ class SitemapServiceTest < ActiveSupport::TestCase
     # Last result should be the utility page  
     assert_equal 'https://example.com/privacy-policy', result.last
   end
+
+  # ====== PHASE 3: COMPREHENSIVE TESTING ======
+
+  test "integration_test_real_website_sitemap_processing" do
+    # Integration test with a real website (using torontocupcake.com from our earlier tests)
+    service = SitemapService.new
+    
+    # This is a real integration test - it will make actual HTTP requests
+    # Skip if no network connectivity to avoid test failures in CI
+    begin
+      response = Faraday.get('https://www.torontocupcake.com/sitemap.xml')
+      skip "Skipping integration test - no network connectivity" unless response.success?
+    rescue Faraday::Error
+      skip "Skipping integration test - network error"
+    end
+    
+    urls = service.fetch_sitemap_urls('https://www.torontocupcake.com')
+    
+    assert urls.is_a?(Array), "Should return array of URLs"
+    assert urls.length > 0, "Should find URLs in real sitemap"
+    assert urls.all? { |url| url.start_with?('https://www.torontocupcake.com') }, "All URLs should be from same domain"
+    
+    # Test that prioritization works with real URLs
+    job = OpenStruct.new(scrape_mode: 'entire_website', url: 'https://www.torontocupcake.com')
+    filtered_urls = service.filter_urls_for_mode(urls, job)
+    
+    assert filtered_urls.length > 0, "Should have filtered URLs"
+    assert filtered_urls.first == 'https://www.torontocupcake.com/' || 
+           filtered_urls.first == 'https://www.torontocupcake.com', "Homepage should be prioritized first"
+  end
+
+  test "performance_test_large_url_filtering" do
+    service = SitemapService.new
+    
+    # Test with large URL sets to ensure performance is acceptable
+    large_url_set = (1..10000).map { |i| "https://example.com/page#{i}.html" }
+    
+    start_time = Time.now
+    filtered = service.send(:filter_same_domain_urls, large_url_set, "https://example.com")
+    end_time = Time.now
+    
+    processing_time = end_time - start_time
+    
+    assert_equal large_url_set.length, filtered.length, "Should filter all matching URLs"
+    assert processing_time < 1.0, "Should process 10K URLs in under 1 second, took #{processing_time}s"
+    
+    # Test prioritization performance
+    start_time = Time.now
+    prioritized = service.send(:prioritize_urls, large_url_set, "https://example.com")
+    end_time = Time.now
+    
+    prioritization_time = end_time - start_time
+    
+    assert_equal large_url_set.length, prioritized.length, "Should prioritize all URLs"
+    assert prioritization_time < 2.0, "Should prioritize 10K URLs in under 2 seconds, took #{prioritization_time}s"
+  end
+
+  test "error_handling_network_failures" do
+    service = SitemapService.new
+    
+    # Test with non-existent domain
+    urls = service.fetch_sitemap_urls('https://this-domain-does-not-exist-12345.com')
+    assert_nil urls, "Should return nil for non-existent domain"
+    
+    # Test with domain that exists but has no sitemap
+    urls = service.fetch_sitemap_urls('https://httpbin.org')
+    assert_nil urls, "Should return nil when no sitemap exists"
+  end
+
+  test "error_handling_malformed_xml_edge_cases" do
+    service = SitemapService.new
+    
+    # Test various malformed XML scenarios
+    malformed_xmls = [
+      "",                                    # Empty content
+      "Not XML at all",                     # Plain text
+      "<xml>unclosed tag",                  # Unclosed tags
+      "<urlset><url><loc></loc></url></urlset>", # Empty location
+      "<urlset><url><loc>invalid-url</loc></url></urlset>", # Invalid URL
+      "<urlset><url></url></urlset>",       # Missing loc element
+      "<?xml version='1.0'?><urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'><url><loc>https://example.com</loc></url><url><loc>not-a-url</loc></url></urlset>" # Mixed valid/invalid
+    ]
+    
+    malformed_xmls.each_with_index do |xml, index|
+      result = service.send(:parse_sitemap, xml)
+      
+      assert result.is_a?(Array), "Should always return array for malformed XML case #{index + 1}"
+      # Some malformed XML might still extract some valid URLs (like case 7)
+      result.each do |url|
+        assert service.send(:valid_url?, url), "Any returned URLs should be valid for case #{index + 1}: #{url}"
+      end
+    end
+  end
+
+  test "end_to_end_subpath_mode_integration" do
+    # Create comprehensive test URLs that would be found in a sitemap
+    sitemap_urls = [
+      'https://example.com/',
+      'https://example.com/products/',
+      'https://example.com/products/shoes',
+      'https://example.com/products/shoes/nike',
+      'https://example.com/products/shirts', 
+      'https://example.com/blog/',
+      'https://example.com/blog/tech',
+      'https://example.com/about',
+      'https://example.com/privacy-policy'
+    ]
+    
+    # Mock the class method properly  
+    SitemapService.define_singleton_method(:fetch_filtered_urls) do |starting_url, job|
+      service = SitemapService.new
+      urls = service.filter_urls_for_mode(sitemap_urls, job)
+      urls
+    end
+    
+    # Test subpath mode end-to-end
+    job = OpenStruct.new(
+      scrape_mode: 'subpath_only',
+      url: 'https://example.com/products/shoes'
+    )
+    
+    result = SitemapService.fetch_filtered_urls(job.url, job)
+    
+    assert result.is_a?(Array), "Should return array"
+    assert result.length > 0, "Should find matching subpath URLs"
+    
+    # Should only include URLs that start with the subpath
+    result.each do |url|
+      assert url.start_with?('https://example.com/products/shoes'), 
+             "All URLs should be within subpath: #{url}"
+    end
+    
+    # Should be prioritized (shoes exact match should come before shoes/nike)
+    if result.include?('https://example.com/products/shoes')
+      shoes_index = result.index('https://example.com/products/shoes')
+      nike_index = result.index('https://example.com/products/shoes/nike')
+      if nike_index
+        assert shoes_index < nike_index, "Shorter path should be prioritized higher"
+      end
+    end
+    
+    # Restore original method
+    SitemapService.define_singleton_method(:fetch_filtered_urls) do |starting_url, job|
+      service = new
+      urls = service.fetch_sitemap_urls(starting_url)
+      return nil if urls.nil? || urls.empty?
+      service.filter_urls_for_mode(urls, job)
+    end
+  end
+
+  test "end_to_end_entire_website_mode_integration" do
+    # Test URLs with various priorities
+    sitemap_urls = [
+      'https://example.com/privacy-policy',      # Utility page - should be last
+      'https://example.com/deep/nested/path',    # Deep page - lower priority
+      'https://example.com/products',            # Content page - good priority  
+      'https://example.com/',                    # Homepage - should be first
+      'https://other-domain.com/page'            # Different domain - should be excluded
+    ]
+    
+    # Mock the class method properly
+    SitemapService.define_singleton_method(:fetch_filtered_urls) do |starting_url, job|
+      service = SitemapService.new
+      urls = service.filter_urls_for_mode(sitemap_urls, job)
+      urls
+    end
+    
+    # Test entire website mode end-to-end
+    job = OpenStruct.new(
+      scrape_mode: 'entire_website',
+      url: 'https://example.com'
+    )
+    
+    result = SitemapService.fetch_filtered_urls(job.url, job)
+    
+    assert result.is_a?(Array), "Should return array"
+    assert result.length == 4, "Should exclude other domain, include same-domain URLs"
+    
+    # Should only include same-domain URLs
+    result.each do |url|
+      assert url.start_with?('https://example.com'), "Should only include same domain: #{url}"
+    end
+    assert_not result.include?('https://other-domain.com/page'), "Should exclude other domains"
+    
+    # Test prioritization order
+    assert_equal 'https://example.com/', result.first, "Homepage should be first"
+    assert_equal 'https://example.com/privacy-policy', result.last, "Utility page should be last"
+    
+    # Restore original method
+    SitemapService.define_singleton_method(:fetch_filtered_urls) do |starting_url, job|
+      service = new
+      urls = service.fetch_sitemap_urls(starting_url)
+      return nil if urls.nil? || urls.empty?
+      service.filter_urls_for_mode(urls, job)
+    end
+  end
+
+  test "streaming_parser_fallback_behavior" do
+    service = SitemapService.new
+    
+    # Create a large XML content that would trigger streaming parser
+    # Need to make it much larger to exceed the 1MB threshold
+    large_xml_content = "<?xml version='1.0' encoding='UTF-8'?>\n<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>\n"
+    10000.times do |i|
+      # Make each URL entry longer to reach the 1MB threshold faster
+      large_xml_content += "  <url><loc>https://example.com/very/long/path/to/page/number/#{i}/with/additional/path/segments/to/make/it/larger</loc></url>\n"
+    end
+    large_xml_content += "</urlset>"
+    
+    # Make sure it's larger than threshold
+    assert large_xml_content.bytesize > SitemapService::LARGE_SITEMAP_THRESHOLD, 
+           "Test XML should be large enough (#{large_xml_content.bytesize} bytes) to trigger streaming parser (threshold: #{SitemapService::LARGE_SITEMAP_THRESHOLD} bytes)"
+    
+    # Test that streaming parser works
+    urls = service.send(:parse_sitemap, large_xml_content)
+    
+    assert_equal 10000, urls.length, "Streaming parser should extract all URLs"
+    assert urls.all? { |url| url.start_with?('https://example.com/very/long/path') }, "All URLs should be correctly parsed"
+    assert urls.uniq.length == urls.length, "Should not have duplicates"
+  end
+
+  test "memory_monitoring_integration" do
+    service = SitemapService.new
+    
+    # Test that memory monitoring doesn't crash
+    memory_usage = service.send(:current_memory_usage)
+    
+    assert memory_usage.is_a?(Numeric), "Should return numeric memory usage"
+    assert memory_usage >= 0, "Memory usage should be non-negative"
+    
+    # Test memory monitoring during URL processing
+    urls = (1..1000).map { |i| "https://example.com/page#{i}.html" }
+    
+    memory_before = service.send(:current_memory_usage)
+    service.send(:prioritize_urls, urls, 'https://example.com')
+    memory_after = service.send(:current_memory_usage)
+    
+    # Memory monitoring should work without errors
+    assert memory_before.is_a?(Numeric), "Memory before should be numeric"
+    assert memory_after.is_a?(Numeric), "Memory after should be numeric"
+  end
+
+  test "comprehensive_error_recovery" do
+    service = SitemapService.new
+    
+    # Test that service recovers gracefully from various error conditions
+    
+    # 1. Invalid starting URL
+    result = SitemapService.fetch_filtered_urls('not-a-url', OpenStruct.new(scrape_mode: 'entire_website', url: 'not-a-url'))
+    assert_nil result, "Should handle invalid starting URLs gracefully"
+    
+    # 2. Network timeout (mock)
+    mock_faraday_error = Faraday::TimeoutError.new("Test timeout")
+    Faraday.define_singleton_method(:get) { |url| raise mock_faraday_error }
+    
+    result = service.fetch_sitemap('https://example.com/sitemap.xml')
+    assert_nil result, "Should handle network timeouts gracefully"
+    
+    # 3. Redis unavailable during caching
+    result = service.send(:cache_sitemap, 'test-key', 'test-content')
+    assert_nil result, "Should handle Redis unavailability gracefully"
+  end
 end

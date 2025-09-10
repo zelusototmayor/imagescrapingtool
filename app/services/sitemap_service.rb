@@ -18,11 +18,21 @@ class SitemapService
   end
 
   def self.fetch_filtered_urls(starting_url, job)
+    # Feature flag for sitemap scraping
+    unless sitemap_enabled?
+      Rails.logger.info "Sitemap scraping disabled via ENABLE_SITEMAP_SCRAPING=false"
+      return nil
+    end
+    
     service = new
     urls = service.fetch_sitemap_urls(starting_url)
     return nil if urls.nil? || urls.empty?
     
     service.filter_urls_for_mode(urls, job)
+  end
+
+  def self.sitemap_enabled?
+    ENV.fetch('ENABLE_SITEMAP_SCRAPING', 'true').downcase == 'true'
   end
 
   def fetch_sitemap_urls(starting_url)

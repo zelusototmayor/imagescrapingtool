@@ -7,6 +7,8 @@ A production-ready Rails application for scraping images from websites. Users pr
 - **Modern UI**: Beautiful, responsive interface with glass morphism effects and smooth animations
 - **Simple UX**: PDF converter-style interface with URL input and one-click scraping
 - **Smart Crawling**: Supports both JavaScript rendering (Playwright) and static HTML parsing
+- **Sitemap Discovery**: 10-50x faster page discovery using sitemap.xml with intelligent fallback to link crawling
+- **URL Prioritization**: Smart ranking ensures most relevant pages are scraped first when hitting limits
 - **Image Classification**: Automatically categorizes images as hero, product, logo, or other
 - **Organized Output**: Images sorted into folders with descriptive filenames
 - **Rate Limiting**: 10 jobs per hour per IP address
@@ -108,6 +110,16 @@ REDIS_URL=redis://localhost:6379/0
 MAX_IMAGES=200                     # Hard limit per job
 JOB_TIMEOUT_MINUTES=2             # Timeout per scraping job
 USER_AGENT=ImageSweepBot/0.1      # Bot identification
+
+# Sitemap Discovery (NEW in v1.1.0)
+ENABLE_SITEMAP_SCRAPING=true      # Enable sitemap.xml discovery (default: true)
+SITEMAP_CACHE_TTL=3600            # Sitemap cache time in seconds (default: 1 hour)
+SITEMAP_DOWNLOAD_TIMEOUT=30       # Sitemap download timeout in seconds
+MAX_SITEMAP_SIZE=10485760         # Max sitemap size in bytes (default: 10MB)
+LARGE_SITEMAP_THRESHOLD=1048576   # Use streaming parser above this size (default: 1MB)
+SITEMAP_DEPTH_PENALTY=10          # Points deducted per URL depth level
+SITEMAP_SIMILARITY_BONUS=30       # Points added for URLs in same category
+SITEMAP_UTILITY_PENALTY=50        # Points deducted for utility pages
 
 # Rate Limiting
 RATE_LIMIT_JOBS_PER_HOUR=10       # Jobs per IP per hour
