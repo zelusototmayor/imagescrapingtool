@@ -1,0 +1,85 @@
+<div class="max-w-6xl mx-auto p-6">
+  <div class="bg-white shadow rounded-lg">
+    <div class="px-6 py-4 border-b border-gray-200">
+      <h1 class="text-2xl font-bold text-gray-900">User Management</h1>
+      <div class="mt-2 grid grid-cols-3 gap-4 text-sm">
+        <div class="bg-blue-50 p-3 rounded">
+          <span class="font-semibold">Total Users:</span> <%= @total_users %>
+        </div>
+        <div class="bg-green-50 p-3 rounded">
+          <span class="font-semibold">Premium:</span> <%= @premium_users %>
+        </div>
+        <div class="bg-gray-50 p-3 rounded">
+          <span class="font-semibold">Free:</span> <%= @free_users %>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-6">
+      <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead class="bg-gray-50">
+            <tr>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Email</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Downloads</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Jobs</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Joined</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-200">
+            <% @users.each do |user| %>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm font-medium text-gray-900"><%= user.email %></div>
+                  <% if user.stripe_customer_id.present? %>
+                    <div class="text-xs text-gray-500">Stripe: <%= user.stripe_customer_id %></div>
+                  <% end %>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <% if user.premium? %>
+                    <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">
+                      Premium
+                    </span>
+                  <% else %>
+                    <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-800">
+                      Free
+                    </span>
+                  <% end %>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  <%= user.downloads_used %> / <%= user.premium? ? '∞' : User::FREE_DOWNLOAD_LIMIT %>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  <%= user.jobs.count %>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <%= user.created_at.strftime("%b %d, %Y") %>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm space-x-2">
+                  <% if user.free? %>
+                    <%= link_to "Make Premium", admin_make_premium_path(user),
+                        method: :post,
+                        class: "bg-green-600 text-white px-3 py-1 rounded text-xs hover:bg-green-700",
+                        confirm: "Make #{user.email} premium for free?" %>
+                  <% else %>
+                    <%= link_to "Make Free", admin_make_free_path(user),
+                        method: :post,
+                        class: "bg-gray-600 text-white px-3 py-1 rounded text-xs hover:bg-gray-700",
+                        confirm: "Remove premium from #{user.email}?" %>
+                  <% end %>
+
+                  <%= link_to "Reset Downloads", admin_reset_downloads_path(user),
+                      method: :post,
+                      class: "bg-blue-600 text-white px-3 py-1 rounded text-xs hover:bg-blue-700",
+                      confirm: "Reset download count for #{user.email}?" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

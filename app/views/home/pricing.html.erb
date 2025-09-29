@@ -1,0 +1,243 @@
+<div class="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+  <!-- Navigation Header -->
+  <nav class="bg-white/80 backdrop-blur-md border-b border-white/20 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <span class="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">ImageSweep</span>
+        </div>
+        <div class="hidden md:flex items-center space-x-6 text-sm text-gray-600">
+          <a href="/" class="hover:text-blue-600 transition-colors">Home</a>
+          <a href="/pricing" class="text-blue-600 font-medium">Pricing</a>
+          <% if user_signed_in? %>
+            <a href="/dashboard" class="hover:text-blue-600 transition-colors">Dashboard</a>
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "hover:text-blue-600 transition-colors" %>
+          <% else %>
+            <%= link_to "Sign In", new_user_session_path, class: "hover:text-blue-600 transition-colors" %>
+            <%= link_to "Sign Up", new_user_registration_path, class: "bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Hero Section -->
+    <div class="text-center mb-16">
+      <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+        Simple,
+        <span class="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">Transparent Pricing</span>
+      </h1>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        Start free with basic image scraping, or upgrade for unlimited downloads and priority support
+      </p>
+    </div>
+
+    <!-- Pricing Cards -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+      <!-- Free Plan -->
+      <div class="bg-white/70 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/20 p-8 relative">
+        <div class="text-center">
+          <h3 class="text-2xl font-bold text-gray-900 mb-2">Free</h3>
+          <div class="mb-6">
+            <span class="text-5xl font-bold text-gray-900">€0</span>
+            <span class="text-gray-600 ml-2">forever</span>
+          </div>
+
+          <ul class="space-y-4 mb-8 text-left">
+            <li class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-700">2 image downloads per account</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-700">All scraping modes (current page, section, entire website)</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-700">JavaScript rendering support</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-700">ZIP archive downloads</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-700">JSON manifest files</span>
+            </li>
+          </ul>
+
+          <% if user_signed_in? %>
+            <% if current_user.premium? %>
+              <button disabled class="w-full bg-gray-400 text-white py-3 px-6 rounded-xl font-semibold cursor-not-allowed">
+                Currently Premium
+              </button>
+            <% else %>
+              <p class="text-sm text-gray-600 font-medium">Your current plan</p>
+            <% end %>
+          <% else %>
+            <%= link_to new_user_registration_path, class: "block w-full bg-gradient-to-r from-gray-600 to-slate-600 text-white py-3 px-6 rounded-xl hover:from-gray-700 hover:to-slate-700 focus:ring-4 focus:ring-gray-200 font-semibold transition-all duration-200 transform hover:scale-[1.02] shadow-lg hover:shadow-xl text-center" do %>
+              Get Started Free
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+
+      <!-- Premium Plan -->
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl shadow-2xl border-2 border-blue-200 p-8 relative">
+        <!-- Popular Badge -->
+        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+          <span class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+            Most Popular
+          </span>
+        </div>
+
+        <div class="text-center">
+          <h3 class="text-2xl font-bold text-gray-900 mb-2">Premium</h3>
+          <div class="mb-6">
+            <span class="text-5xl font-bold text-gray-900">€5</span>
+            <span class="text-gray-600 ml-2">per month</span>
+          </div>
+
+          <ul class="space-y-4 mb-8 text-left">
+            <li class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-700"><strong>Unlimited downloads</strong></span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-700">All Free features included</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-700">Priority processing</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-700">Enhanced performance</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-700">Email support</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-700">Cancel anytime</span>
+            </li>
+          </ul>
+
+          <% if user_signed_in? %>
+            <% if current_user.premium? %>
+              <button disabled class="w-full bg-green-500 text-white py-3 px-6 rounded-xl font-semibold cursor-not-allowed flex items-center justify-center space-x-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Current Plan</span>
+              </button>
+            <% else %>
+              <button onclick="upgradeToPremium()" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 px-6 rounded-xl hover:from-blue-700 hover:to-indigo-700 focus:ring-4 focus:ring-blue-200 font-semibold transition-all duration-200 transform hover:scale-[1.02] shadow-lg hover:shadow-xl">
+                Upgrade to Premium
+              </button>
+            <% end %>
+          <% else %>
+            <%= link_to new_user_registration_path, class: "block w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 px-6 rounded-xl hover:from-blue-700 hover:to-indigo-700 focus:ring-4 focus:ring-blue-200 font-semibold transition-all duration-200 transform hover:scale-[1.02] shadow-lg hover:shadow-xl text-center" do %>
+              Start with Premium
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="mt-20">
+      <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Frequently Asked Questions</h2>
+
+      <div class="max-w-3xl mx-auto space-y-6">
+        <div class="bg-white/70 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-6">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">What counts as a "download"?</h3>
+          <p class="text-gray-600">Each time you complete a scraping job and download the ZIP archive, it counts as one download. You can preview images and download the JSON manifest without using your download quota.</p>
+        </div>
+
+        <div class="bg-white/70 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-6">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Can I cancel my Premium subscription anytime?</h3>
+          <p class="text-gray-600">Yes! You can cancel your subscription at any time through your dashboard. You'll retain Premium features until the end of your current billing period.</p>
+        </div>
+
+        <div class="bg-white/70 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-6">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Is my data secure?</h3>
+          <p class="text-gray-600">Absolutely. We use secure payment processing through Stripe, and all scraped images are temporarily stored and automatically cleaned up after download.</p>
+        </div>
+
+        <div class="bg-white/70 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-6">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">What payment methods do you accept?</h3>
+          <p class="text-gray-600">We accept all major credit and debit cards through Stripe's secure payment processing.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back to Home -->
+    <div class="text-center mt-16">
+      <a href="/" class="inline-flex items-center space-x-2 bg-gradient-to-r from-gray-600 to-slate-600 text-white py-4 px-8 rounded-xl hover:from-gray-700 hover:to-slate-700 focus:ring-4 focus:ring-gray-200 font-semibold transition-all duration-200 transform hover:scale-[1.02] shadow-lg hover:shadow-xl">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+        <span>Back to Home</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<% if user_signed_in? && !current_user.premium? %>
+<script>
+async function upgradeToPremium() {
+  try {
+    const response = await fetch('/billing/checkout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': document.querySelector('[name="csrf-token"]').content
+      }
+    });
+
+    const data = await response.json();
+
+    if (data.url) {
+      window.location.href = data.url;
+    } else {
+      alert('Error creating checkout session. Please try again.');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('Error upgrading to premium: ' + error.message);
+  }
+}
+</script>
+<% end %>

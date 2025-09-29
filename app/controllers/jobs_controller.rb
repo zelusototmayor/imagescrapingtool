@@ -5,7 +5,8 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(job_params)
-    
+    @job.user = current_user if user_signed_in?
+
     if @job.save
       ScrapeJob.perform_async(@job.uuid)
       render json: { job_id: @job.uuid }, status: :created
@@ -25,16 +26,23 @@ class JobsController < ApplicationController
   end
 
   def download_zip
-    unless @job.can_download?
-      render json: { error: 'Job not ready for download' }, status: :forbidden
+    session_id = session.id&.to_s || request.session_options[:id]
+    ip_address = request.remote_ip
+
+    unless @job.can_download?(current_user, session_id, ip_address)
+      error_message = get_download_error_message(current_user, session_id, ip_address)
+      render json: { error: error_message }, status: :forbidden
       return
     end
 
-    zip_path = @job.zip_path
+    zip_path = @job.zip_path(current_user, session_id, ip_address)
     unless File.exist?(zip_path)
       render json: { error: 'ZIP file not found' }, status: :not_found
       return
     end
+
+    # Record the download
+    @job.record_download!(current_user, session_id, ip_address)
 
     send_file zip_path,
               filename: "imagesweep-#{@job.uuid}.zip",
@@ -43,16 +51,23 @@ class JobsController < ApplicationController
   end
 
   def download_manifest
-    unless @job.can_download?
-      render json: { error: 'Job not ready for download' }, status: :forbidden
+    session_id = session.id&.to_s || request.session_options[:id]
+    ip_address = request.remote_ip
+
+    unless @job.can_download?(current_user, session_id, ip_address)
+      error_message = get_download_error_message(current_user, session_id, ip_address)
+      render json: { error: error_message }, status: :forbidden
       return
     end
 
-    manifest_path = @job.manifest_path
+    manifest_path = @job.manifest_path(current_user, session_id, ip_address)
     unless File.exist?(manifest_path)
       render json: { error: 'Manifest not found' }, status: :not_found
       return
     end
+
+    # Record the download (manifest counts as a download)
+    @job.record_download!(current_user, session_id, ip_address)
 
     send_file manifest_path,
               filename: "manifest-#{@job.uuid}.json",
@@ -70,5 +85,29 @@ class JobsController < ApplicationController
 
   def job_params
     params.require(:job).permit(:url, :render_js, :scrape_mode)
+  end
+
+  def get_download_error_message(current_user, session_id, ip_address)
+    if current_user
+      if current_user.download_limit_reached?
+        "Download limit reached. Upgrade to premium for unlimited downloads."
+      elsif @job.already_downloaded?(current_user, session_id, ip_address)
+        "This job has already been downloaded."
+      else
+        "Job not ready for download"
+      end
+    else
+      anonymous_downloads = Download.anonymous
+                                   .for_session(session_id)
+                                   .for_ip(ip_address)
+                                   .count
+      if anonymous_downloads >= 1
+        "Free download limit reached. Sign up for more downloads."
+      elsif @job.already_downloaded?(current_user, session_id, ip_address)
+        "This job has already been downloaded."
+      else
+        "Job not ready for download"
+      end
+    end
   end
 end

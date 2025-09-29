@@ -1,4 +1,7 @@
 class Job < ApplicationRecord
+  belongs_to :user, optional: true
+  has_many :downloads, dependent: :destroy
+
   enum :status, {
     queued: 0,
     running: 1,
@@ -29,19 +32,57 @@ class Job < ApplicationRecord
     uuid
   end
 
-  def can_download?
-    # Remove payment check for free tier - everyone can download
-    done? && artifact_dir.present? && File.exist?(File.join(artifact_dir, 'images'))
+  def can_download?(current_user = nil, session_id = nil, ip_address = nil)
+    return false unless done? && artifact_dir.present? && File.exist?(File.join(artifact_dir, 'images'))
+
+    # If user is signed in and premium, they can always download
+    return true if current_user&.premium?
+
+    # Check if this specific job has already been downloaded
+    return false if already_downloaded?(current_user, session_id, ip_address)
+
+    # Check download limits
+    if current_user
+      # Signed in user - check their download limit
+      current_user.can_download?
+    else
+      # Anonymous user - check session-based limit
+      anonymous_downloads_count = Download.anonymous
+                                         .for_session(session_id)
+                                         .for_ip(ip_address)
+                                         .count
+      anonymous_downloads_count < 1
+    end
   end
 
-  def zip_path
-    return nil unless can_download?
+  def already_downloaded?(current_user = nil, session_id = nil, ip_address = nil)
+    if current_user
+      downloads.for_user(current_user).exists?
+    else
+      downloads.anonymous.for_session(session_id).for_ip(ip_address).exists?
+    end
+  end
+
+  def zip_path(current_user = nil, session_id = nil, ip_address = nil)
+    return nil unless can_download?(current_user, session_id, ip_address)
     File.join(artifact_dir, 'imagesweep.zip')
   end
 
-  def manifest_path
-    return nil unless can_download?
+  def manifest_path(current_user = nil, session_id = nil, ip_address = nil)
+    return nil unless can_download?(current_user, session_id, ip_address)
     File.join(artifact_dir, 'manifest.json')
+  end
+
+  def record_download!(current_user = nil, session_id = nil, ip_address = nil)
+    download = downloads.create!(
+      user: current_user,
+      ip_address: ip_address,
+      session_id: session_id,
+      downloaded_at: Time.current
+    )
+
+    current_user&.increment_downloads!
+    download
   end
 
   def cleanup_artifacts!
