@@ -27,7 +27,7 @@ gem "robotex", "~> 1.0"
 gem "rubyzip", "~> 2.3"
 gem "fastimage", "~> 2.3"
 gem "rack-attack", "~> 6.7"
-gem "faraday", "~> 2.0"
+gem "faraday", "~> 2.14"
 gem "slim", "~> 5.0"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
