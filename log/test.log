@@ -4238,3 +4238,741 @@ SitemapServiceTest: test_filter_subpath_urls_filters_correctly
 Filtering 5 URLs for subpath: https://example.com/products/shoes
 Subpath filtering result: 2 URLs
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "jobs"[0m
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "jobs"[0m
+  [1m[35m (4.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "jobs"[0m
+  [1m[35m (4.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "jobs"[0m
+  [1m[35m (9.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "jobs"[0m
+  [1m[35m (8.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "jobs"[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "uuid" varchar NOT NULL, "url" text NOT NULL, "render_js" boolean DEFAULT 1 NOT NULL, "status" integer DEFAULT 0 NOT NULL, "progress" integer DEFAULT 0 NOT NULL, "message" text, "pages_crawled" integer DEFAULT 0 NOT NULL, "images_found" integer DEFAULT 0 NOT NULL, "is_paid" boolean DEFAULT 1 NOT NULL, "artifact_dir" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "scrape_mode" integer DEFAULT 0 NOT NULL)[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "uuid" varchar NOT NULL, "url" text NOT NULL, "render_js" boolean DEFAULT 1 NOT NULL, "status" integer DEFAULT 0 NOT NULL, "progress" integer DEFAULT 0 NOT NULL, "message" text, "pages_crawled" integer DEFAULT 0 NOT NULL, "images_found" integer DEFAULT 0 NOT NULL, "is_paid" boolean DEFAULT 1 NOT NULL, "artifact_dir" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "scrape_mode" integer DEFAULT 0 NOT NULL)[0m
+  [1m[35m (4.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "jobs"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_created_at" ON "jobs" ("created_at")[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "uuid" varchar NOT NULL, "url" text NOT NULL, "render_js" boolean DEFAULT 1 NOT NULL, "status" integer DEFAULT 0 NOT NULL, "progress" integer DEFAULT 0 NOT NULL, "message" text, "pages_crawled" integer DEFAULT 0 NOT NULL, "images_found" integer DEFAULT 0 NOT NULL, "is_paid" boolean DEFAULT 1 NOT NULL, "artifact_dir" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "scrape_mode" integer DEFAULT 0 NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_created_at" ON "jobs" ("created_at")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_scrape_mode" ON "jobs" ("scrape_mode")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_created_at" ON "jobs" ("created_at")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_status" ON "jobs" ("status")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_scrape_mode" ON "jobs" ("scrape_mode")[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_scrape_mode" ON "jobs" ("scrape_mode")[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "uuid" varchar NOT NULL, "url" text NOT NULL, "render_js" boolean DEFAULT 1 NOT NULL, "status" integer DEFAULT 0 NOT NULL, "progress" integer DEFAULT 0 NOT NULL, "message" text, "pages_crawled" integer DEFAULT 0 NOT NULL, "images_found" integer DEFAULT 0 NOT NULL, "is_paid" boolean DEFAULT 1 NOT NULL, "artifact_dir" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "scrape_mode" integer DEFAULT 0 NOT NULL)[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "uuid" varchar NOT NULL, "url" text NOT NULL, "render_js" boolean DEFAULT 1 NOT NULL, "status" integer DEFAULT 0 NOT NULL, "progress" integer DEFAULT 0 NOT NULL, "message" text, "pages_crawled" integer DEFAULT 0 NOT NULL, "images_found" integer DEFAULT 0 NOT NULL, "is_paid" boolean DEFAULT 1 NOT NULL, "artifact_dir" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "scrape_mode" integer DEFAULT 0 NOT NULL)[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "uuid" varchar NOT NULL, "url" text NOT NULL, "render_js" boolean DEFAULT 1 NOT NULL, "status" integer DEFAULT 0 NOT NULL, "progress" integer DEFAULT 0 NOT NULL, "message" text, "pages_crawled" integer DEFAULT 0 NOT NULL, "images_found" integer DEFAULT 0 NOT NULL, "is_paid" boolean DEFAULT 1 NOT NULL, "artifact_dir" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "scrape_mode" integer DEFAULT 0 NOT NULL)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "jobs"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_created_at" ON "jobs" ("created_at")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_status" ON "jobs" ("status")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_created_at" ON "jobs" ("created_at")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_created_at" ON "jobs" ("created_at")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_scrape_mode" ON "jobs" ("scrape_mode")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_jobs_on_uuid" ON "jobs" ("uuid")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_status" ON "jobs" ("status")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_scrape_mode" ON "jobs" ("scrape_mode")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_status" ON "jobs" ("status")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_status" ON "jobs" ("status")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_jobs_on_uuid" ON "jobs" ("uuid")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_jobs_on_uuid" ON "jobs" ("uuid")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_scrape_mode" ON "jobs" ("scrape_mode")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_status" ON "jobs" ("status")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_jobs_on_uuid" ON "jobs" ("uuid")[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "uuid" varchar NOT NULL, "url" text NOT NULL, "render_js" boolean DEFAULT 1 NOT NULL, "status" integer DEFAULT 0 NOT NULL, "progress" integer DEFAULT 0 NOT NULL, "message" text, "pages_crawled" integer DEFAULT 0 NOT NULL, "images_found" integer DEFAULT 0 NOT NULL, "is_paid" boolean DEFAULT 1 NOT NULL, "artifact_dir" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "scrape_mode" integer DEFAULT 0 NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_created_at" ON "jobs" ("created_at")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "uuid" varchar NOT NULL, "url" text NOT NULL, "render_js" boolean DEFAULT 1 NOT NULL, "status" integer DEFAULT 0 NOT NULL, "progress" integer DEFAULT 0 NOT NULL, "message" text, "pages_crawled" integer DEFAULT 0 NOT NULL, "images_found" integer DEFAULT 0 NOT NULL, "is_paid" boolean DEFAULT 1 NOT NULL, "artifact_dir" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "scrape_mode" integer DEFAULT 0 NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_scrape_mode" ON "jobs" ("scrape_mode")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_status" ON "jobs" ("status")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_created_at" ON "jobs" ("created_at")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_scrape_mode" ON "jobs" ("scrape_mode")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_jobs_on_uuid" ON "jobs" ("uuid")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_status" ON "jobs" ("status")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_jobs_on_uuid" ON "jobs" ("uuid")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20250903212416)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20250902222332);[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20250903212416)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20250903212416)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20250902222332);[0m
+  [1m[35m (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20250903212416)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20250902222332);[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20250902222332);[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_jobs_on_uuid" ON "jobs" ("uuid")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_jobs_on_uuid" ON "jobs" ("uuid")[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20250903212416)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20250902222332);[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20250903212416)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20250903212416)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20250902222332);[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20250902222332);[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'test', '2025-09-10 16:34:54.837107', '2025-09-10 16:34:54.837109') RETURNING "key"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'test', '2025-09-10 16:34:54.838786', '2025-09-10 16:34:54.838787') RETURNING "key"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'test', '2025-09-10 16:34:54.838408', '2025-09-10 16:34:54.838410') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'test', '2025-09-10 16:34:54.838885', '2025-09-10 16:34:54.838887') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'test', '2025-09-10 16:34:54.840391', '2025-09-10 16:34:54.840395') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '565716488028e3eb826e6edb928246b20c45bc2d', '2025-09-10 16:34:54.840792', '2025-09-10 16:34:54.840794') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '565716488028e3eb826e6edb928246b20c45bc2d', '2025-09-10 16:34:54.841128', '2025-09-10 16:34:54.841130') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '565716488028e3eb826e6edb928246b20c45bc2d', '2025-09-10 16:34:54.841255', '2025-09-10 16:34:54.841256') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '565716488028e3eb826e6edb928246b20c45bc2d', '2025-09-10 16:34:54.841375', '2025-09-10 16:34:54.841376') RETURNING "key"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'test', '2025-09-10 16:34:54.839963', '2025-09-10 16:34:54.839966') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '565716488028e3eb826e6edb928246b20c45bc2d', '2025-09-10 16:34:54.842195', '2025-09-10 16:34:54.842197') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20250903212416)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20250902222332);[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '565716488028e3eb826e6edb928246b20c45bc2d', '2025-09-10 16:34:54.843244', '2025-09-10 16:34:54.843245') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'test', '2025-09-10 16:34:54.843081', '2025-09-10 16:34:54.843083') RETURNING "key"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '565716488028e3eb826e6edb928246b20c45bc2d', '2025-09-10 16:34:54.844922', '2025-09-10 16:34:54.844923') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'test', '2025-09-10 16:34:54.845116', '2025-09-10 16:34:54.845117') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '565716488028e3eb826e6edb928246b20c45bc2d', '2025-09-10 16:34:54.846700', '2025-09-10 16:34:54.846701') RETURNING "key"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[36mFixtures Load (0.2ms)[0m  [1m[31mDELETE FROM "jobs"[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[36mFixtures Load (0.1ms)[0m  [1m[31mDELETE FROM "jobs"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[36mFixtures Load (0.1ms)[0m  [1m[31mDELETE FROM "jobs"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mFixtures Load (0.0ms)[0m  [1m[31mDELETE FROM "jobs"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (0.0ms)[0m  [1m[31mDELETE FROM "jobs"[0m
+  [1m[35mSQL (3.9ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------
+SitemapServiceTest: test_memory_monitoring_integration
+-------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_extracts_URLs_from_valid_XML
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------
+SitemapServiceTest: test_end_to_end_subpath_mode_integration
+  [1m[36mTRANSACTION (6.9ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (9.4ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------
+SitemapServiceTest: test_score_url_importance_applies_utility_page_penalty
+-------------------------------------------------------------------
+  [1m[36mFixtures Load (0.4ms)[0m  [1m[31mDELETE FROM "jobs"[0m
+--------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------
+SitemapServiceTest: test_filter_same_domain_urls_filters_correctly
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[36mFixtures Load (0.1ms)[0m  [1m[31mDELETE FROM "jobs"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+------------------------------------------------------------
+Similarity bonus applied to https://example.com/products/shoes
+Parsing sitemap XML content (270 bytes)
+------------------------------------------------------
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+Utility page penalty applied to https://example.com/privacy-policy
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+Filtering 9 URLs for job mode: subpath_only
+  [1m[35m (1.1ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_returns_empty_array_for_non-XML_content
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+Filtering 5 URLs for same domain: https://example.com
+Domain filtering result: 3 URLs
+-------------------------------------------------------------------
+SitemapServiceTest: test_end_to_end_entire_website_mode_integration
+Filtering 9 URLs for subpath: https://example.com/products/shoes
+Subpath filtering result: 2 URLs
+Prioritizing 2 URLs based on importance scoring
+Similarity bonus applied to https://example.com/products/shoes
+Similarity bonus applied to https://example.com/products/shoes/nike
+URL prioritization complete. Top 5 scores: https://example.com/products/shoes (120), https://example.com/products/shoes/nike (110)
+Filtered and prioritized to 2 URLs (limit: 25)
+-------------------------------------------------------------------
+------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+Skipping invalid URL from sitemap: invalid-url
+Extracted 2 URLs from sitemap
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+Filtering 5 URLs for job mode: entire_website
+Filtering 5 URLs for same domain: https://example.com
+Domain filtering result: 4 URLs
+Parsing sitemap XML content (33 bytes)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+Prioritizing 4 URLs based on importance scoring
+Utility page penalty applied to https://example.com/privacy-policy
+URL prioritization complete. Top 5 scores: https://example.com/ (120), https://example.com/products (100), https://example.com/deep/nested/path (80), https://example.com/privacy-policy (50)
+Filtered and prioritized to 4 URLs (limit: 50)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+Prioritizing 1000 URLs based on importance scoring
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+Extracted 0 URLs from sitemap
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mFixtures Load (0.0ms)[0m  [1m[31mDELETE FROM "jobs"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------
+SitemapServiceTest: test_comprehensive_error_recovery
+-----------------------------------------------------
+Attempting to fetch sitemap from: https://example.com/sitemap.xml
+Sitemap fetch timed out: https://example.com/sitemap.xml - Test timeout
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------
+SitemapServiceTest: test_extract_domain_returns_correct_domain
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------
+SitemapServiceTest: test_error_handling_malformed_xml_edge_cases
+----------------------------------------------------------------
+Parsing sitemap XML content (0 bytes)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------
+SitemapServiceTest: test_fetch_sitemap_checks_visited_sitemaps_correctly
+------------------------------------------------------------------------
+--------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+Attempting to fetch sitemap from: https://example.com/sitemap.xml
+--------------------------------------------------------
+SitemapServiceTest: test_error_handling_network_failures
+Sitemap not found (HTTP 404): https://example.com/sitemap.xml
+--------------------------------------------------------
+Attempting to fetch sitemap from: https://example.com/sitemap.xml
+Fetching sitemap for domain: https://this-domain-does-not-exist-12345.com (memory: 29.113388061523438MB)
+Attempting to fetch sitemap from: https://this-domain-does-not-exist-12345.com/sitemap.xml
+Extracted 0 URLs from sitemap
+Parsing sitemap XML content (14 bytes)
+XML parsing warnings: 1:1: FATAL: Start tag expected, '<' not found
+Extracted 0 URLs from sitemap
+Parsing sitemap XML content (17 bytes)
+XML parsing warnings: 1:18: FATAL: Premature end of data in tag xml line 1
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------------
+SitemapServiceTest: test_path_similarity_bonus?_correctly_identifies_similar_paths
+----------------------------------------------------------------------------------
+Extracted 0 URLs from sitemap
+Parsing sitemap XML content (39 bytes)
+Extracted 0 URLs from sitemap
+Parsing sitemap XML content (50 bytes)
+Skipping invalid URL from sitemap: invalid-url
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+Extracted 0 URLs from sitemap
+Parsing sitemap XML content (28 bytes)
+Extracted 0 URLs from sitemap
+Parsing sitemap XML content (162 bytes)
+Skipping invalid URL from sitemap: not-a-url
+Extracted 1 URLs from sitemap
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------
+SitemapServiceTest: test_filter_urls_for_mode_applies_correct_limits
+--------------------------------------------------------------------
+Filtering 60 URLs for job mode: subpath_only
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+Filtering 60 URLs for subpath: https://example.com
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_index_extracts_sitemap_URLs_correctly
+----------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_index_handles_invalid_sitemap_URLs
+-------------------------------------------------------------------------
+Skipping invalid sitemap URL from index: invalid-sitemap-url
+Found 2 sitemap references in index
+Processing sitemap 1/2: https://example.com/sitemap1.xml
+Processing sitemap 2/2: https://example.com/sitemap2.xml
+Combined 0 total URLs from sitemap index
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+Subpath filtering result: 60 URLs
+Prioritizing 60 URLs based on importance scoring
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_detects_sitemap_index_files
+------------------------------------------------------------------
+Parsing sitemap XML content (268 bytes)
+Detected sitemap index file, processing child sitemaps
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+Found 2 sitemap references in index
+Processing sitemap 1/2: https://example.com/sitemap1.xml
+Parsing sitemap XML content (210 bytes)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------
+SitemapServiceTest: test_extract_category_extracts_meaningful_categories
+------------------------------------------------------------------------
+-------------------------------------------------------------------------
+SitemapServiceTest: test_integration_test_real_website_sitemap_processing
+-------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+URL prioritization complete. Top 5 scores: https://example.com/page1 (100), https://example.com/page2 (100), https://example.com/page3 (100), https://example.com/page4 (100), https://example.com/page5 (100)
+Filtered and prioritized to 25 URLs (limit: 25)
+Filtering 60 URLs for job mode: entire_website
+Filtering 60 URLs for same domain: https://example.com
+Domain filtering result: 60 URLs
+Prioritizing 60 URLs based on importance scoring
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+Extracted 2 URLs from sitemap
+-------------------------------------------------------------------------------
+SitemapServiceTest: test_prioritization_is_integrated_into_filter_urls_for_mode
+Added 2 URLs from https://example.com/sitemap1.xml
+Processing sitemap 2/2: https://example.com/sitemap2.xml
+Parsing sitemap XML content (210 bytes)
+Extracted 2 URLs from sitemap
+Added 2 URLs from https://example.com/sitemap2.xml
+URL prioritization complete. Top 5 scores: https://example.com/page1.html (100), https://example.com/page2.html (100), https://example.com/page3.html (100), https://example.com/page4.html (100), https://example.com/page5.html (100)
+Combined 4 total URLs from sitemap index
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+-------------------------------------------------------------------------------
+Filtering 4 URLs for job mode: entire_website
+Filtering 4 URLs for same domain: https://example.com
+Domain filtering result: 4 URLs
+Prioritizing 4 URLs based on importance scoring
+Utility page penalty applied to https://example.com/privacy-policy
+Similarity bonus applied to https://example.com/products/shoes/nike
+Similarity bonus applied to https://example.com/products/deep/nested/very/deep/item
+URL prioritization complete. Top 5 scores: https://example.com/products/shoes/nike (110), https://example.com/blog/random (90), https://example.com/products/deep/nested/very/deep/item (80), https://example.com/privacy-policy (50)
+Filtered and prioritized to 4 URLs (limit: 50)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+------------------------------------------------------------
+URL prioritization complete. Top 5 scores: https://example.com/page1 (100), https://example.com/page2 (100), https://example.com/page3 (100), https://example.com/page4 (100), https://example.com/page5 (100)
+Filtered and prioritized to 50 URLs (limit: 50)
+------------------------------------------------------------------
+SitemapServiceTest: test_prioritize_urls_sorts_by_score_descending
+SitemapServiceTest: test_valid_url?_validates_URLs_correctly
+------------------------------------------------------------------
+Prioritizing 4 URLs based on importance scoring
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+Utility page penalty applied to https://example.com/privacy-policy
+Similarity bonus applied to https://example.com/products/shoes
+Similarity bonus applied to https://example.com/products/deep/nested/item
+URL prioritization complete. Top 5 scores: https://example.com/products/shoes (120), https://example.com/products/deep/nested/item (100), https://example.com/blog/news (90), https://example.com/privacy-policy (50)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------
+SitemapServiceTest: test_caching_methods_handle_redis_unavailability_gracefully
+-------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------
+SitemapServiceTest: test_score_url_importance_applies_depth_penalty_correctly
+-----------------------------------------------------------------------------
+Similarity bonus applied to https://example.com/products/shoes
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+Similarity bonus applied to https://example.com/products/shoes/brand/model/variant
+--------------------------------------------------------------
+SitemapServiceTest: test_filter_subpath_urls_filters_correctly
+--------------------------------------------------------------
+Filtering 5 URLs for subpath: https://example.com/products/shoes
+Subpath filtering result: 2 URLs
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_handles_nested_sitemap_indexes
+---------------------------------------------------------------------
+Parsing sitemap XML content (199 bytes)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------
+SitemapServiceTest: test_performance_test_large_url_filtering
+-------------------------------------------------------------
+Detected sitemap index file, processing child sitemaps
+Found 1 sitemap references in index
+Processing sitemap 1/1: https://example.com/nested-index.xml
+Parsing sitemap XML content (200 bytes)
+Detected sitemap index file, processing child sitemaps
+Found 1 sitemap references in index
+Processing sitemap 1/1: https://example.com/final-sitemap.xml
+Parsing sitemap XML content (165 bytes)
+Extracted 1 URLs from sitemap
+Added 1 URLs from https://example.com/final-sitemap.xml
+Combined 1 total URLs from sitemap index
+Added 1 URLs from https://example.com/nested-index.xml
+Combined 1 total URLs from sitemap index
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------
+SitemapServiceTest: test_score_url_importance_applies_similarity_bonus
+----------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+Similarity bonus applied to https://example.com/products/boots
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------
+SitemapServiceTest: test_utility_page?_detects_common_utility_pages
+-------------------------------------------------------------------
+-----------------------------------------------------------------------
+SitemapServiceTest: test_parse_sitemap_handles_malformed_XML_gracefully
+-----------------------------------------------------------------------
+Parsing sitemap XML content (43 bytes)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+XML parsing warnings: 1:44: FATAL: Premature end of data in tag url line 1
+Extracted 1 URLs from sitemap
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+Filtering 10000 URLs for same domain: https://example.com
+Domain filtering result: 10000 URLs
+Prioritizing 10000 URLs based on importance scoring
+Error fetching sitemap: https://this-domain-does-not-exist-12345.com/sitemap.xml - Faraday::ConnectionFailed: Failed to open TCP connection to this-domain-does-not-exist-12345.com:443 (getaddrinfo: nodename nor servname provided, or not known)
+Fetching sitemap for domain: https://httpbin.org (memory: 29.145240783691406MB)
+Attempting to fetch sitemap from: https://httpbin.org/sitemap.xml
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------
+SitemapServiceTest: test_filter_urls_for_mode_handles_unknown_scrape_modes
+--------------------------------------------------------------------------
+Filtering 1 URLs for job mode: unknown_mode
+Unknown scrape mode: unknown_mode
+Filtered and prioritized to 0 URLs (limit: 25)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------
+SitemapServiceTest: test_streaming_parser_fallback_behavior
+-----------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------
+JobsControllerTest: test_should_create_job_with_valid_params
+------------------------------------------------------------
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------
+JobsControllerTest: test_should_return_404_for_non-existent_job
+---------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------
+JobsControllerTest: test_should_reject_job_with_invalid_URL
+-----------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------
+JobsControllerTest: test_should_reject_download_for_incomplete_job
+------------------------------------------------------------------
+  [1m[36mJob Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "jobs"[0m
+  [1m[36mJob Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "jobs"[0m
+Started GET "/jobs/nonexistent" for 127.0.0.1 at 2025-09-10 17:34:55 +0100
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Create (0.4ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at", "scrape_mode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["uuid", "9698571b-ec28-4bfb-9dba-6ca8290ffb78"], ["url", "https://example.com/"], ["render_js", 1], ["status", 0], ["progress", 0], ["message", nil], ["pages_crawled", 0], ["images_found", 0], ["is_paid", 1], ["artifact_dir", "/Users/zelu/Desktop/code/imagesweep/storage/imagesweep/9698571b-ec28-4bfb-9dba-6ca8290ffb78"], ["created_at", "2025-09-10 16:34:55.879076"], ["updated_at", "2025-09-10 16:34:55.879076"], ["scrape_mode", 0]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/jobs/9698571b-ec28-4bfb-9dba-6ca8290ffb78/download.zip" for 127.0.0.1 at 2025-09-10 17:34:55 +0100
+Started POST "/jobs" for 127.0.0.1 at 2025-09-10 17:34:55 +0100
+Started POST "/jobs" for 127.0.0.1 at 2025-09-10 17:34:55 +0100
+Processing by JobsController#create as JSON
+  Parameters: {"job"=>{"url"=>"invalid-url"}}
+Processing by JobsController#show as JSON
+  Parameters: {"id"=>"nonexistent", "job"=>{}}
+Processing by JobsController#download_zip as ZIP
+  Parameters: {"id"=>"9698571b-ec28-4bfb-9dba-6ca8290ffb78"}
+Processing by JobsController#create as JSON
+  Parameters: {"job"=>{"url"=>"https://example.com", "render_js"=>true, "max_pages"=>2, "restrict_to_subpath"=>false}}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = ? LIMIT ?[0m  [["uuid", "nonexistent"], ["LIMIT", 1]]
+Filter chain halted as :find_job rendered or redirected
+Completed 404 Not Found in 33ms (Views: 0.5ms | ActiveRecord: 2.2ms (1 query, 0 cached) | GC: 0.0ms)
+[31mUnpermitted parameters: :max_pages, :restrict_to_subpath. Context: { controller: JobsController, action: create, request: #<ActionDispatch::Request:0x00000001282d7598>, params: {"job"=>{"url"=>"https://example.com", "render_js"=>true, "max_pages"=>2, "restrict_to_subpath"=>false}, "controller"=>"jobs", "action"=>"create"} }[0m
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = ? LIMIT ?[0m  [["uuid", "9698571b-ec28-4bfb-9dba-6ca8290ffb78"], ["LIMIT", 1]]
+Completed 422 Unprocessable Content in 78ms (Views: 5.3ms | ActiveRecord: 0.7ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+Completed 403 Forbidden in 53ms (Views: 0.6ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mCACHE Job Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "jobs"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Create (0.6ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at", "scrape_mode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["uuid", "e0240a25-d611-4da9-b627-28fa230fd35f"], ["url", "https://example.com/"], ["render_js", 1], ["status", 0], ["progress", 0], ["message", nil], ["pages_crawled", 0], ["images_found", 0], ["is_paid", 1], ["artifact_dir", "/Users/zelu/Desktop/code/imagesweep/storage/imagesweep/e0240a25-d611-4da9-b627-28fa230fd35f"], ["created_at", "2025-09-10 16:34:56.214763"], ["updated_at", "2025-09-10 16:34:56.214763"], ["scrape_mode", 0]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------
+JobsControllerTest: test_should_show_job_status
+---------------------------------------------
+JobTest: test_should_enforce_max_pages_limits
+-----------------------------------------------
+---------------------------------------------
+----------------------------------------
+JobTest: test_should_reject_invalid_URLs
+----------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+Completed 201 Created in 57ms (Views: 5.1ms | ActiveRecord: 2.6ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mJob Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "jobs"[0m
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = ? LIMIT ?[0m  [["uuid", "e0240a25-d611-4da9-b627-28fa230fd35f"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Create (1.2ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at", "scrape_mode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["uuid", "1b8cdfc6-bf94-4307-adfd-fcfc28afac14"], ["url", "https://example.com/"], ["render_js", 1], ["status", 1], ["progress", 50], ["message", nil], ["pages_crawled", 0], ["images_found", 0], ["is_paid", 1], ["artifact_dir", "/Users/zelu/Desktop/code/imagesweep/storage/imagesweep/1b8cdfc6-bf94-4307-adfd-fcfc28afac14"], ["created_at", "2025-09-10 16:34:56.326302"], ["updated_at", "2025-09-10 16:34:56.326302"], ["scrape_mode", 0]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/jobs/1b8cdfc6-bf94-4307-adfd-fcfc28afac14" for 127.0.0.1 at 2025-09-10 17:34:56 +0100
+Processing by JobsController#show as JSON
+  Parameters: {"id"=>"1b8cdfc6-bf94-4307-adfd-fcfc28afac14", "job"=>{}}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = ? LIMIT ?[0m  [["uuid", "1b8cdfc6-bf94-4307-adfd-fcfc28afac14"], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+URL prioritization complete. Top 5 scores: https://example.com/page1.html (100), https://example.com/page2.html (100), https://example.com/page3.html (100), https://example.com/page4.html (100), https://example.com/page5.html (100)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------
+JobTest: test_can_download?_should_work_correctly
+-------------------------------------------------
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------
+JobTest: test_should_set_default_values
+---------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Create (156.0ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at", "scrape_mode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["uuid", "ab9bda38-6d54-4884-b053-27f3dac6483c"], ["url", "https://example.com/"], ["render_js", 1], ["status", 2], ["progress", 0], ["message", nil], ["pages_crawled", 0], ["images_found", 0], ["is_paid", 1], ["artifact_dir", "/Users/zelu/Desktop/code/imagesweep/storage/imagesweep/ab9bda38-6d54-4884-b053-27f3dac6483c"], ["created_at", "2025-09-10 16:34:56.689655"], ["updated_at", "2025-09-10 16:34:56.689655"], ["scrape_mode", 0]]
+Fetching sitemap for domain: https://www.torontocupcake.com (memory: 29.163970947265625MB)
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+Attempting to fetch sitemap from: https://www.torontocupcake.com/sitemap.xml
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------
+JobTest: test_should_reject_private_IP_URLs
+-------------------------------------------
+------------------------------------------
+JobTest: test_should_reject_localhost_URLs
+------------------------------------------
+----------------------------------------------
+JobTest: test_should_create_job_with_valid_URL
+----------------------------------------------
+  [1m[36mJob Create (125.9ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at", "scrape_mode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["uuid", "c169e6b8-1a22-4d48-8a8a-f561b37f9373"], ["url", "https://example.com/"], ["render_js", 1], ["status", 0], ["progress", 0], ["message", nil], ["pages_crawled", 0], ["images_found", 0], ["is_paid", 1], ["artifact_dir", "/Users/zelu/Desktop/code/imagesweep/storage/imagesweep/c169e6b8-1a22-4d48-8a8a-f561b37f9373"], ["created_at", "2025-09-10 16:34:56.876461"], ["updated_at", "2025-09-10 16:34:56.876461"], ["scrape_mode", 0]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (12.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+-------------------------------------------------
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+UrlValidatorTest: test_should_reject_invalid_URLs
+-------------------------------------------------
+--------------------------------------------
+UrlValidatorTest: test_should_extract_origin
+--------------------------------------------
+---------------------------------------------------
+UrlValidatorTest: test_should_reject_localhost_URLs
+---------------------------------------------------
+--------------------------------------------
+UrlValidatorTest: test_should_normalize_URLs
+--------------------------------------------
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------
+UrlValidatorTest: test_should_reject_private_IP_addresses
+---------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------
+UrlValidatorTest: test_should_validate_good_URLs
+------------------------------------------------
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------
+SitemapIntegrationTest: test_SitemapService_integration_is_properly_called
+--------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------------------------
+SitemapIntegrationTest: test_integration_preserves_existing_functionality_for_current_page_mode
+-----------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------------------
+SitemapIntegrationTest: test_ImageScraper_integration_preserves_fallback_behavior
+---------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------------
+SitemapIntegrationTest: test_ImageScraper_integration_works_for_entire_website_mode
+-----------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "jobs" WHERE "jobs"."uuid" = ? LIMIT ?[0m  [["uuid", "9a39eac8-eeec-41d5-b8b1-3f6c8b8502cf"], ["LIMIT", 1]]
+  [1m[36mJob Create (0.4ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at", "scrape_mode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["uuid", "9c29ebcc-15c7-4fbd-bfa1-d890d968dfdc"], ["url", "https://example.com/products"], ["render_js", 1], ["status", 0], ["progress", 0], ["message", nil], ["pages_crawled", 0], ["images_found", 0], ["is_paid", 1], ["artifact_dir", "/Users/zelu/Desktop/code/imagesweep/storage/imagesweep/9c29ebcc-15c7-4fbd-bfa1-d890d968dfdc"], ["created_at", "2025-09-10 16:34:57.834708"], ["updated_at", "2025-09-10 16:34:57.834708"], ["scrape_mode", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "jobs" WHERE "jobs"."uuid" = ? LIMIT ?[0m  [["uuid", "bd1cbe67-189c-4514-a651-68418c510689"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "jobs" WHERE "jobs"."uuid" = ? LIMIT ?[0m  [["uuid", "c5be2a57-66ea-48bd-9ca7-6e2869ee73bc"], ["LIMIT", 1]]
+  [1m[36mJob Create (2.1ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at", "scrape_mode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["uuid", "ab397060-9e72-4471-89b7-05c70d7c5cc8"], ["url", "https://example.com/products"], ["render_js", 1], ["status", 0], ["progress", 0], ["message", nil], ["pages_crawled", 0], ["images_found", 0], ["is_paid", 1], ["artifact_dir", "/Users/zelu/Desktop/code/imagesweep/storage/imagesweep/ab397060-9e72-4471-89b7-05c70d7c5cc8"], ["created_at", "2025-09-10 16:34:57.841458"], ["updated_at", "2025-09-10 16:34:57.841458"], ["scrape_mode", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mJob Create (1.9ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at", "scrape_mode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["uuid", "ca804506-f675-496c-88c7-d995aa9c0cae"], ["url", "https://example.com/products"], ["render_js", 1], ["status", 0], ["progress", 0], ["message", nil], ["pages_crawled", 0], ["images_found", 0], ["is_paid", 1], ["artifact_dir", "/Users/zelu/Desktop/code/imagesweep/storage/imagesweep/ca804506-f675-496c-88c7-d995aa9c0cae"], ["created_at", "2025-09-10 16:34:57.847959"], ["updated_at", "2025-09-10 16:34:57.847959"], ["scrape_mode", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "jobs" WHERE "jobs"."uuid" = ? LIMIT ?[0m  [["uuid", "da1d1db0-1bf8-43bc-a761-3bb6f84e7366"], ["LIMIT", 1]]
+  [1m[36mJob Create (0.4ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at", "scrape_mode") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["uuid", "2d66edcd-e5ab-415b-9bc0-dbd028cc0ea4"], ["url", "https://example.com/products"], ["render_js", 1], ["status", 0], ["progress", 0], ["message", nil], ["pages_crawled", 0], ["images_found", 0], ["is_paid", 1], ["artifact_dir", "/Users/zelu/Desktop/code/imagesweep/storage/imagesweep/2d66edcd-e5ab-415b-9bc0-dbd028cc0ea4"], ["created_at", "2025-09-10 16:34:57.876722"], ["updated_at", "2025-09-10 16:34:57.876722"], ["scrape_mode", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Successfully fetched sitemap: https://www.torontocupcake.com/sitemap.xml (2778 bytes)
+Parsing sitemap XML content (2778 bytes)
+Extracted 18 URLs from sitemap
+Sitemap processing complete: 18 URLs, memory used: 0.06MB (29.16MB → 29.22MB)
+Filtering 18 URLs for job mode: entire_website
+Filtering 18 URLs for same domain: https://www.torontocupcake.com
+Domain filtering result: 18 URLs
+Prioritizing 18 URLs based on importance scoring
+Utility page penalty applied to https://www.torontocupcake.com/contact.html
+URL prioritization complete. Top 5 scores: https://www.torontocupcake.com/ (120), https://www.torontocupcake.com/HolidaySpecial.html (100), https://www.torontocupcake.com/MothersDaySpecial.html (100), https://www.torontocupcake.com/ValentinesDaySpecial.html (100), https://www.torontocupcake.com/IWD.html (100)
+Filtered and prioritized to 18 URLs (limit: 50)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Update (0.1ms)[0m  [1m[33mUPDATE "jobs" SET "updated_at" = ?, "scrape_mode" = ? WHERE "jobs"."id" = ?[0m  [["updated_at", "2025-09-10 16:34:58.229156"], ["scrape_mode", 0], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mJob Update (0.2ms)[0m  [1m[33mUPDATE "jobs" SET "updated_at" = ?, "scrape_mode" = ? WHERE "jobs"."id" = ?[0m  [["updated_at", "2025-09-10 16:34:58.229598"], ["scrape_mode", 2], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Fetching sitemap for domain: https://example.com (memory: 52.33085632324219MB)
+Attempting to fetch sitemap from: https://example.com/sitemap.xml
+Sitemap fetch timed out: https://example.com/sitemap.xml - Test timeout
+⚠️ Sitemap unavailable for https://example.com/products after 0.0s, falling back to link crawling
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Update (0.1ms)[0m  [1m[33mUPDATE "jobs" SET "progress" = ?, "message" = ?, "updated_at" = ? WHERE "jobs"."id" = ?[0m  [["progress", 5], ["message", "🔍 Sitemap unavailable, using link discovery (0.0s fallback)"], ["updated_at", "2025-09-10 16:34:58.231313"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[SITEMAP_METRICS] {"sitemap_success":false,"page_count":0,"fetch_time_ms":0.2,"job_id":1,"job_uuid":"2d66edcd-e5ab-415b-9bc0-dbd028cc0ea4","url_domain":"example.com","scrape_mode":"entire_website","timestamp":"2025-09-10T17:34:58+01:00"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Update (0.1ms)[0m  [1m[33mUPDATE "jobs" SET "progress" = ?, "updated_at" = ? WHERE "jobs"."id" = ?[0m  [["progress", 13], ["updated_at", "2025-09-10 16:34:58.233382"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+Fetching sitemap for domain: https://nonexistent-domain-12345.com (memory: 38.02440643310547MB)
+Attempting to fetch sitemap from: https://nonexistent-domain-12345.com/sitemap.xml
+Sitemap not found (HTTP 404): https://nonexistent-domain-12345.com/sitemap.xml
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+Fetching sitemap for domain: https://example.com (memory: 38.20091247558594MB)
+Attempting to fetch sitemap from: https://example.com/sitemap.xml
+Parsing sitemap XML content (1268999 bytes)
+Using streaming parser for large sitemap (1268999 bytes)
+Parsing sitemap using streaming XML parser
+Streaming parser progress: 5000 URLs processed
+Streaming parser progress: 5000 URLs processed
+Streaming parser progress: 5000 URLs processed
+Streaming parser progress: 5000 URLs processed
+Streaming parser progress: 5000 URLs processed
+Streaming parser progress: 5000 URLs processed
+Streaming parser progress: 10000 URLs processed
+Streaming parser progress: 10000 URLs processed
+Streaming parser progress: 10000 URLs processed
+Streaming parser progress: 10000 URLs processed
+Streaming parser progress: 10000 URLs processed
+Streaming parser progress: 10000 URLs processed
+Streaming parser extracted 10000 URLs from sitemap
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+Sitemap not found (HTTP 404): https://example.com/sitemap.xml
+⚠️ Sitemap unavailable for https://example.com/products subpath after 0.63s, falling back to link crawling
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Update (0.2ms)[0m  [1m[33mUPDATE "jobs" SET "progress" = ?, "message" = ?, "updated_at" = ? WHERE "jobs"."id" = ?[0m  [["progress", 5], ["message", "🔍 Sitemap unavailable, using link discovery (0.6s fallback)"], ["updated_at", "2025-09-10 16:34:58.948973"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[SITEMAP_METRICS] {"sitemap_success":false,"page_count":0,"fetch_time_ms":630.14,"job_id":1,"job_uuid":"ca804506-f675-496c-88c7-d995aa9c0cae","url_domain":"example.com","scrape_mode":"subpath_only","timestamp":"2025-09-10T17:34:58+01:00"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mJob Update (0.2ms)[0m  [1m[33mUPDATE "jobs" SET "progress" = ?, "updated_at" = ? WHERE "jobs"."id" = ?[0m  [["progress", 15], ["updated_at", "2025-09-10 16:34:58.953161"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mJob Load (0.1ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+Sitemap not found (HTTP 404): https://httpbin.org/sitemap.xml
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m

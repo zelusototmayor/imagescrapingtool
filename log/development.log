@@ -36992,3 +36992,551 @@ Sent file /Users/zelu/Desktop/code/imagesweep/storage/imagesweep/1b1493c5-08b7-4
 Completed 200 OK in 33ms (ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
 
 
+Started GET "/" for ::1 at 2025-09-10 17:40:56 +0100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 4.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | GC: 0.0ms)
+Completed 200 OK in 56ms (Views: 18.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwind-aa2ded5b.css" for ::1 at 2025-09-10 17:40:56 +0100
+Started GET "/" for ::1 at 2025-09-10 18:30:10 +0100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 9.0ms | GC: 1.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 28.1ms | GC: 1.6ms)
+Completed 200 OK in 80ms (Views: 31.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.6ms)
+
+
+Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-09-10 18:30:19 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+  
+Started POST "/jobs" for ::1 at 2025-09-10 18:30:22 +0100
+Processing by JobsController#create as */*
+  Parameters: {"job"=>{"url"=>"https://www.pnwx.com/MRI/", "render_js"=>true, "scrape_mode"=>"subpath_only"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:9:in `create'
+  [1m[36mJob Create (7.3ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at", "scrape_mode") VALUES ('3c52fbaf-dd6a-4cd1-b121-4cef236fc58d', 'https://www.pnwx.com/MRI/', 1, 0, 0, NULL, 0, 0, 1, '/Users/zelu/Desktop/code/imagesweep/storage/imagesweep/3c52fbaf-dd6a-4cd1-b121-4cef236fc58d', '2025-09-10 17:30:22.359285', '2025-09-10 17:30:22.359285', 1) RETURNING "id" /*action='create',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:9:in `create'
+Completed 201 Created in 49ms (Views: 0.1ms | ActiveRecord: 7.5ms (1 query, 0 cached) | GC: 2.1ms)
+
+
+  [1m[36mJob Load (2.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '3c52fbaf-dd6a-4cd1-b121-4cef236fc58d' LIMIT 1 /*application='Imagesweep'*/[0m
+  ↳ app/jobs/scrape_job.rb:6:in `perform'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/jobs/scrape_job.rb:7:in `perform'
+  [1m[36mJob Update (2.3ms)[0m  [1m[33mUPDATE "jobs" SET "status" = 1, "updated_at" = '2025-09-10 17:30:22.801432' WHERE "jobs"."id" = 21 /*application='Imagesweep'*/[0m
+  ↳ app/jobs/scrape_job.rb:7:in `perform'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/jobs/scrape_job.rb:7:in `perform'
+Starting scrape job for 3c52fbaf-dd6a-4cd1-b121-4cef236fc58d - URL: https://www.pnwx.com/MRI/
+Checking robots.txt for https://www.pnwx.com/MRI/
+Loading robots.txt from https://www.pnwx.com/robots.txt
+Could not load robots.txt from https://www.pnwx.com/robots.txt: SSL_connect returned=1 errno=0 peeraddr=50.43.65.86:443 state=error: certificate verify failed (unable to get local issuer certificate)
+Robots.txt check passed for https://www.pnwx.com/MRI/
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/jobs/scrape_job.rb:51:in `execute_scrape'
+  [1m[36mJob Update (2.0ms)[0m  [1m[33mUPDATE "jobs" SET "progress" = 10, "message" = 'Starting to crawl pages...', "updated_at" = '2025-09-10 17:30:23.421079' WHERE "jobs"."id" = 21 /*application='Imagesweep'*/[0m
+  ↳ app/jobs/scrape_job.rb:51:in `execute_scrape'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/jobs/scrape_job.rb:51:in `execute_scrape'
+Updated progress to 10% for job 3c52fbaf-dd6a-4cd1-b121-4cef236fc58d
+Creating ImageScraper for job 3c52fbaf-dd6a-4cd1-b121-4cef236fc58d
+Starting scrape process for job 3c52fbaf-dd6a-4cd1-b121-4cef236fc58d
+Fetching sitemap for domain: https://www.pnwx.com (memory: 528.2654190063477MB)
+Attempting to fetch sitemap from: https://www.pnwx.com/sitemap.xml
+Error fetching sitemap: https://www.pnwx.com/sitemap.xml - Faraday::SSLError: SSL_connect returned=1 errno=0 peeraddr=50.43.65.86:443 state=error: certificate verify failed (unable to get local issuer certificate)
+⚠️ Sitemap unavailable for https://www.pnwx.com/MRI/ subpath after 0.376s, falling back to link crawling
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:64:in `scrape_with_subpath_restriction'
+  [1m[36mJob Update (2.3ms)[0m  [1m[33mUPDATE "jobs" SET "progress" = 5, "message" = '🔍 Sitemap unavailable, using link discovery (0.4s fallback)', "updated_at" = '2025-09-10 17:30:23.809874' WHERE "jobs"."id" = 21 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:64:in `scrape_with_subpath_restriction'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:64:in `scrape_with_subpath_restriction'
+[SITEMAP_METRICS] {"sitemap_success":false,"page_count":0,"fetch_time_ms":375.9,"job_id":21,"job_uuid":"3c52fbaf-dd6a-4cd1-b121-4cef236fc58d","url_domain":"www.pnwx.com","scrape_mode":"subpath_only","timestamp":"2025-09-10T18:30:23+01:00"}
+Scraping page: https://www.pnwx.com/MRI/
+Starting Playwright scraping for https://www.pnwx.com/MRI/
+Creating Playwright instance...
+Started GET "/jobs/3c52fbaf-dd6a-4cd1-b121-4cef236fc58d" for ::1 at 2025-09-10 18:30:23 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"3c52fbaf-dd6a-4cd1-b121-4cef236fc58d"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '3c52fbaf-dd6a-4cd1-b121-4cef236fc58d' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 29ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/jobs/3c52fbaf-dd6a-4cd1-b121-4cef236fc58d" for ::1 at 2025-09-10 18:30:25 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"3c52fbaf-dd6a-4cd1-b121-4cef236fc58d"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '3c52fbaf-dd6a-4cd1-b121-4cef236fc58d' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 29ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Playwright instance created, launching Chromium...
+Error in scrape_with_playwright: NoMethodError: undefined method `chromium' for an instance of Playwright::Execution
+Backtrace: /Users/zelu/Desktop/code/imagesweep/app/services/image_scraper.rb:201:in `block in scrape_with_playwright'\n/Users/zelu/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/timeout-0.4.3/lib/timeout.rb:185:in `block in timeout'\n/Users/zelu/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/timeout-0.4.3/lib/timeout.rb:38:in `handle_timeout'\n/Users/zelu/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/timeout-0.4.3/lib/timeout.rb:194:in `timeout'\n/Users/zelu/Desktop/code/imagesweep/app/services/image_scraper.rb:193:in `scrape_with_playwright'
+Cleaned up orphaned browser processes
+Page closed for https://www.pnwx.com/MRI/
+Browser closed for https://www.pnwx.com/MRI/
+Playwright stopped for https://www.pnwx.com/MRI/
+Cleaned up orphaned browser processes
+Playwright failed for https://www.pnwx.com/MRI/: undefined method `chromium' for an instance of Playwright::Execution. Attempting HTTP fallback...
+Both Playwright and HTTP failed for https://www.pnwx.com/MRI/. Playwright: undefined method `chromium' for an instance of Playwright::Execution, HTTP: SSL_connect returned=1 errno=0 peeraddr=50.43.65.86:443 state=error: certificate verify failed (unable to get local issuer certificate)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:84:in `scrape_with_subpath_restriction'
+  [1m[36mJob Update (2.6ms)[0m  [1m[33mUPDATE "jobs" SET "progress" = 15, "updated_at" = '2025-09-10 17:30:26.046163' WHERE "jobs"."id" = 21 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:84:in `scrape_with_subpath_restriction'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:84:in `scrape_with_subpath_restriction'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:136:in `finalize_results'
+  [1m[36mJob Update (1.2ms)[0m  [1m[33mUPDATE "jobs" SET "progress" = 90, "updated_at" = '2025-09-10 17:30:26.054419' WHERE "jobs"."id" = 21 /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:136:in `finalize_results'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/services/image_scraper.rb:136:in `finalize_results'
+Scrape completed for job 3c52fbaf-dd6a-4cd1-b121-4cef236fc58d. Results: {:pages_crawled=>1, :images_total=>0, :images_included=>0, :images=>[], :truncated=>false}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/jobs/scrape_job.rb:60:in `execute_scrape'
+  [1m[36mJob Update (1.3ms)[0m  [1m[33mUPDATE "jobs" SET "message" = 'Creating ZIP archive and manifest...', "pages_crawled" = 1, "updated_at" = '2025-09-10 17:30:26.060265' WHERE "jobs"."id" = 21 /*application='Imagesweep'*/[0m
+  ↳ app/jobs/scrape_job.rb:60:in `execute_scrape'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/jobs/scrape_job.rb:60:in `execute_scrape'
+Created ZIP archive at /Users/zelu/Desktop/code/imagesweep/storage/imagesweep/3c52fbaf-dd6a-4cd1-b121-4cef236fc58d/imagesweep.zip
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/jobs/scrape_job.rb:71:in `execute_scrape'
+  [1m[36mJob Update (0.9ms)[0m  [1m[33mUPDATE "jobs" SET "status" = 2, "progress" = 100, "message" = 'Completed! Found 0 images.', "updated_at" = '2025-09-10 17:30:26.087086' WHERE "jobs"."id" = 21 /*application='Imagesweep'*/[0m
+  ↳ app/jobs/scrape_job.rb:71:in `execute_scrape'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/jobs/scrape_job.rb:71:in `execute_scrape'
+Started GET "/jobs/3c52fbaf-dd6a-4cd1-b121-4cef236fc58d" for ::1 at 2025-09-10 18:30:26 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"3c52fbaf-dd6a-4cd1-b121-4cef236fc58d"}
+  [1m[36mJob Load (0.3ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '3c52fbaf-dd6a-4cd1-b121-4cef236fc58d' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Completed 200 OK in 31ms (Views: 0.1ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/jobs/3c52fbaf-dd6a-4cd1-b121-4cef236fc58d/download.zip" for ::1 at 2025-09-10 18:30:29 +0100
+Processing by JobsController#download_zip as ZIP
+  Parameters: {"id"=>"3c52fbaf-dd6a-4cd1-b121-4cef236fc58d"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '3c52fbaf-dd6a-4cd1-b121-4cef236fc58d' LIMIT 1 /*action='download_zip',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:66:in `find_job'
+Sent file /Users/zelu/Desktop/code/imagesweep/storage/imagesweep/3c52fbaf-dd6a-4cd1-b121-4cef236fc58d/imagesweep.zip (0.2ms)
+Completed 200 OK in 42ms (ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 10.4ms)
+
+
+Started GET "/" for ::1 at 2025-09-11 20:21:46 +0100
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 7.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 49.0ms | GC: 0.0ms)
+Completed 200 OK in 167ms (Views: 74.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/assets/tailwind-aa2ded5b.css" for ::1 at 2025-09-11 20:21:47 +0100
+Started GET "/assets/application-e1542203.css" for ::1 at 2025-09-11 20:21:47 +0100
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Imagesweep'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Imagesweep'*/[0m
+Migrating to DeviseCreateUsers (20250928084446)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime(6), "remember_created_at" datetime(6), "subscription_status" integer DEFAULT 0 NOT NULL, "stripe_customer_id" varchar, "stripe_subscription_id" varchar, "downloads_used" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Imagesweep'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email") /*application='Imagesweep'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token") /*application='Imagesweep'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250928084446') RETURNING "version" /*application='Imagesweep'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+Migrating to CreateDownloads (20250928084520)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "downloads" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "job_id" integer NOT NULL, "ip_address" varchar, "session_id" varchar, "downloaded_at" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_0cd58e10e1"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_fd2a66b440"
+FOREIGN KEY ("job_id")
+  REFERENCES "jobs" ("id")
+) /*application='Imagesweep'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_downloads_on_user_id" ON "downloads" ("user_id") /*application='Imagesweep'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_downloads_on_job_id" ON "downloads" ("job_id") /*application='Imagesweep'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250928084520') RETURNING "version" /*application='Imagesweep'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+Migrating to AddUserToJobs (20250928084559)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "jobs" ADD "user_id" integer /*application='Imagesweep'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_user_id" ON "jobs" ("user_id") /*application='Imagesweep'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Imagesweep'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Imagesweep'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Imagesweep'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Imagesweep'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ajobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "uuid" varchar NOT NULL, "url" text NOT NULL, "render_js" boolean DEFAULT 1 NOT NULL, "status" integer DEFAULT 0 NOT NULL, "progress" integer DEFAULT 0 NOT NULL, "message" text, "pages_crawled" integer DEFAULT 0 NOT NULL, "images_found" integer DEFAULT 0 NOT NULL, "is_paid" boolean DEFAULT 1 NOT NULL, "artifact_dir" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "scrape_mode" integer DEFAULT 0 NOT NULL, "user_id" integer) /*application='Imagesweep'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_ajobs_on_user_id" ON "ajobs" ("user_id") /*application='Imagesweep'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ajobs_on_uuid" ON "ajobs" ("uuid") /*application='Imagesweep'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_ajobs_on_status" ON "ajobs" ("status") /*application='Imagesweep'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_ajobs_on_scrape_mode" ON "ajobs" ("scrape_mode") /*application='Imagesweep'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_ajobs_on_created_at" ON "ajobs" ("created_at") /*application='Imagesweep'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "ajobs" ("id","uuid","url","render_js","status","progress","message","pages_crawled","images_found","is_paid","artifact_dir","created_at","updated_at","scrape_mode","user_id")
+                     SELECT "id","uuid","url","render_js","status","progress","message","pages_crawled","images_found","is_paid","artifact_dir","created_at","updated_at","scrape_mode","user_id" FROM "jobs" /*application='Imagesweep'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "jobs" /*application='Imagesweep'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "uuid" varchar NOT NULL, "url" text NOT NULL, "render_js" boolean DEFAULT 1 NOT NULL, "status" integer DEFAULT 0 NOT NULL, "progress" integer DEFAULT 0 NOT NULL, "message" text, "pages_crawled" integer DEFAULT 0 NOT NULL, "images_found" integer DEFAULT 0 NOT NULL, "is_paid" boolean DEFAULT 1 NOT NULL, "artifact_dir" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "scrape_mode" integer DEFAULT 0 NOT NULL, "user_id" integer, CONSTRAINT "fk_rails_df6238c8a6"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='Imagesweep'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_created_at" ON "jobs" ("created_at") /*application='Imagesweep'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_scrape_mode" ON "jobs" ("scrape_mode") /*application='Imagesweep'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_status" ON "jobs" ("status") /*application='Imagesweep'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_jobs_on_uuid" ON "jobs" ("uuid") /*application='Imagesweep'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_jobs_on_user_id" ON "jobs" ("user_id") /*application='Imagesweep'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "jobs" ("id","uuid","url","render_js","status","progress","message","pages_crawled","images_found","is_paid","artifact_dir","created_at","updated_at","scrape_mode","user_id")
+                     SELECT "id","uuid","url","render_js","status","progress","message","pages_crawled","images_found","is_paid","artifact_dir","created_at","updated_at","scrape_mode","user_id" FROM "ajobs" /*application='Imagesweep'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "ajobs" /*application='Imagesweep'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Imagesweep'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Imagesweep'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250928084559') RETURNING "version" /*application='Imagesweep'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Imagesweep'*/[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ test_user.rb:1:in `<main>'
+  [1m[36mUser Exists? (22.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'test@example.com' LIMIT 1 /*application='Imagesweep'*/[0m
+  ↳ test_user.rb:1:in `<main>'
+  [1m[36mUser Create (15.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "subscription_status", "stripe_customer_id", "stripe_subscription_id", "downloads_used", "created_at", "updated_at") VALUES ('test@example.com', '$2a$12$73nAWK81kfPU1rE.ly1CYuQm4y1JjEU7eAiyFwDVIw/Ma6mDsIwTq', NULL, NULL, NULL, 0, NULL, NULL, 0, '2025-09-28 08:52:19.982152', '2025-09-28 08:52:19.982152') RETURNING "id" /*application='Imagesweep'*/[0m
+  ↳ test_user.rb:1:in `<main>'
+  [1m[36mTRANSACTION (6.4ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ test_user.rb:1:in `<main>'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ test_user.rb:8:in `<main>'
+  [1m[36mUser Exists? (7.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'premium@example.com' LIMIT 1 /*application='Imagesweep'*/[0m
+  ↳ test_user.rb:8:in `<main>'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "subscription_status", "stripe_customer_id", "stripe_subscription_id", "downloads_used", "created_at", "updated_at") VALUES ('premium@example.com', '$2a$12$cDSWw699xOo80Crt5xthrODmkYTKhveRcLygwa5NHxlWo8tIPmKP.', NULL, NULL, NULL, 1, NULL, NULL, 0, '2025-09-28 08:52:20.641623', '2025-09-28 08:52:20.641623') RETURNING "id" /*application='Imagesweep'*/[0m
+  ↳ test_user.rb:8:in `<main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ test_user.rb:8:in `<main>'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'test@example.com' LIMIT 1 /*application='Imagesweep'*/[0m
+  ↳ test_downloads.rb:2:in `<main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ test_downloads.rb:6:in `<main>'
+  [1m[36mJob Create (0.7ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at", "scrape_mode", "user_id") VALUES ('5f062ed4-e92d-4c10-a50c-a8cadf47ada0', 'https://example.com/', 1, 2, 0, NULL, 0, 0, 1, '/Users/zelu/Desktop/code/imagesweep/storage/imagesweep/5f062ed4-e92d-4c10-a50c-a8cadf47ada0', '2025-09-28 08:52:50.414797', '2025-09-28 08:52:50.414797', 0, 1) RETURNING "id" /*application='Imagesweep'*/[0m
+  ↳ test_downloads.rb:6:in `<main>'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ test_downloads.rb:6:in `<main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/models/job.rb:77:in `record_download!'
+  [1m[36mDownload Create (0.7ms)[0m  [1m[32mINSERT INTO "downloads" ("user_id", "job_id", "ip_address", "session_id", "downloaded_at", "created_at", "updated_at") VALUES (1, 22, '127.0.0.1', 'test_session_123', '2025-09-28 08:52:50.423853', '2025-09-28 08:52:50.430074', '2025-09-28 08:52:50.430074') RETURNING "id" /*application='Imagesweep'*/[0m
+  ↳ app/models/job.rb:77:in `record_download!'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/models/job.rb:77:in `record_download!'
+  [1m[36mUser Update All (0.1ms)[0m  [1m[33mUPDATE "users" SET "downloads_used" = COALESCE("downloads_used", 0) + 1 WHERE "users"."id" = 1 /*application='Imagesweep'*/[0m
+  ↳ app/models/user.rb:32:in `increment_downloads!'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*application='Imagesweep'*/[0m
+  ↳ test_downloads.rb:26:in `<main>'
+  [1m[36mDownload Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "downloads" WHERE "downloads"."user_id" IS NULL AND "downloads"."session_id" = 'test_session_123' AND "downloads"."ip_address" = '127.0.0.1' /*application='Imagesweep'*/[0m
+  ↳ test_downloads.rb:33:in `<main>'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'test@example.com' LIMIT 1 /*application='Imagesweep'*/[0m
+  ↳ test_downloads_fixed.rb:2:in `<main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ test_downloads_fixed.rb:11:in `<main>'
+  [1m[36mJob Create (0.8ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at", "scrape_mode", "user_id") VALUES ('8c9a3f87-6684-42e9-97c4-322e7407d578', 'https://example.com/', 1, 2, 0, NULL, 0, 0, 1, '/Users/zelu/Desktop/code/imagesweep/storage/imagesweep/8c9a3f87-6684-42e9-97c4-322e7407d578', '2025-09-28 08:53:09.690203', '2025-09-28 08:53:09.690203', 0, 1) RETURNING "id" /*application='Imagesweep'*/[0m
+  ↳ test_downloads_fixed.rb:11:in `<main>'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ test_downloads_fixed.rb:11:in `<main>'
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'fresh@example.com' LIMIT 1 /*application='Imagesweep'*/[0m
+  ↳ test_fresh_user.rb:3:in `<main>'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ test_fresh_user.rb:8:in `<main>'
+  [1m[36mUser Exists? (13.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'fresh@example.com' LIMIT 1 /*application='Imagesweep'*/[0m
+  ↳ test_fresh_user.rb:8:in `<main>'
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "subscription_status", "stripe_customer_id", "stripe_subscription_id", "downloads_used", "created_at", "updated_at") VALUES ('fresh@example.com', '$2a$12$MhFt9oWXmq7mIh/ggMs0V.lT3foGpRtX.O0Zf6XVkBH3y89HSTVpS', NULL, NULL, NULL, 0, NULL, NULL, 0, '2025-09-28 08:53:31.053491', '2025-09-28 08:53:31.053491') RETURNING "id" /*application='Imagesweep'*/[0m
+  ↳ test_fresh_user.rb:8:in `<main>'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ test_fresh_user.rb:8:in `<main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ test_fresh_user.rb:17:in `<main>'
+  [1m[36mJob Create (1.3ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at", "scrape_mode", "user_id") VALUES ('78111950-05e0-4aee-b1bd-3a21875972d6', 'https://example.com/', 1, 2, 0, NULL, 0, 0, 1, '/Users/zelu/Desktop/code/imagesweep/storage/imagesweep/78111950-05e0-4aee-b1bd-3a21875972d6', '2025-09-28 08:53:31.094920', '2025-09-28 08:53:31.094920', 0, 3) RETURNING "id" /*application='Imagesweep'*/[0m
+  ↳ test_fresh_user.rb:17:in `<main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ test_fresh_user.rb:17:in `<main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ test_fresh_user.rb:43:in `<main>'
+  [1m[36mJob Create (2.9ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at", "scrape_mode", "user_id") VALUES ('e02815a4-81d0-4e74-bc11-15977f6a49f4', 'https://example2.com/', 1, 2, 0, NULL, 0, 0, 1, '/Users/zelu/Desktop/code/imagesweep/storage/imagesweep/e02815a4-81d0-4e74-bc11-15977f6a49f4', '2025-09-28 08:53:31.100126', '2025-09-28 08:53:31.100126', 0, 3) RETURNING "id" /*application='Imagesweep'*/[0m
+  ↳ test_fresh_user.rb:43:in `<main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ test_fresh_user.rb:43:in `<main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ test_fresh_user.rb:57:in `<main>'
+  [1m[36mJob Create (6.0ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at", "scrape_mode", "user_id") VALUES ('17a967f1-17a5-436e-a1fc-07d52037647a', 'https://example3.com/', 1, 2, 0, NULL, 0, 0, 1, '/Users/zelu/Desktop/code/imagesweep/storage/imagesweep/17a967f1-17a5-436e-a1fc-07d52037647a', '2025-09-28 08:53:31.105879', '2025-09-28 08:53:31.105879', 0, 3) RETURNING "id" /*application='Imagesweep'*/[0m
+  ↳ test_fresh_user.rb:57:in `<main>'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ test_fresh_user.rb:57:in `<main>'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'fresh@example.com' LIMIT 1 /*application='Imagesweep'*/[0m
+  [1m[36mJob Load (0.1ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."user_id" = 3 ORDER BY "jobs"."id" DESC LIMIT 1 /*application='Imagesweep'*/[0m
+  [1m[36mDownload Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "downloads" WHERE "downloads"."job_id" = 26 AND "downloads"."user_id" = 3 LIMIT 1 /*application='Imagesweep'*/[0m
+  ↳ app/models/job.rb:60:in `already_downloaded?'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'fresh@example.com' LIMIT 1 /*application='Imagesweep'*/[0m
+  ↳ test_download_complete.rb:2:in `<main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ test_download_complete.rb:6:in `<main>'
+  [1m[36mJob Create (0.8ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at", "scrape_mode", "user_id") VALUES ('d46ef730-b0ea-42fa-9384-e49f52e278fb', 'https://example.com/', 1, 2, 0, NULL, 0, 0, 1, '/Users/zelu/Desktop/code/imagesweep/storage/imagesweep/d46ef730-b0ea-42fa-9384-e49f52e278fb', '2025-09-28 08:54:09.895457', '2025-09-28 08:54:09.895457', 0, 3) RETURNING "id" /*application='Imagesweep'*/[0m
+  ↳ test_download_complete.rb:6:in `<main>'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ test_download_complete.rb:6:in `<main>'
+  [1m[36mDownload Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "downloads" WHERE "downloads"."job_id" = 27 AND "downloads"."user_id" = 3 LIMIT 1 /*application='Imagesweep'*/[0m
+  ↳ app/models/job.rb:60:in `already_downloaded?'
+  [1m[36mCACHE Download Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "downloads" WHERE "downloads"."job_id" = 27 AND "downloads"."user_id" = 3 LIMIT 1[0m
+  ↳ app/models/job.rb:60:in `already_downloaded?'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/models/job.rb:77:in `record_download!'
+  [1m[36mDownload Create (0.6ms)[0m  [1m[32mINSERT INTO "downloads" ("user_id", "job_id", "ip_address", "session_id", "downloaded_at", "created_at", "updated_at") VALUES (3, 27, '127.0.0.1', 'test_session_789', '2025-09-28 08:54:09.903433', '2025-09-28 08:54:09.905912', '2025-09-28 08:54:09.905912') RETURNING "id" /*application='Imagesweep'*/[0m
+  ↳ app/models/job.rb:77:in `record_download!'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/models/job.rb:77:in `record_download!'
+  [1m[36mUser Update All (0.1ms)[0m  [1m[33mUPDATE "users" SET "downloads_used" = COALESCE("downloads_used", 0) + 1 WHERE "users"."id" = 3 /*application='Imagesweep'*/[0m
+  ↳ app/models/user.rb:32:in `increment_downloads!'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*application='Imagesweep'*/[0m
+  ↳ test_download_complete.rb:31:in `<main>'
+  [1m[36mDownload Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "downloads" WHERE "downloads"."job_id" = 27 AND "downloads"."user_id" = 3 LIMIT 1 /*application='Imagesweep'*/[0m
+  ↳ app/models/job.rb:60:in `already_downloaded?'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ test_download_complete.rb:37:in `<main>'
+  [1m[36mJob Create (0.5ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at", "scrape_mode", "user_id") VALUES ('99ec4e58-a70c-4c2f-bdbe-3c83e01b8262', 'https://example2.com/', 1, 2, 0, NULL, 0, 0, 1, '/Users/zelu/Desktop/code/imagesweep/storage/imagesweep/99ec4e58-a70c-4c2f-bdbe-3c83e01b8262', '2025-09-28 08:54:09.909439', '2025-09-28 08:54:09.909439', 0, 3) RETURNING "id" /*application='Imagesweep'*/[0m
+  ↳ test_download_complete.rb:37:in `<main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ test_download_complete.rb:37:in `<main>'
+  [1m[36mDownload Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "downloads" WHERE "downloads"."job_id" = 28 AND "downloads"."user_id" = 3 LIMIT 1 /*application='Imagesweep'*/[0m
+  ↳ app/models/job.rb:60:in `already_downloaded?'
+  [1m[36mCACHE Download Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "downloads" WHERE "downloads"."job_id" = 28 AND "downloads"."user_id" = 3 LIMIT 1[0m
+  ↳ app/models/job.rb:60:in `already_downloaded?'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/models/job.rb:77:in `record_download!'
+  [1m[36mDownload Create (0.7ms)[0m  [1m[32mINSERT INTO "downloads" ("user_id", "job_id", "ip_address", "session_id", "downloaded_at", "created_at", "updated_at") VALUES (3, 28, '127.0.0.1', 'test_session_789', '2025-09-28 08:54:09.912739', '2025-09-28 08:54:09.914604', '2025-09-28 08:54:09.914604') RETURNING "id" /*application='Imagesweep'*/[0m
+  ↳ app/models/job.rb:77:in `record_download!'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/models/job.rb:77:in `record_download!'
+  [1m[36mUser Update All (0.1ms)[0m  [1m[33mUPDATE "users" SET "downloads_used" = COALESCE("downloads_used", 0) + 1 WHERE "users"."id" = 3 /*application='Imagesweep'*/[0m
+  ↳ app/models/user.rb:32:in `increment_downloads!'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*application='Imagesweep'*/[0m
+  ↳ test_download_complete.rb:50:in `<main>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ test_download_complete.rb:55:in `<main>'
+  [1m[36mJob Create (0.5ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at", "scrape_mode", "user_id") VALUES ('90fe36a2-79bd-4dc8-910d-10384bfa5044', 'https://example3.com/', 1, 2, 0, NULL, 0, 0, 1, '/Users/zelu/Desktop/code/imagesweep/storage/imagesweep/90fe36a2-79bd-4dc8-910d-10384bfa5044', '2025-09-28 08:54:09.917919', '2025-09-28 08:54:09.917919', 0, 3) RETURNING "id" /*application='Imagesweep'*/[0m
+  ↳ test_download_complete.rb:55:in `<main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ test_download_complete.rb:55:in `<main>'
+  [1m[36mDownload Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "downloads" WHERE "downloads"."job_id" = 29 AND "downloads"."user_id" = 3 LIMIT 1 /*application='Imagesweep'*/[0m
+  ↳ app/models/job.rb:60:in `already_downloaded?'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ test_anonymous_downloads.rb:5:in `<main>'
+  [1m[36mJob Create (1.9ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at", "scrape_mode", "user_id") VALUES ('e95239bb-3e04-4f51-b931-1ebe53169789', 'https://anonymous-test.com/', 1, 2, 0, NULL, 0, 0, 1, '/Users/zelu/Desktop/code/imagesweep/storage/imagesweep/e95239bb-3e04-4f51-b931-1ebe53169789', '2025-09-28 08:54:27.355961', '2025-09-28 08:54:27.355961', 0, NULL) RETURNING "id" /*application='Imagesweep'*/[0m
+  ↳ test_anonymous_downloads.rb:5:in `<main>'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ test_anonymous_downloads.rb:5:in `<main>'
+  [1m[36mDownload Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "downloads" WHERE "downloads"."job_id" = 30 AND "downloads"."user_id" IS NULL AND "downloads"."session_id" = 'anonymous_session_123' AND "downloads"."ip_address" = '192.168.1.100' LIMIT 1 /*application='Imagesweep'*/[0m
+  ↳ app/models/job.rb:62:in `already_downloaded?'
+  [1m[36mDownload Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "downloads" WHERE "downloads"."user_id" IS NULL AND "downloads"."session_id" = 'anonymous_session_123' AND "downloads"."ip_address" = '192.168.1.100' /*application='Imagesweep'*/[0m
+  ↳ app/models/job.rb:53:in `can_download?'
+  [1m[36mCACHE Download Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "downloads" WHERE "downloads"."job_id" = 30 AND "downloads"."user_id" IS NULL AND "downloads"."session_id" = 'anonymous_session_123' AND "downloads"."ip_address" = '192.168.1.100' LIMIT 1[0m
+  ↳ app/models/job.rb:62:in `already_downloaded?'
+  [1m[36mCACHE Download Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "downloads" WHERE "downloads"."user_id" IS NULL AND "downloads"."session_id" = 'anonymous_session_123' AND "downloads"."ip_address" = '192.168.1.100'[0m
+  ↳ app/models/job.rb:53:in `can_download?'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/models/job.rb:77:in `record_download!'
+  [1m[36mDownload Create (0.6ms)[0m  [1m[32mINSERT INTO "downloads" ("user_id", "job_id", "ip_address", "session_id", "downloaded_at", "created_at", "updated_at") VALUES (NULL, 30, '192.168.1.100', 'anonymous_session_123', '2025-09-28 08:54:27.370050', '2025-09-28 08:54:27.373869', '2025-09-28 08:54:27.373869') RETURNING "id" /*application='Imagesweep'*/[0m
+  ↳ app/models/job.rb:77:in `record_download!'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ app/models/job.rb:77:in `record_download!'
+  [1m[36mDownload Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "downloads" WHERE "downloads"."job_id" = 30 AND "downloads"."user_id" IS NULL AND "downloads"."session_id" = 'anonymous_session_123' AND "downloads"."ip_address" = '192.168.1.100' LIMIT 1 /*application='Imagesweep'*/[0m
+  ↳ app/models/job.rb:62:in `already_downloaded?'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ test_anonymous_downloads.rb:31:in `<main>'
+  [1m[36mJob Create (0.5ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at", "scrape_mode", "user_id") VALUES ('6fd09be2-6fbe-415b-a83b-bce241531640', 'https://anonymous-test2.com/', 1, 2, 0, NULL, 0, 0, 1, '/Users/zelu/Desktop/code/imagesweep/storage/imagesweep/6fd09be2-6fbe-415b-a83b-bce241531640', '2025-09-28 08:54:27.376439', '2025-09-28 08:54:27.376439', 0, NULL) RETURNING "id" /*application='Imagesweep'*/[0m
+  ↳ test_anonymous_downloads.rb:31:in `<main>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Imagesweep'*/[0m
+  ↳ test_anonymous_downloads.rb:31:in `<main>'
+  [1m[36mDownload Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "downloads" WHERE "downloads"."job_id" = 31 AND "downloads"."user_id" IS NULL AND "downloads"."session_id" = 'anonymous_session_123' AND "downloads"."ip_address" = '192.168.1.100' LIMIT 1 /*application='Imagesweep'*/[0m
+  ↳ app/models/job.rb:62:in `already_downloaded?'
+  [1m[36mDownload Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "downloads" WHERE "downloads"."user_id" IS NULL AND "downloads"."session_id" = 'anonymous_session_123' AND "downloads"."ip_address" = '192.168.1.100' /*application='Imagesweep'*/[0m
+  ↳ app/models/job.rb:53:in `can_download?'
+  [1m[36mDownload Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "downloads" WHERE "downloads"."job_id" = 31 AND "downloads"."user_id" IS NULL AND "downloads"."session_id" = 'anonymous_session_456' AND "downloads"."ip_address" = '192.168.1.100' LIMIT 1 /*application='Imagesweep'*/[0m
+  ↳ app/models/job.rb:62:in `already_downloaded?'
+  [1m[36mDownload Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "downloads" WHERE "downloads"."user_id" IS NULL AND "downloads"."session_id" = 'anonymous_session_456' AND "downloads"."ip_address" = '192.168.1.100' /*application='Imagesweep'*/[0m
+  ↳ app/models/job.rb:53:in `can_download?'
+  [1m[36mCACHE Download Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "downloads" WHERE "downloads"."user_id" IS NULL AND "downloads"."session_id" = 'anonymous_session_123' AND "downloads"."ip_address" = '192.168.1.100'[0m
+  ↳ test_anonymous_downloads.rb:50:in `<main>'
+Started GET "/" for ::1 at 2025-09-29 14:23:01 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (5.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Imagesweep'*/[0m
+Processing by HomeController#index as HTML
+  [1m[36mDownload Count (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "downloads" WHERE "downloads"."user_id" IS NULL AND "downloads"."session_id" = '3aff84d99d6f7c8401dba082f377ad5b' AND "downloads"."ip_address" = '::1' /*action='index',application='Imagesweep',controller='home'*/[0m
+  ↳ app/controllers/home_controller.rb:14:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 5.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 26.6ms | GC: 0.0ms)
+Completed 200 OK in 425ms (Views: 41.1ms | ActiveRecord: 7.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwind-aa2ded5b.css" for ::1 at 2025-09-29 14:23:06 +0100
+Started GET "/assets/application-e1542203.css" for ::1 at 2025-09-29 14:23:06 +0100
+Started GET "/demo" for ::1 at 2025-09-29 14:24:22 +0100
+Processing by HomeController#demo as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/demo.html.erb within layouts/application
+  Rendered home/demo.html.erb within layouts/application (Duration: 32.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 122.3ms | GC: 0.0ms)
+Completed 200 OK in 261ms (Views: 138.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-09-29 14:26:43 +0100
+Processing by HomeController#index as HTML
+  [1m[36mDownload Count (12.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "downloads" WHERE "downloads"."user_id" IS NULL AND "downloads"."session_id" = '3aff84d99d6f7c8401dba082f377ad5b' AND "downloads"."ip_address" = '::1' /*action='index',application='Imagesweep',controller='home'*/[0m
+  ↳ app/controllers/home_controller.rb:14:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 6.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | GC: 0.0ms)
+Completed 200 OK in 220ms (Views: 17.1ms | ActiveRecord: 12.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-09-29 14:59:10 +0100
+Processing by HomeController#index as HTML
+  [1m[36mDownload Count (18.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "downloads" WHERE "downloads"."user_id" IS NULL AND "downloads"."session_id" = '3aff84d99d6f7c8401dba082f377ad5b' AND "downloads"."ip_address" = '::1' /*action='index',application='Imagesweep',controller='home'*/[0m
+  ↳ app/controllers/home_controller.rb:14:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 13.0ms | GC: 0.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | GC: 0.7ms)
+Completed 200 OK in 101ms (Views: 18.6ms | ActiveRecord: 18.6ms (1 query, 0 cached) | GC: 1.8ms)
+
+
+Started GET "/pricing" for ::1 at 2025-09-29 14:59:14 +0100
+Processing by HomeController#pricing as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/pricing.html.erb within layouts/application
+  Rendered home/pricing.html.erb within layouts/application (Duration: 30.8ms | GC: 2.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 33.1ms | GC: 2.3ms)
+Completed 200 OK in 114ms (Views: 42.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 2.3ms)
+
+
+Started GET "/" for ::1 at 2025-09-29 14:59:28 +0100
+Processing by HomeController#index as HTML
+  [1m[36mDownload Count (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "downloads" WHERE "downloads"."user_id" IS NULL AND "downloads"."session_id" = '3aff84d99d6f7c8401dba082f377ad5b' AND "downloads"."ip_address" = '::1' /*action='index',application='Imagesweep',controller='home'*/[0m
+  ↳ app/controllers/home_controller.rb:14:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | GC: 0.0ms)
+Completed 200 OK in 57ms (Views: 3.1ms | ActiveRecord: 1.8ms (1 query, 0 cached) | GC: 1.5ms)
+
+
+Started GET "/" for ::1 at 2025-10-01 00:07:17 +0100
+Processing by HomeController#index as */*
+  [1m[36mDownload Count (22.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "downloads" WHERE "downloads"."user_id" IS NULL AND "downloads"."session_id" IS NULL AND "downloads"."ip_address" = '::1' /*action='index',application='Imagesweep',controller='home'*/[0m
+  ↳ app/controllers/home_controller.rb:14:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 5.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | GC: 0.1ms)
+Completed 200 OK in 193ms (Views: 23.5ms | ActiveRecord: 21.6ms (1 query, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/" for ::1 at 2025-10-01 00:07:23 +0100
+Processing by HomeController#index as */*
+  [1m[36mDownload Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "downloads" WHERE "downloads"."user_id" IS NULL AND "downloads"."session_id" IS NULL AND "downloads"."ip_address" = '::1' /*action='index',application='Imagesweep',controller='home'*/[0m
+  ↳ app/controllers/home_controller.rb:14:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | GC: 0.0ms)
+Completed 200 OK in 36ms (Views: 3.7ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/" for ::1 at 2025-10-01 00:07:34 +0100
+Processing by HomeController#index as */*
+  [1m[36mDownload Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "downloads" WHERE "downloads"."user_id" IS NULL AND "downloads"."session_id" IS NULL AND "downloads"."ip_address" = '::1' /*action='index',application='Imagesweep',controller='home'*/[0m
+  ↳ app/controllers/home_controller.rb:14:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | GC: 0.4ms)
+Completed 200 OK in 42ms (Views: 9.7ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/" for ::1 at 2025-10-04 17:00:14 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Imagesweep'*/[0m
+Processing by HomeController#index as HTML
+  [1m[36mDownload Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "downloads" WHERE "downloads"."user_id" IS NULL AND "downloads"."session_id" = '3aff84d99d6f7c8401dba082f377ad5b' AND "downloads"."ip_address" = '::1' /*action='index',application='Imagesweep',controller='home'*/[0m
+  ↳ app/controllers/home_controller.rb:14:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | GC: 0.0ms)
+Completed 200 OK in 126ms (Views: 16.5ms | ActiveRecord: 2.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/tailwind-aa2ded5b.css" for ::1 at 2025-10-04 17:00:15 +0100
+Started GET "/assets/application-e1542203.css" for ::1 at 2025-10-04 17:00:15 +0100
+Started POST "/jobs" for ::1 at 2025-10-04 18:36:13 +0100
+Processing by JobsController#create as */*
+  Parameters: {"job"=>{"url"=>"http://www.citygolf.pt/infocitykids", "render_js"=>true, "scrape_mode"=>"current_page"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:10:in `create'
+  [1m[36mJob Create (5.0ms)[0m  [1m[32mINSERT INTO "jobs" ("uuid", "url", "render_js", "status", "progress", "message", "pages_crawled", "images_found", "is_paid", "artifact_dir", "created_at", "updated_at", "scrape_mode", "user_id") VALUES ('86ecb616-61fc-4d19-b37c-fa9cddd4fc7a', 'http://www.citygolf.pt/infocitykids', 1, 0, 0, NULL, 0, 0, 1, '/Users/zelu/Desktop/code/imagesweep/storage/imagesweep/86ecb616-61fc-4d19-b37c-fa9cddd4fc7a', '2025-10-04 17:36:14.491338', '2025-10-04 17:36:14.491338', 0, NULL) RETURNING "id" /*action='create',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:10:in `create'
+Completed 201 Created in 361ms (Views: 0.2ms | ActiveRecord: 14.5ms (1 query, 0 cached) | GC: 3.2ms)
+
+
+Started GET "/jobs/86ecb616-61fc-4d19-b37c-fa9cddd4fc7a" for ::1 at 2025-10-04 18:36:16 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"86ecb616-61fc-4d19-b37c-fa9cddd4fc7a"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '86ecb616-61fc-4d19-b37c-fa9cddd4fc7a' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:81:in `find_job'
+Completed 200 OK in 34ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/jobs/86ecb616-61fc-4d19-b37c-fa9cddd4fc7a" for ::1 at 2025-10-04 18:36:17 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"86ecb616-61fc-4d19-b37c-fa9cddd4fc7a"}
+  [1m[36mJob Load (0.1ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '86ecb616-61fc-4d19-b37c-fa9cddd4fc7a' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:81:in `find_job'
+Completed 200 OK in 30ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/jobs/86ecb616-61fc-4d19-b37c-fa9cddd4fc7a" for ::1 at 2025-10-04 18:36:19 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"86ecb616-61fc-4d19-b37c-fa9cddd4fc7a"}
+  [1m[36mJob Load (0.1ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '86ecb616-61fc-4d19-b37c-fa9cddd4fc7a' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:81:in `find_job'
+Completed 200 OK in 32ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/jobs/86ecb616-61fc-4d19-b37c-fa9cddd4fc7a" for ::1 at 2025-10-04 18:36:20 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"86ecb616-61fc-4d19-b37c-fa9cddd4fc7a"}
+  [1m[36mJob Load (0.1ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '86ecb616-61fc-4d19-b37c-fa9cddd4fc7a' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:81:in `find_job'
+Completed 200 OK in 34ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/jobs/86ecb616-61fc-4d19-b37c-fa9cddd4fc7a" for ::1 at 2025-10-04 18:36:22 +0100
+Processing by JobsController#show as */*
+  Parameters: {"id"=>"86ecb616-61fc-4d19-b37c-fa9cddd4fc7a"}
+  [1m[36mJob Load (0.2ms)[0m  [1m[34mSELECT "jobs".* FROM "jobs" WHERE "jobs"."uuid" = '86ecb616-61fc-4d19-b37c-fa9cddd4fc7a' LIMIT 1 /*action='show',application='Imagesweep',controller='jobs'*/[0m
+  ↳ app/controllers/jobs_controller.rb:81:in `find_job'
+Completed 200 OK in 35ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/" for ::1 at 2025-10-04 18:36:23 +0100
+Processing by HomeController#index as HTML
+  [1m[36mDownload Count (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "downloads" WHERE "downloads"."user_id" IS NULL AND "downloads"."session_id" = '3aff84d99d6f7c8401dba082f377ad5b' AND "downloads"."ip_address" = '::1' /*action='index',application='Imagesweep',controller='home'*/[0m
+  ↳ app/controllers/home_controller.rb:14:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 14.9ms | GC: 1.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 18.3ms | GC: 1.4ms)
+Completed 200 OK in 78ms (Views: 24.6ms | ActiveRecord: 1.6ms (1 query, 0 cached) | GC: 1.8ms)
+
+
