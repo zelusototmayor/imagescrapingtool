@@ -20,7 +20,7 @@ gem "tailwindcss-rails"
 gem "jbuilder"
 
 # ImageSweep dependencies
-gem "sidekiq", "~> 7.0"
+gem "sidekiq", "~> 8.0"
 gem "redis", "~> 5.0"
 gem "playwright-ruby-client", "~> 1.47"
 gem "robotex", "~> 1.0"
